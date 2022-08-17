@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="mob-container"></div>
+  <div data-menu-btn class="">
+    <button
+      type="button"
+      class="btn-menu__open"
+      data-menu-open
+      aria-label="Mobile menu open"
+    >
+      <svg class="btn-menu__icon" width="30" height="16">
+        <use href="./images/icon.svg#icon-menu"></use>
+      </svg>
+    </button>
+  </div>
+  <div class="mob-menu is-" data-menu>
+    <button
+      type="button"
+      class="btn-menu__close"
+      data-menu-close
+      aria-label="Mobile menu closed"
+    >
+      <svg class="btn-menu__icon" width="18px" height="18px">
+        <use href="./images/icon.svg#icon-close"></use>
+      </svg>
+    </button>
+    <form class="search-form" id="search-form">
+      <label class="form__field">
+        <span class="form__input-wrap">
+          <input
+            class="mob-input"
+            type="text"
+            name="searchQuery"
+            autocomplete="off"
+            placeholder="Search "
+          />
+          <svg class="form__icon-input" width="18px" height="18px">
+            <use href="./images/icon.svg#icon-search"></use>
+          </svg>
+        </span>
+      </label>
+    </form>
+
+    <nav class="mob__site-nav">
+      <ul class="nav">
+        <li class="mob-nav__item">
+          <a class="mob-nav__link" href="#home">Home</a>
+        </li>
+        <li class="nav__item">
+          <a class="mob-nav__link" href="#Favorite cocktails"
+            >Favorite cocktails</a
+          >
+        </li>
+        <li class="mob-nav__item">
+          <a class="mob-nav__link" href="#Favorite ingredients"
+            >Favorite ingredients</a
+          >
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
