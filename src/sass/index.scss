@@ -1,5 +1,6 @@
 @import './utils/mixin';
 @import './utils/reset';
+@import "./utils/variables";
 
 @import './base/card-set';
 @import './base/common';
@@ -8,3 +9,5 @@
 @import './layout/footer';
 @import './layout/header';
 @import './layout/hero';
+@import './layout/team-modal';
+
