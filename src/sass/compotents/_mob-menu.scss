@@ -1,0 +1,121 @@
+.mob-container {
+  position: absolute;
+}
+
+.mob-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  opacity: 0;
+  transform: translatex(100%);
+  transition: transform var(--transition), opacity var(--transition);
+  padding-right: 20px;
+  padding-left: 20px;
+  // background: transparent;
+  background-color: #fff;
+}
+
+.mob-menu.is-open {
+  position: fixed;
+  transform: translatex(0%);
+  opacity: 1;
+  transition: transform var(--transition), opacity var(--transition);
+  z-index: 99;
+}
+
+.mob-nav__link {
+  font-family: 'Poppins';
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 1.16;
+  color: #000000;
+  align-items: center;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  transition: color var(--transition);
+
+  &:focus,
+  &:hover {
+    color: var(--button-text-color);
+  }
+}
+
+.btn-menu__open {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  // padding: 32px;
+  // top: 20px;
+  right: 10px;
+  border: none;
+  background: transparent;
+  color: var(--background-dark);
+  text-align: center;
+  background-color: transparent;
+  border: none;
+  flex-shrink: 1;
+  transition: color var(--transition);
+
+  @include mq(tab) {
+    display: none;
+  }
+
+  &:focus,
+  &:hover {
+    color: var(--button-text-color);
+  }
+}
+
+.btn-menu__close {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  // padding: 32px;
+  // top: 22px;
+  right: 10px;
+  border: none;
+  background: transparent;
+  color: var(--background-dark);
+  text-align: center;
+
+  &:focus,
+  &:hover {
+    color: var(--button-text-color);
+  }
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.btn-menu__icon {
+  fill: currentColor;
+}
+
+.mob-input {
+  padding: 15px 16px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  width: 100%;
+  height: 50px;
+
+  opacity: 0.4;
+
+  border: 1px solid var(--alfavito-color);
+  border: 1px solid var(--button-text-color);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+  border-radius: 4px;
+  background-color: inherit;
+  color: var(--alfavito-color);
+
+  @include mq(tab) {
+    display: none;
+  }
+}
+.display-none {
+  display: none;
+}
