@@ -12,7 +12,17 @@
       </svg>
     </button>
   </div>
-  <div class="mob-menu is-" data-menu>
+
+  <div class="mob-menu" data-menu>
+    <div class="mob-menu__header">
+      <p class="mob-logo">COCKTAILS</p>
+      <p class="mob-dark">
+        Light<svg class="btn-menu__iconz" width="18px" height="18px">
+          <use href="./images/icon.svg#icon-btn-dark"></use>
+        </svg>
+        Dark
+      </p>
+    </div>
     <button
       type="button"
       class="btn-menu__close"
@@ -23,29 +33,28 @@
         <use href="./images/icon.svg#icon-close"></use>
       </svg>
     </button>
-    <form class="search-form" id="search-form">
-      <label class="form__field">
-        <span class="form__input-wrap">
-          <input
-            class="mob-input"
-            type="text"
-            name="searchQuery"
-            autocomplete="off"
-            placeholder="Search "
-          />
-          <svg class="form__icon-input" width="18px" height="18px">
+    <label class="mob__field">
+      <span class="form__input-span">
+        <input
+          class="mob-input"
+          type="text"
+          name="searchQuery"
+          autocomplete="off"
+          placeholder="Search "
+        />
+        <div class="mob__icon-input">
+          <svg width="18px" height="18px">
             <use href="./images/icon.svg#icon-search"></use>
           </svg>
-        </span>
-      </label>
-    </form>
-
+        </div>
+      </span>
+    </label>
     <nav class="mob__site-nav">
       <ul class="nav">
         <li class="mob-nav__item">
           <a class="mob-nav__link" href="#home">Home</a>
         </li>
-        <li class="nav__item">
+        <li class="mob-nav__item">
           <a class="mob-nav__link" href="#Favorite cocktails"
             >Favorite cocktails</a
           >
