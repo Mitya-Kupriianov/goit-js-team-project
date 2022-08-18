@@ -1,10 +1,12 @@
 import templateFunction from '../tmp/letters.hbs';
+import templateFunction from '../tmp/selector.hbs';
 console.log(templateFunction);
 
 const refs = {
   heroList: document.querySelector('.hero__list'),
+  heroSelect: document.querySelector('.hero__select'),
 };
-const { heroList } = refs;
+const { heroList, heroSelect } = refs;
 console.log(heroList);
 
 const letters = {
@@ -49,10 +51,11 @@ const letters = {
 };
 
 console.log(letters);
-function createMarkup(letters) {
-  const markup = templateFunction(letters);
-  return heroList.insertAdjacentHTML('beforeend', markup);
+function createMarkup(data, element) {
+  const markup = templateFunction(data);
+  return element.insertAdjacentHTML('beforeend', markup);
 }
 
-createMarkup(letters);
+createMarkup(letters, heroList);
+createMarkup(letters, heroSelect);
 console.log(templateFunction(letters));
