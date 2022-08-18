@@ -1,0 +1,21 @@
+<svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+  <symbol id="icon-open" viewBox="0 0 46 32">
+    <path  style="stroke: var(--color1, #000000)" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="2.2857" d="M0 2.286h45.714"></path>
+    <path  style="stroke: var(--color1, #000000)" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="2.2857" d="M0 16h45.714"></path>
+    <path  style="stroke: var(--color1, #000000)" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="2.2857" d="M0 29.714h45.714"></path>
+  </symbol>
+  <symbol id="icon-close" viewBox="0 0 32 32"><path d="m26.667 7.303-1.97-1.97-7.808 7.808-7.808-7.808-1.97 1.97 7.808 7.808-7.808 7.808 1.97 1.97 7.808-7.808 7.808 7.808 1.97-1.97-7.808-7.808 7.808-7.808z"/></symbol>
+  </defs>
+  <symbol id="icon-search" viewBox="0 0 32 32">
+<path fill="#fd5103" style="fill: var(--color1, #fd5103); stroke: var(--color1, #fd5103)" stroke="#fd5103" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="1.6842" d="M21.79 22.982l7.335 7.335 1.191-1.191-7.336-7.336 0.459-0.587c1.727-2.207 2.665-4.928 2.666-7.73l-4.316 9.508zM21.79 22.982l-0.587 0.459M21.79 22.982l-0.587 0.459M21.203 23.441c-2.207 1.726-4.927 2.664-7.729 2.664l7.729-2.664zM13.474 26.105c-6.964-0-12.631-5.668-12.631-12.632s5.668-12.632 12.632-12.632c6.964 0 12.631 5.668 12.632 12.631l-12.632 12.632zM24.421 13.474c0-6.038-4.909-10.947-10.947-10.947s-10.947 4.909-10.947 10.947c0 6.038 4.909 10.947 10.947 10.947s10.947-4.909 10.947-10.947z"></path>
+</symbol>
+<symbol id="icon-menu" viewBox="0 0 60 32">
+<path d="M2 0h56c1.105 0 2 0.895 2 2s-0.895 2-2 2h-56c-1.105 0-2-0.895-2-2s0.895-2 2-2z"></path>
+<path d="M2 14h56c1.105 0 2 0.895 2 2s-0.895 2-2 2h-56c-1.105 0-2-0.895-2-2s0.895-2 2-2z"></path>
+<path d="M2 28h56c1.105 0 2 0.895 2 2s-0.895 2-2 2h-56c-1.105 0-2-0.895-2-2s0.895-2 2-2z"></path>
+</symbol>
+<symbol id="icon-btn-dark" viewBox="0 0 80 32">
+<path fill="#fff" style="fill: var(--color1, #fff); stroke: var(--color2, #fd5103)" stroke="#fd5103" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="2" d="M16 1h48c8.284 0 15 6.716 15 15s-6.716 15-15 15h-48c-8.284 0-15-6.716-15-15s6.716-15 15-15z"></path>
+</symbol>
+</svg>

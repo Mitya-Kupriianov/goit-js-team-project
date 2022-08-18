@@ -6,6 +6,10 @@
 @import './base/common';
 @import './base/container';
 
-@import './layout/footer';
 @import './layout/header';
 @import './layout/hero';
+@import './layout/footer';
+
+@import './compotents/mob-menu';
+@import './compotents/modal-1';
+@import './compotents/modal-2';
