@@ -21,6 +21,25 @@ button {
   cursor: pointer;
 }
 
+:root {
+  --background-dark: #000;
+  --background-main: #f5f5f5;
+  --title-main: #fd5103;
+  --footer-color: #fd5103;
+  --title-secondary-light-theme: #202025;
+  --title-secondary-dark-theme: #fcfcfc;
+  --alfavito-color: #5f6775;
+  --button-color-orange: #fe7031;
+  --button-color-white: #fff;
+  --button-text-white: #fff;
+  --button-text-color: #fd5103;
+  --transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --card-item: 3;
+  --card-gap: 32px;
+  --title-poppins: "Poppins";
+  --text-roboto: "DM Sans", sans-serif;
+}
+
 .card-set {
   display: flex;
   flex-wrap: wrap;
@@ -101,105 +120,120 @@ a {
   }
 }
 
-.bmob-menu {
+.cocktails__title {
+  text-align: center;
+  color: aqua;
+}
+
+.mob-container {
+  position: absolute;
+}
+
+.mob-menu {
   position: fixed;
   top: 0;
   right: 0;
-  width: 250px;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   overflow: auto;
   opacity: 0;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 1.29;
-  color: var(--white-color);
-  letter-spacing: 0;
-  filter: drop-shadow(-8px 0px 20px rgba(0, 0, 0, 0.25));
-  background-image: linear-gradient(to bottom, var(--mob-menu-bg), var(--mob-menu-bg));
   transform: translatex(100%);
   transition: transform var(--transition), opacity var(--transition);
+  padding-right: 20px;
+  padding-left: 20px;
+  background-color: #fff;
 }
 
-.mobile-menu.is-open {
+.mob-menu.is-open {
   position: fixed;
-  transform: translatex(0);
+  transform: translatex(0%);
   opacity: 1;
   transition: transform var(--transition), opacity var(--transition);
   z-index: 99;
 }
 
-.mob-site-nav {
-  width: 100%;
-  height: 42px;
-}
-
 .mob-nav__link {
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 1.3;
-  display: flex;
+  font-family: "Poppins";
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 1.16;
+  color: #000000;
   align-items: center;
   padding-top: 12px;
   padding-bottom: 12px;
-  padding-left: 20px;
   transition: color var(--transition);
 }
 .mob-nav__link:focus, .mob-nav__link:hover {
-  color: var(--accent-color);
+  color: var(--button-text-color);
 }
 
-.mob-nav__item {
-  border-bottom: 1px solid var(--border-modal-color);
-  border-top: 1px solid var(--border-modal-color);
-}
-
-.btn__mob {
-  margin: 58px 34px 20px;
-  min-width: 186px;
-}
-@media (max-width: 480px) {
-  .btn__mob {
-    margin: 60px 20px 20px;
-    min-width: 209px;
-  }
-}
-
-.btn-menu__close {
-  width: 20px;
-  height: 20px;
-}
-
-.display-none {
-  display: none;
-}
-
-.mob-btn__open {
+.btn-menu__open {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  right: 10px;
+  border: none;
+  background: transparent;
+  color: var(--background-dark);
+  text-align: center;
   background-color: transparent;
   border: none;
   flex-shrink: 1;
+  transition: color var(--transition);
 }
-@media (min-width: 768px) and (max-width: 1279.98px) {
-  .mob-btn__open {
-    margin-right: 32px;
-  }
-}
-@media (min-width: 1280px) {
-  .mob-btn__open {
+@media (min-width: 768px) {
+  .btn-menu__open {
     display: none;
   }
+}
+.btn-menu__open:focus, .btn-menu__open:hover {
+  color: var(--button-text-color);
 }
 
 .btn-menu__close {
   position: absolute;
-  width: 14px;
-  height: 14px;
-  top: 20px;
-  right: 32px;
+  width: 32px;
+  height: 32px;
+  right: 10px;
   border: none;
   background: transparent;
-  color: var(--white-color);
+  color: var(--background-dark);
+  text-align: center;
+}
+.btn-menu__close:focus, .btn-menu__close:hover {
+  color: var(--button-text-color);
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 }
 
 .btn-menu__icon {
   fill: currentColor;
+}
+
+.mob-input {
+  padding: 15px 16px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  width: 100%;
+  height: 50px;
+  opacity: 0.4;
+  border: 1px solid var(--alfavito-color);
+  border: 1px solid var(--button-text-color);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+  border-radius: 4px;
+  background-color: inherit;
+  color: var(--alfavito-color);
+}
+@media (min-width: 768px) {
+  .mob-input {
+    display: none;
+  }
+}
+
+.display-none {
+  display: none;
 }/*# sourceMappingURL=index.css.map */
