@@ -33,6 +33,7 @@
 
 .hero__item {
   transition: transform 400ms linear;
+  color: (--alfavito-color);
   &:hover {
     transform: scale(1.7);
     color: var(--button-color-orange);
@@ -86,35 +87,35 @@
 }
 
 .hero__title {
+  @include fonts($fs: 20px, $fw: 600, $lh: 1.91, $ls: null);
+
   @include mq(mob-only) {
-    @include fonts($fs: 20px, $fw: 600, $lh: 1.91, $ls: null);
     padding-bottom: 28px;
     min-width: 280px;
     max-width: 300px;
   }
   @include mq(fab-only) {
-    // @include fonts($fs: 20px, $fw: 600, $lh: 1.91, $ls: null);
     display: flex;
     align-content: center;
     justify-content: center;
     max-width: 336px;
-    // padding-bottom: 28px;
-    // min-width: 280px;
   }
-  @include mq(tab-only) {
-    // @include fonts($fs: 20px, $fw: 600, $lh: 1.91, $ls: null);
+
+  @include mq(tab) {
+    @include fonts($fs: 26px, $fw: 600, $lh: 1.62, $ls: null);
     display: inline-block;
+  }
+
+  @include mq(tab-only) {
     max-width: 336px;
-    // padding-bottom: 28px;
+    padding-bottom: 40px;
     // min-width: 280px;
   }
   @include mq(desc) {
     @include fonts($fs: 52px, $fw: 600, $lh: 1.54, $ls: null);
 
-    display: inline-block;
-    max-width: 336px;
-    // padding-bottom: 28px;
-    // min-width: 280px;
+    max-width: 688px;
+    padding-bottom: 40px;
   }
 }
 
@@ -135,6 +136,9 @@
   @include mq(tab) {
     display: flex;
     justify-content: flex-start;
+  }
+  @include mq(desc) {
+    @include fonts($fs: 18px, $fw: 500, $lh: 1.56, $ls: null);
   }
 }
 
