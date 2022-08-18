@@ -27,11 +27,11 @@
     @media (min-width:$tablet) and (max-width:#{$desktop - 0.02}) {
       @content;
     }
-  } @else if $val==desk {
+  } @else if $val==desc {
     @media (min-width: $desktop) {
       @content;
     }
-  } @else if $val==noDesk {
+  } @else if $val==noDesc {
     @media (max-width:#{$desktop - 0.02}) {
       @content;
     }

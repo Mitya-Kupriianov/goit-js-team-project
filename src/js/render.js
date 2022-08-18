@@ -1,4 +1,4 @@
-import templateFunction from './hero_hbs/letters.hbs';
+import templateFunction from '../tmp/letters.hbs';
 console.log(templateFunction);
 
 const refs = {
