@@ -1,4 +1,4 @@
-.backdrop-2 {
+.backdrop-modal-two {
     position: fixed;
     top: 0;
     left: 0;
@@ -8,7 +8,7 @@
     transition: opacity 250ms var(--function-transition);
   }
   
- .is-hidden-2 {
+ .is-hidden-modal-two {
     opacity: 0;
     pointer-events: none;
   } 
@@ -107,7 +107,7 @@ color: var(--title-secondary-light-theme);
     color: var(--button-text-white);
 }
 
-.modal-2-menu__close {
+.modal-two-menu__close {
     position: absolute;
     display: flex;
     align-items: center;
@@ -125,7 +125,7 @@ color: var(--title-secondary-light-theme);
     }
   }
 
- .hidden-2 {
+ .hidden-components-modal {
     display: none;
 }
  .modal-button-remove {

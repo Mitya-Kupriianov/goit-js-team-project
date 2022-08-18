@@ -4,7 +4,7 @@ h3 {
   margin-top: 0;
   margin-bottom: 0;
 }
-.backdrop {
+.backdrop-modal {
   position: fixed;
   top: 0;
   left: 0;
@@ -14,7 +14,7 @@ h3 {
   transition: var(--transition);
 }
 
-.is-hidden {
+.is-hidden-modal-coctails {
     opacity: 0;
     pointer-events: none;
   } 
@@ -22,7 +22,7 @@ h3 {
 .modal-coctail-components {
   list-style-type: none;
 }
-.modal1 {
+.modal-coctails {
   position: absolute;
   width: 822px;
   height: 598px;
@@ -134,9 +134,6 @@ h3 {
   letter-spacing: 0.02em;
   color: var(--button-text-white);
 }
-// .hidden_add {
-//   display: none;
-// }
 
 .modal-menu__close {
   margin:0;

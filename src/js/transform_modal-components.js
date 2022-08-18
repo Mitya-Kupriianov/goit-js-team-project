@@ -7,6 +7,6 @@
     refs.addBtn.addEventListener('click', transformBtm);
   
     function transformBtm() {
-      refs.removBtn.classList.remove('hidden-2');
+      refs.removBtn.classList.remove('hidden-components-modal');
     }
   })();

@@ -7,6 +7,6 @@
     refs.closeBtn.addEventListener('click', closeModal);
   
     function closeModal() {
-      refs.backdrop.classList.add('is-hidden');
+      refs.backdrop.classList.add('is-hidden-modal-coctails');
     }
   })();
