@@ -107,9 +107,9 @@
   }
 
   @include mq(tab-only) {
+    // min-width: 280px;
     max-width: 336px;
     padding-bottom: 40px;
-    // min-width: 280px;
   }
   @include mq(desc) {
     @include fonts($fs: 52px, $fw: 600, $lh: 1.54, $ls: null);
