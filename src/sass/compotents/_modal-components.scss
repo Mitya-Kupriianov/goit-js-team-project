@@ -13,74 +13,73 @@
     pointer-events: none;
   } 
 
-.modal-two-container{
-    width: 715px;
-    height: 537px;
-    margin:0;
+.modal-two-container {
+  width: 715px;
+  height: 537px;
+  margin: 0;
 }
 .modal-two-header {
-position: absolute;
-width: 181px;
-height: 37px;
-left: 28px;
-top: 40px;
-font-family: var(--text-roboto);
-font-style: normal;
-font-weight: 900;
-font-size: 32px;
-line-height: 38px;
-color: var(--title-secondary-light-theme);
+  position: absolute;
+  width: 181px;
+  height: 37px;
+  left: 28px;
+  top: 40px;
+  font-family: var(--text-roboto);
+  font-style: normal;
+  font-weight: 900;
+  font-size: 32px;
+  line-height: 38px;
+  color: var(--title-secondary-light-theme);
 }
 .modal-two-name {
-    position: absolute;
-    width: 66px;
-    height: 24px;
-    left: 28px;
-    top: 105px;   
-    font-family: var(--title-poppins);
-    font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 24px;
-    text-transform: uppercase;
-    color: var(--title-secondary-light-theme);   
+  position: absolute;
+  width: 66px;
+  height: 24px;
+  left: 28px;
+  top: 105px;
+  font-family: var(--title-poppins);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  text-transform: uppercase;
+  color: var(--title-secondary-light-theme);
 }
 
-.modal-two-text{
-position: absolute;
-width: 654px;
-height: 112px;
-left: 28px;
-top: 197px;
-font-family: var(--title-poppins);
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-line-height: 28px;
-color: var(--background-dark);
+.modal-two-text {
+  position: absolute;
+  width: 654px;
+  height: 112px;
+  left: 28px;
+  top: 197px;
+  font-family: var(--title-poppins);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28px;
+  color: var(--background-dark);
 }
 .modal-two-span {
-font-family: var(--title-poppins);
-font-style: normal;
-font-weight: 600;
-font-size: 16px;
-line-height: 28px;
-color: var(--background-dark);
-
+  font-family: var(--title-poppins);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 28px;
+  color: var(--background-dark);
 }
 .modal-two-ingridients {
-list-style-type: none;
-position: absolute;
-width: 266px;
-height: 104px;
-left: 28px;
-top: 337px;
-font-family: var(--title-poppins);
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-line-height: 26px;
-color: var(--title-secondary-light-theme);
+  list-style-type: none;
+  position: absolute;
+  width: 266px;
+  height: 104px;
+  left: 28px;
+  top: 337px;
+  font-family: var(--title-poppins);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--title-secondary-light-theme);
 }
 .modal-button-add {
     display: flex;

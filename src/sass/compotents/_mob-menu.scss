@@ -34,10 +34,12 @@
 
 .mob-logo {
   display: none;
+
   @include mq(tab-only) {
     display: block;
   }
 }
+
 .mob-dark {
   @include mq(tab-only) {
     margin-left: 100px;
@@ -64,6 +66,7 @@
   @include mq(fab) {
     font-size: 28px;
   }
+
   @include mq(tab) {
     font-size: 30px;
   }
@@ -79,6 +82,7 @@
     margin-left: 300px;
   }
 }
+
 .btn-menu__icon {
   fill: currentColor;
 }
@@ -130,13 +134,14 @@
   &::placeholder {
     color: rgba(95, 103, 117, 0.4);
   }
+
   @include mq(tab) {
     display: none;
   }
 }
 
 .btn-menu__open {
-  position: absolute;
+  // position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -151,7 +156,7 @@
   flex-shrink: 1;
   transition: color var(--transition);
 
-  @include mq(desk) {
+  @include mq(desc) {
     display: none;
   }
 
