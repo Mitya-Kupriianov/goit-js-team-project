@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../sass/compotents/_modal-1.scss">
+</head>
+<body>
+ <div class="backdrop is-hidden" data-modal>
+<div class="modal1">
+<h2 class="modal-coctail-name">Negroni</h2>
+<h3 class="modal-ingredients">ingredients</h3>
+<p class="modal-per">Per cocktail</p>
+<ul class="modal-coctail-components">
+    <li>ice</li>
+    <li>1 ounce gin</li>
+    <li>1 ounce Campari</li>
+    <li>1 ounce sweet vermouth</li>
+    <li>Garnish: orange peel</li>
+</ul>
+<img src="./img/ACID.png" alt="cocktail" class="modal-img">
+<h3 class="modal-Instractions">Instractions:</h3>
+<p class="modal-text">Add the gin, Campari and sweet vermouth to a mixing glass filled with ice, 
+    and stir until well-chilled. Strain into a rocks glass filled with large ice 
+    cubes. Garnish with an orange peel.</p>
+<button class="modal-button-add">Add to favorite</button>
+<button class="modal-button-remove">Remove from favorite</button>
+<button
+      type="button"
+      class="btn-menu__close"
+      data-menu-close
+      aria-label="Mobile menu closed"
+    >
+      <svg class="btn-menu__icon" width="32px" height="32px">
+        <use href="./images/icon.svg#icon-close"></use>
+      </svg>
+    </button>
+</div>
+</div>
+</body>
+</html>
