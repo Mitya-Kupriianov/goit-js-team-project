@@ -1,4 +1,4 @@
-.backdrop {
+.backdrop-2 {
     position: fixed;
     top: 0;
     left: 0;
@@ -8,10 +8,10 @@
     transition: opacity 250ms var(--function-transition);
   }
   
-  /* .is-hidden {
+ .is-hidden-2 {
     opacity: 0;
     pointer-events: none;
-  } */
+  } 
 
 .modal-two-container{
     width: 715px;
@@ -86,11 +86,13 @@ color: var(--title-secondary-light-theme);
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    padding: 12px 24px;
+    padding: 12px 22px;
     gap: 10px;
     position: absolute;
     width: 185px;
     height: 48px;
+    left: 0px;
+    top: 0px;  
     background: var(--title-main);
     border-radius: 4px;
     right: 28px;
@@ -104,11 +106,8 @@ color: var(--title-secondary-light-theme);
     letter-spacing: 0.02em;
     color: var(--button-text-white);
 }
-.modal-button-add-hidden { 
-    display:none
-}
 
-.btn-menu__close {
+.modal-2-menu__close {
     position: absolute;
     display: flex;
     align-items: center;
@@ -126,20 +125,19 @@ color: var(--title-secondary-light-theme);
     }
   }
 
- .modal-button-remove {
+ .hidden-2 {
     display: none;
 }
- .modal-button-remove-visible {
-    display: flex;
+ .modal-button-remove {
     padding: 12, 24, 12, 24px;   
     flex-direction: row;
-    padding: 12px 24px;
+    padding: 12px 22px;
     gap: 10px;
     position: absolute;
     width: 248px;
     height: 48px;
-    left: 546px;
-    top: 522px;
+    left: 439px;
+    top: 461px;
     background: var(--title-main);
     border-radius: 4px;
     font-family: var(--text-roboto);
