@@ -1,15 +1,17 @@
-import templateFunction from '../tmp/letters.hbs';
-import templateFunction from '../tmp/selector.hbs';
-console.log(templateFunction);
+import templateList from '../tmp/letters.hbs';
+import templateSelect from '../tmp/selector.hbs';
+// console.log(templateFunction);
 
-const refs = {
+// Потом изменить на импорт когда создадим рефы------->
+
+export const refs = {
   heroList: document.querySelector('.hero__list'),
   heroSelect: document.querySelector('.hero__select'),
 };
 const { heroList, heroSelect } = refs;
-console.log(heroList);
+// console.log(heroList);
 
-const letters = {
+export const letters = {
   letter: [
     'A',
     'B',
@@ -50,12 +52,12 @@ const letters = {
   ],
 };
 
-console.log(letters);
-function createMarkup(data, element) {
-  const markup = templateFunction(data);
+// console.log(letters);
+export function createMarkup(data, element, callback) {
+  const markup = callback(data);
   return element.insertAdjacentHTML('beforeend', markup);
 }
 
-createMarkup(letters, heroList);
-createMarkup(letters, heroSelect);
-console.log(templateFunction(letters));
+createMarkup(letters, heroSelect, templateSelect);
+createMarkup(letters, heroList, templateList);
+// console.log(templateFunction(letters));
