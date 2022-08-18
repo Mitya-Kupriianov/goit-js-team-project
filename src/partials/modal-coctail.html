@@ -1,5 +1,5 @@
-<div class="backdrop is-hidden" data-modal>
-  <div class="modal1">
+<div class="backdrop-modal" data-modal>
+  <div class="modal-coctails">
     <h2 class="modal-coctail-name">Negroni</h2>
     <h3 class="modal-ingredients">ingredients</h3>
     <p class="modal-per">Per cocktail</p>
@@ -17,13 +17,13 @@
       and stir until well-chilled. Strain into a rocks glass filled with large
       ice cubes. Garnish with an orange peel.
     </p>
-    <button class="modal-button-add">Add to favorite</button>
-    <button class="modal-button-remove">Remove from favorite</button>
+    <button class="modal-button_add" data-modal-a>Add to favorite</button>
+    <button class="modal-button_remove hidden_remove" data-modal-b>Remove from favorite</button>
     <button
       type="button"
-      class="btn-menu__close"
-      data-menu-close
-      aria-label="Mobile menu closed"
+      class="modal-menu__close"
+      aria-label="Mobile menu closed" 
+      data-modal-close
     >
       <svg class="btn-menu__icon" width="32px" height="32px">
         <use href="./images/icon.svg#icon-close"></use>
@@ -31,3 +31,4 @@
     </button>
   </div>
 </div>
+

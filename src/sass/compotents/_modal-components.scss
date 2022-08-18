@@ -1,0 +1,149 @@
+.backdrop-modal-two {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    opacity: 1;
+    transition: var (--transition);
+  }
+  
+ .is-hidden-modal-two {
+    opacity: 0;
+    pointer-events: none;
+  } 
+
+.modal-two-container {
+  width: 715px;
+  height: 537px;
+  margin: 0;
+}
+.modal-two-header {
+  position: absolute;
+  width: 181px;
+  height: 37px;
+  left: 28px;
+  top: 40px;
+  font-family: var(--text-roboto);
+  font-style: normal;
+  font-weight: 900;
+  font-size: 32px;
+  line-height: 38px;
+  color: var(--title-secondary-light-theme);
+}
+.modal-two-name {
+  position: absolute;
+  width: 66px;
+  height: 24px;
+  left: 28px;
+  top: 105px;
+  font-family: var(--title-poppins);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  text-transform: uppercase;
+  color: var(--title-secondary-light-theme);
+}
+
+.modal-two-text {
+  position: absolute;
+  width: 654px;
+  height: 112px;
+  left: 28px;
+  top: 197px;
+  font-family: var(--title-poppins);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28px;
+  color: var(--background-dark);
+}
+.modal-two-span {
+  font-family: var(--title-poppins);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 28px;
+  color: var(--background-dark);
+}
+.modal-two-ingridients {
+  list-style-type: none;
+  position: absolute;
+  width: 266px;
+  height: 104px;
+  left: 28px;
+  top: 337px;
+  font-family: var(--title-poppins);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--title-secondary-light-theme);
+}
+.modal-button-add {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 12px 22px;
+    gap: 10px;
+    position: absolute;
+    width: 185px;
+    height: 48px;
+    left: 0px;
+    top: 0px;  
+    background: var(--title-main);
+    border-radius: 4px;
+    right: 28px;
+    left: 502px;
+    top: 461px;
+    font-family: var(--text-roboto);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0.02em;
+    color: var(--button-text-white);
+}
+
+.modal-two-menu__close {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 671px;
+    top: 12px;
+    border: none;
+    background: transparent;
+    color: var(--background-dark);
+    text-align: center;
+  
+    &:focus,
+    &:hover {
+      color: var(--button-text-color);
+    }
+  }
+
+ .hidden-components-modal {
+    display: none;
+}
+ .modal-button-remove {
+    padding: 12, 24, 12, 24px;   
+    flex-direction: row;
+    padding: 12px 22px;
+    gap: 10px;
+    position: absolute;
+    width: 248px;
+    height: 48px;
+    left: 439px;
+    top: 461px;
+    background: var(--title-main);
+    border-radius: 4px;
+    font-family: var(--text-roboto);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0.02em;
+    color: var(--button-text-white);
+} 
