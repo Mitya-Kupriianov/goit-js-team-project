@@ -1,15 +1,58 @@
-// import template from '../hero_hbs/letters.hbs';
-// const source = document.getElementById('entry-template').innerHTML;
+import templateFunction from './hero_hbs/letters.hbs';
+console.log(templateFunction);
 
+const refs = {
+  heroList: document.querySelector('.hero__list'),
+};
+const { heroList } = refs;
+console.log(heroList);
 
-//   let template = Handlebars.compile(
-//     document.querySelector('#letters').innerHTML
-//   );
-//   const filled = template(data, {
-//     noEscape: true,
-//   });
-//   document.querySelector('.hero__list').insertAdjacentHTML(filled);
+const letters = {
+  letter: [
+    'A',
+    'B',
+    'C',
+    'D',
+    'E',
+    'F',
+    'G',
+    'H',
+    'I',
+    'J',
+    'K',
+    'L',
+    'M',
+    'N',
+    'O',
+    'P',
+    'Q',
+    'R',
+    'S',
+    'T',
+    'U',
+    'V',
+    'W',
+    'X',
+    'Y',
+    'Z',
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    '7',
+    '8',
+    '9',
+    '0',
+  ],
+};
 
-// Handlebars.registerHelper('letters', function (string) {
-//   return string;
-// });
+console.log(letters);
+function createMarkup(letters) {
+  const markup = templateFunction(letters);
+  return heroList.insertAdjacentHTML('beforeend', markup);
+}
+
+createMarkup(letters);
+console.log(templateFunction(letters));
