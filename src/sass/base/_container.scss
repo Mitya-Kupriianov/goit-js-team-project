@@ -18,7 +18,7 @@
     padding-left: 32px;
   }
 
-  @include mq(desk) {
+  @include mq(desc) {
     padding-right: 16px;
     padding-left: 16px;
     width: 1280px;
