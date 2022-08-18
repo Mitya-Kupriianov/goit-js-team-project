@@ -10,3 +10,4 @@
       refs.backdrop.classList.add('is-hidden-modal-coctails');
     }
   })();
+  // function
