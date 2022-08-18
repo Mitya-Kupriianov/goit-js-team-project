@@ -156,7 +156,7 @@
   flex-shrink: 1;
   transition: color var(--transition);
 
-  @include mq(desk) {
+  @include mq(desc) {
     display: none;
   }
 
