@@ -62,36 +62,57 @@
     top: 100px;
     height: 367px;
     width: 265px;
+    background-position: left 0 bottom 0;
     background-image: url(../images/hero/tab/tab-hero-1x.webp);
     background-repeat: no-repeat;
     background-size: contain;
-
-    // background-position: right 0 top 0;
 
     @include mq(retina) {
       background-image: url(../images/hero/tab/tab-hero-2x.webp);
     }
   }
+  @include mq(desc) {
+    position: absolute;
+    height: 580px;
+    width: 500px;
+    background-image: url(../images/hero/desc/desc-hero-1x.webp);
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    @include mq(retina) {
+      background-image: url(../images/hero/desc/desc-hero-2x.webp);
+    }
+  }
 }
 
 .hero__title {
-  @include mq(mob) {
+  @include mq(mob-only) {
     @include fonts($fs: 20px, $fw: 600, $lh: 1.91, $ls: null);
     padding-bottom: 28px;
     min-width: 280px;
+    max-width: 300px;
   }
   @include mq(fab-only) {
     // @include fonts($fs: 20px, $fw: 600, $lh: 1.91, $ls: null);
     display: flex;
     align-content: center;
     justify-content: center;
+    max-width: 336px;
     // padding-bottom: 28px;
     // min-width: 280px;
   }
   @include mq(tab-only) {
     // @include fonts($fs: 20px, $fw: 600, $lh: 1.91, $ls: null);
     display: inline-block;
+    max-width: 336px;
+    // padding-bottom: 28px;
+    // min-width: 280px;
+  }
+  @include mq(desc) {
+    @include fonts($fs: 52px, $fw: 600, $lh: 1.54, $ls: null);
 
+    display: inline-block;
+    max-width: 336px;
     // padding-bottom: 28px;
     // min-width: 280px;
   }
@@ -99,6 +120,9 @@
 
 .hero__text {
   @include mq(mob) {
+    @include mq(mob) {
+      @include fonts($fs: 14px, $fw: 500, $lh: 2, $ls: null);
+    }
     padding-top: 28px;
     padding-bottom: 20px;
     min-width: 280px;

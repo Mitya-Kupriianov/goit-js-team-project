@@ -1,6 +1,4 @@
-<ul class='people_list team__container'>
-  {{#each letter}}
-    <li class='hero__item hero__item--a grid__item'></li>
-    <a href='#' class='grid__link'>{{this}}</a>
-  {{/each}}
-</ul>
+{{#each letter}}
+  <li class='hero__item hero__item--{{this}}'>
+    <a href='#' class='hero__link'>{{this}}</a></li>
+{{/each}}
