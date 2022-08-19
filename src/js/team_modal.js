@@ -4,7 +4,7 @@ const refs = {
   teamContainer: document.querySelector('.team__container'),
 };
 
-console.log(refs);
+// console.log(refs);
 
 const teamData = [
   {
@@ -63,11 +63,11 @@ const teamData = [
   },
 ];
 
-console.log(teamData);
+// console.log(teamData);
 
 function createMarkup(teamData) {
   const markup = templateFunction(teamData);
-  console.log(markup);
+  // console.log(markup);
   return (refs.teamContainer.innerHTML = markup);
 }
 
