@@ -1,84 +1,63 @@
 <header class="header section">
-  <div class="container header__nav">
-    <a href="./index.html" class="picture">
-      <picture>
-        <source
-          srcset="./images/logo-mob@1x.png 1x, ./images/logo-mob@2x.png 2x"
-          media="(max-width: 767px)"
-        />
-        <source
-          srcset="./images/logo-tab@1x.png 1x, ./images/logo-tab@2x.png 2x"
-          media="(min-width: 768px)"
-        />
+   <div class="container header__nav">
+      <a href="./index.html" class="picture">
+         <picture>
+            <source srcset="./images/logo-mob@1x.png 1x, ./images/logo-mob@2x.png 2x" media="(max-width: 767px)" />
+            <source srcset="./images/logo-tab@1x.png 1x, ./images/logo-tab@2x.png 2x" media="(min-width: 768px)" />
 
-        <img src="./images/logo-mob@1x.png" alt="logo" />
-      </picture>
-    </a>
+            <img src="./images/logo-mob@1x.png" alt="logo" />
+         </picture>
+      </a>
 
-    <ul class="header__list">
-      <li class="header__nav-item">
-        <a href="" class="header__nav-link">Home</a>
-      </li>
-      <li class="header__item">
-        <button class="header__nav-link menu__header-js">Favorite</button>
+      <ul class="header__list">
+         <li class="header__nav-item">
+            <a href="" class="header__nav-link">Home</a>
+         </li>
+         <li class="header__item">
+            <button class="header__nav-link menu__header-js">Favorite</button>
 
-        <div class="menu__wrap menu__wrap-close">
-          <a href="" class="menu__link">Favorite cocktails</a>
-          <a href="" class="menu__link">Favorite ingredients</a>
-        </div>
-      </li>
-    </ul>
+            <div class="menu__wrap menu__wrap-close">
+               <a href="" class="menu__link">Favorite cocktails</a>
+               <a href="" class="menu__link">Favorite ingredients</a>
+            </div>
+         </li>
+      </ul>
 
-    <div class="search">
-      <form class="header__search-wrapper">
-        <input
-          type="search"
-          placeholder="Search"
-          name="search"
-          class="search__input"
-        />
-        <button class="search-btn" type="submit">
-          <span class="search__border"></span>
-          <svg class="search__icon" width="24" height="24">
-            <use href="./images/icon.svg#icon-search"></use>
-          </svg>
-        </button>
+      <div class="search">
+         <form class="header__search-wrapper">
+            <input type="search" placeholder="Search" name="search" class="search__input" />
+            <button class="search-btn" type="submit">
+               <span class="search__border"></span>
+               <svg class="search__icon" width="24" height="24">
+                  <use href="./images/icon.svg#icon-search"></use>
+               </svg>
+            </button>
+         </form>
+      </div>
+      <form action="https://savelife.in.ua/donate/" method="get" target="_blank">
+         <button type="submit" class="btn__support">
+            Support Ukraine
+         </button>
       </form>
-    </div>
-    <form action="https://savelife.in.ua/donate/" method="get" target="_blank">
-      <button type="submit" class="btn__support">
-        <span class="first__word">Support</span> Ukraine
+
+      <ul class="switch__list">
+         <li class="switch__list-item switch__light">Light</li>
+
+         <li class="switcher">
+            <input type="checkbox" name="toggle" id="switch__button" class="switch__button" />
+            <label for="switch__button" class="text"></label>
+         </li>
+
+         <li class="switch__list-item switch__dark">Dark</li>
+      </ul>
+
+      <button class="btn__login js-btn-login" type="button" data-id="Log in">
+         Log in
       </button>
-    </form>
-
-    <ul class="switch__list">
-      <li class="switch__list-item switch__light">Light</li>
-
-      <li class="switcher">
-        <input
-          type="checkbox"
-          name="toggle"
-          id="switch__button"
-          class="switch__button"
-        />
-        <label for="switch__button" class="text"></label>
-      </li>
-
-      <li class="switch__list-item switch__dark">Dark</li>
-    </ul>
-
-    <button class="btn__login js-btn-login" type="button" data-id="Log in">
-      Log in
-    </button>
-  </div>
-  <button
-    type="button"
-    class="btn-menu__open btn__burger-menu-open"
-    data-menu-open
-    aria-label="Mobile menu open"
-  >
-    <svg class="btn-menu__icon" width="32" height="32">
-      <use href="./images/icon.svg#icon-menu"></use>
-    </svg>
-  </button>
+   </div>
+   <button type="button" class="btn-menu__open btn__burger-menu-open" data-menu-open aria-label="Mobile menu open">
+      <svg class="btn-menu__icon" width="32" height="32">
+         <use href="./images/icon.svg#icon-menu"></use>
+      </svg>
+   </button>
 </header>
