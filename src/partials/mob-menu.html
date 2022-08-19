@@ -1,65 +1,66 @@
-<div class="container">
-  <div class="mob-container"></div>
-  <div data-menu-btn class="">
-    <button
-      type="button"
-      class="btn-menu__open"
-      data-menu-open
-      aria-label="Mobile menu open"
-    >
-      <svg class="btn-menu__icon" width="32" height="32">
-        <use href="./images/icon.svg#icon-menu"></use>
-      </svg>
-    </button>
-  </div>
-  <div class="mob-menu" data-menu>
-    <div class="mob-menu__header">
-      <p class="mob-logo">COCKTAILS</p>
-      <p class="mob-dark">
-        Light<svg class="btn-menu__iconz" width="18px" height="18px">
-          <use href="./images/icon.svg#icon-btn-dark"></use>
-        </svg>
-        Dark
-      </p>
+<div class="burger-menu" data-menu>
+  <div class="burger-container">
+    <div class="burger-menu__header">
+      <a class="burger-logo">
+        <picture>
+          <source
+            srcset="./images/logo-mob@1x.png 1x, ./images/logo-mob@2x.png 2x"
+            media="(max-width: 767px)"
+          />
+          <source
+            srcset="./images/logo-tab@1x.png 1x, ./images/logo-tab@2x.png 2x"
+            media="(min-width: 768px)"
+          />
+          <source />
+          <img src="./images/logo-mob@1x.png" alt="logo" />
+        </picture>
+      </a>
+      <ul class="burger__switch">
+        <li class="header__switch-item header__light">Light</li>
+        <li class="switch__item header__switcher">
+          <span class="switcher"><input type="checkbox" /></span>
+        </li>
+        <li class="header__theme-item header__dark">Dark</li>
+      </ul>
     </div>
     <button
       type="button"
-      class="btn-menu__close"
+      class="btn-burger__close"
       data-menu-close
       aria-label="Mobile menu closed"
     >
-      <svg class="btn-menu__icon" width="32px" height="32px">
+      <svg class="btn-burger__icon" width="32px" height="32px">
         <use href="./images/icon.svg#icon-close"></use>
       </svg>
     </button>
-    <label class="mob__field">
+    <label class="burger__field">
       <span class="form__input-span">
         <input
-          class="mob-input"
+          class="burger-input"
           type="text"
           name="searchQuery"
           autocomplete="off"
           placeholder="Search "
         />
-        <div class="mob__icon-input">
+        <div class="burger__icon-input">
           <svg width="18px" height="18px">
             <use href="./images/icon.svg#icon-search"></use>
           </svg>
         </div>
       </span>
     </label>
-    <nav class="mob__site-nav">
-      <ul class="mob-nav">
-        <li class="mob-nav__item">
-          <a class="mob-nav__link" href="#home">Home</a>
+    <nav class="burger__site-nav">
+      <ul class="burger-nav">
+        <li class="burger-nav__item">
+          <a class="burger-nav__link" href="#home">Home</a>
         </li>
-        <li class="mob-nav__item">
-          <a class="mob-nav__link" href="#Favorite cocktails"
+        <li class="burger-nav__item">
+          <a class="burger-nav__link" href="#FavoriteCocktails"
             >Favorite cocktails</a
           >
         </li>
-        <li class="mob-nav__item">
-          <a class="mob-nav__link" href="#Favorite ingredients"
+        <li class="burger-nav__item">
+          <a class="burger-nav__link" href="#FavoriteIngredients"
             >Favorite ingredients</a
           >
         </li>
