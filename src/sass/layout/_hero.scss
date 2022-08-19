@@ -20,7 +20,7 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
     gap: 15px;
-    max-width: 324px;
+    max-width: 393px;
     &:hover {
       cursor: pointer;
     }
@@ -42,6 +42,7 @@
   }
   @include mq(tab) {
     @include fonts($fs: 14px, $fw: 700, $lh: 1.5, $ls: 0.02em);
+    padding: 3px;
   }
 }
 
