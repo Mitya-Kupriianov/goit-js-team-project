@@ -1,9 +1,9 @@
 .header__nav {
    display: flex;
-   align-items: flex-end;
+   // align-items: flex-end;
    padding-top: 20px;
-   padding-right: 20px;
-   padding-left: 20px;
+   // padding-right: 20px;
+   // padding-left: 20px;
    justify-content: space-between;
 
    @include mq(mob) {
@@ -271,8 +271,7 @@ input[type='search']::-webkit-search-results-decoration {
 
 .btn__support {
 
-   width: 100%;
-   height: 40px;
+ 
 
    display: none;
 
@@ -280,19 +279,23 @@ input[type='search']::-webkit-search-results-decoration {
       display: block;
       margin-left: auto;
       font-family: --title-poppins;
-      color: #3131e7;
-      background-color: #f0ed38;
+      color: #0000FF;
+      border: none;
+      background-color: #FFFF00;
       font-size: 18;
       height: 35px;
       width: 170px;
       border-radius: 4px;
       text-shadow: 0 2px 3px rgb(225 224 233 / 50%);
       box-shadow: 0 3px 1px rgb(43 8 243 / 10%), 0 1px 2px rgb(0 0 0 / 8%), 0 2px 2px rgb(98 3 250 / 12%);
+      transition: background-color var(--transition);
    }
 
    &:hover,
    &:focus {
       background-color: #3131e7;
-      color: #f0ed38;
-   }
+      color: #FFFF00;
+      text-shadow: 0 2px 3px rgb(225 224 233 / 50%);
+         box-shadow:4px 4px 8px 0px rgba(255, 255, 0, 0.1),4px 4px 8px 0px rgba(255, 255, 0, 0.1),4px 4px 8px 0px rgba(255, 255, 0, 0.1)
+}
 }
