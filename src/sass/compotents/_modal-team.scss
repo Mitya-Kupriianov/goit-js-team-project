@@ -142,6 +142,19 @@ body.modal-open {
     overflow: hidden;
 }
 
+.team__item-text {
+    font-weight: 400;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+        text-transform: uppercase;
+         color: var(--alfavito-color);
+        line-height: 1.14;
+        font-weight: 500;
+        margin-top: 8px;
+} 
+
+
 .team__item-title {
     font-family: 'Roboto';
     font-weight: 400;
@@ -152,5 +165,6 @@ body.modal-open {
     color: var(--footer-color);
     line-height: 1.14;
     font-weight: 500;
-    margin-bottom: 10px;
+    margin-top: 8px;
+
 }
