@@ -63,6 +63,7 @@ const teamData = [
 
 function createMarkup(teamData) {
   const markup = templateFunction(teamData);
+
   return (refs.teamContainer.innerHTML = markup);
 }
 
