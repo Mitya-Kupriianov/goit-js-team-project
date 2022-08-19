@@ -5,22 +5,19 @@
   <div class="hero__picture"></div>
   <div class="container flex">
     <p class="hero__text">Search your favorite cocktail by ABC</p>
-    <div class="hero__label-wrapper js-wrapper">
-      <label class="hero__label" for="select">
-        <div class="hero__select--wrapper">
-          <select name="hero__select" class="hero__select" id="select">
-            <!-- <svg
-              class="social__icon"
-              width="34"
-              height="34"
-              aria-label="drop-down-menu"
-            >
-              <use href="./images/sprite-hero.svg#icon-drop-down"></use>
-            </svg> -->
-            <option class="option" value="A" selected>A</option>
-          </select>
-        </div>
-      </label>
+    <div class="hero__select-menu js-wrapper">
+      <div class="hero__select-btn" for="select">
+        <span class="hero__select-text">A</span>
+        <svg
+          class="hero__icon"
+          width="24"
+          height="24"
+          aria-label="drop-down-menu"
+        >
+          <use href="./images/sprite-hero.svg#icon-drop-down"></use>
+        </svg>
+      </div>
+      <ul class="options hero__select"></ul>
     </div>
     <div class="hero__list-wrapper">
       <ul class="hero__list"></ul>
