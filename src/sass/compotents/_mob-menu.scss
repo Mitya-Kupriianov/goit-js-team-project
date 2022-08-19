@@ -1,5 +1,5 @@
 .burger-container {
-  padding: 40px;
+  padding: 20px;
 }
 
 .burger-menu {
@@ -27,26 +27,20 @@
 .burger-menu__header {
   display: flex;
   align-items: flex-end;
-  // align-items: baseline;
+  gap: 100px;
+  margin-bottom: 40px;
+
+  @include mq(tab) {
+    margin-bottom: 60px;
+  }
 }
 
-.burger__switch {
+.burger-switch__list {
   display: flex;
-  align-items: flex-end;
+  gap: 12px;
 }
 
-// .switcher-burgers {
-//   width: 40px;
-//   height: 20px;
-//   -webkit-appearance: none;
-//   background: #fff;
-//   border: 0.604701px solid #fd5103;
-//   border-radius: 20px;
-//   top: 10%;
-//   outline: none;
-//   transition: all 0.5s;
-//   position: sticky;
-// }
+//
 
 .burger-logo {
   display: none;
@@ -56,21 +50,23 @@
   }
 }
 
-// .mob-dark {
-//   @include mq(tab-only) {
-//     margin-left: 100px;
-//   }
-//       position: sticky;
-//     top: 10%;
-// }
+.burger-search {
+  margin-right: 100px;
+  position: relative;
+  margin-bottom: 40px;
 
-.mob-nav {
+  @include mq(tab) {
+    display: none;
+  }
+}
+
+.burger-nav {
   display: flex;
   flex-direction: column;
   gap: 32px;
 }
 
-.mob-nav__link {
+.burger-nav__link {
   font-family: 'Poppins';
   font-weight: 400;
   font-size: 27px;
@@ -95,17 +91,17 @@
   }
 }
 
-.mob-nav__item {
+.burger-nav__item {
   @include mq(tab-only) {
     margin-left: 300px;
   }
 }
 
-.btn-menu__icon {
+.btn-burger__icon {
   fill: currentColor;
 }
 
-.mob__field {
+.burger__field {
   display: block;
   max-width: 560px;
   margin-top: 40px;
@@ -116,7 +112,7 @@
   position: relative;
 }
 
-.mob__icon-input {
+.burger__icon-input {
   position: absolute;
   display: flex;
   align-items: center;
@@ -133,30 +129,30 @@
   }
 }
 
-.mob-input {
-  padding-left: 50px;
-  width: 100%;
-  height: 40px;
-  outline: none;
-  font-family: 'Poppins';
-  // font-weight: 400;
-  font-size: 14px;
-  line-height: 1.71;
-  border: 1px solid var(--button-text-color);
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
-  border-radius: 4px;
-  background-color: inherit;
-  color: rgba(95, 103, 117, 0.4);
-  transform: border-color var(--transition);
+// .mob-input {
+//   padding-left: 50px;
+//   width: 100%;
+//   height: 40px;
+//   outline: none;
+//   font-family: 'Poppins';
+//   // font-weight: 400;
+//   font-size: 14px;
+//   line-height: 1.71;
+//   border: 1px solid var(--button-text-color);
+//   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+//   border-radius: 4px;
+//   background-color: inherit;
+//   color: rgba(95, 103, 117, 0.4);
+//   transform: border-color var(--transition);
 
-  &::placeholder {
-    color: rgba(95, 103, 117, 0.4);
-  }
+//   &::placeholder {
+//     color: rgba(95, 103, 117, 0.4);
+//   }
 
-  @include mq(tab) {
-    display: none;
-  }
-}
+//   @include mq(tab) {
+//     display: none;
+//   }
+// }
 
 .btn-menu__open {
   // position: absolute;
@@ -184,7 +180,7 @@
   }
 }
 
-.btn-menu__close {
+.btn-burger__close {
   position: absolute;
   display: flex;
   align-items: center;
