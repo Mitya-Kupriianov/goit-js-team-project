@@ -13,7 +13,6 @@ const { heroList, heroSelect } = refs;
 
 export const letters = {
   letter: [
-    'A',
     'B',
     'C',
     'D',
