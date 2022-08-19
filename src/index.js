@@ -11,3 +11,4 @@ import './js/service/hero-refs';
 import './js/service/login';
 import './js/service/index';
 import './js/header';
+import './js/darkmode-theme';
