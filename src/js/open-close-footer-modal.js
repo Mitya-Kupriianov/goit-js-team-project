@@ -17,7 +17,6 @@ function toggleModalTeam(event) {
 }
 
 document.addEventListener('keydown', function closeByEsc(e) {
-  console.log(e.key);
   if (e.key === 'Escape') {
     refs.modal.classList.add('is-hidden');
   }
