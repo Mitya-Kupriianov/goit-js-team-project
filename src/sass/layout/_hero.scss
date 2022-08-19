@@ -163,6 +163,7 @@
 }
 
 .hero__select-btn {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -177,6 +178,10 @@
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
   cursor: pointer;
+}
+
+.active .hero__select-btn {
+  background-color: #fff;
 }
 
 .hero__select-text {
@@ -196,18 +201,24 @@
   }
 }
 
+.active .hero__select-text {
+  color: var(--button-color-orange);
+}
+
 .options {
   position: relative;
   margin-top: 10px;
   padding: 6px 10px;
   border-radius: 4px;
-  background-color: #fff;
+  background-color: #f2f2f2;
   color: var(--alfavito-color);
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
   display: none;
 }
 
 .active .options {
+  position: absolute;
+  width: 73px;
   display: block;
   height: 150px;
   overflow-y: scroll;
@@ -227,10 +238,10 @@
 
 .hero__icon {
   transition: 300ms linear;
-  //   stroke: var(--title-main);
-  //   fill: var(--title-main);
+  fill: #fff;
 }
 
 .active .hero__icon {
   transform: rotate(-180deg);
+  fill: var(--title-main);
 }

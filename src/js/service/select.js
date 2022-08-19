@@ -19,6 +19,26 @@ optionsRef.forEach(option => {
   });
 });
 
-selectBtnRef.addEventListener('click', () =>
-  selectMenuRef.classList.toggle('active')
-);
+selectBtnRef.addEventListener('click', toToggleSelector);
+// window.addEventListener('click', event => {
+//   if (event.target !== selectBtnRef) {
+//     selectMenuRef.classList.toggle('active');
+//   }
+
+// });
+
+// selectBtnRef.addEventListener('click', event => {
+//   //   selectMenuRef.classList.toggle('active');
+
+//   if (event.target !== selectBtnRef) {
+//     selectMenuRef.classList.toggle('active');
+//   }
+// });
+
+function toToggleSelector(event) {
+  console.dir(event);
+  //   if (window) {
+  //     return selectMenuRef.classList.toggle('active');
+  //   }
+  selectMenuRef.classList.toggle('active');
+}
