@@ -5,9 +5,9 @@
     };
   
     refs.closeBtn.addEventListener('click', closeModal);
-  
+
     function closeModal() {
-      refs.backdrop.classList.add('is-hidden-modal-coctails');
+    refs.backdrop.classList.add('is-hidden-modal-coctails');
     }
+    
   })();
-  // function

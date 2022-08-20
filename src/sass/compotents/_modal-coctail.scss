@@ -1,3 +1,4 @@
+
 .backdrop-modal,
 .backdrop-modal-components {
   // для меня
@@ -11,16 +12,20 @@ h3 {
   margin-top: 0;
   margin-bottom: 0;
 }
+
 .backdrop-modal {
+  @include mq(tab){
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
-  opacity: 1;
-  transition: var(--transition);
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  opacity: 1;}
 }
-
+.modal-scale {
+  display:none;
+}
 .is-hidden-modal-coctails {
   opacity: 0;
   pointer-events: none;
@@ -30,95 +35,234 @@ h3 {
   list-style-type: none;
 }
 .modal-coctails {
-  position: absolute;
-  width: 822px;
-  height: 598px;
+  @include mq(mob){
+    position: absolute;
+    width: 320px;
+    height: 990px;
+  overflow:auto;
+  top: 500px;
+  }
+    @include mq(tab){
+      position: absolute;
+      width: 722px;
+      height: 498px;
+      top: 50%;
+  left: 50%;
+    }
+    @include mq(desc){
+      width: 822px;
+      height: 598px;
+    }
+    position: absolute;
+  transition: var(--transition);
+  background-color: var(--button-color-white);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modal-img {
+  @include mq(mob){
+    position: absolute;
+width: 280px;
+height: 320px;
+left: 20px;
+top: 340px;
+  }
+  @include mq(tab){
+    position: absolute;
+  width: 248px;
+  height: 280px;
   left: 0px;
   top: 0px;
-}
-.modal-img {
+  }
+  @include mq(desc){
   position: absolute;
   width: 288px;
   height: 320px;
   left: 0px;
-  top: 0px;
+  top: 0px;}
   border-radius: 4px 4px 4px 45px;
 }
 .modal-coctail-name {
+  @include mq(mob){
+    width: 129px;
+   height: 37px;
+margin-left: 16px;
+margin-top: 30px;
+  }
+  @include mq(tab){
   margin-top: 40px;
-  margin-left: 320px;
-  color: var(--background-dark);
+
+  margin-left: 300px
+  }
+  @include mq(desc){
+  margin-top: 40px;
+  margin-left: 300px}
+  color: var( --background-dark)
+
 }
 .modal-ingredients {
+  @include mq(mob){position: absolute;
+    width: 103px;
+    height: 24px;
+    left: 16px;
+    top: 680px;}
+    @include mq(tab){
+      position: absolute;
+      width: 103px;
+      height: 24px;
+      left: 300px;
+      top: 100px;
+      font-size: 14px;
+      line-height: 1.5;}
+    @include mq(desc){
   position: absolute;
   width: 103px;
   height: 24px;
   left: 320px;
   top: 105px;
+  font-size: 16px;
+  line-height: 1.5;}
   font-family: var(--title-poppins);
   font-style: normal;
   font-weight: 600;
-  font-size: 16px;
-  line-height: 24px;
   color: #000917;
   text-transform: uppercase;
 }
 .modal-per {
+  @include mq(mob){
+    position: absolute;
+width: 100px;
+height: 21px;
+left: 16px;
+top: 712px;
+  }
+  @include mq(tab){
+  position: absolute;
+  width: 90px;
+  height: 21px;
+  left: 300px;
+  top: 137px;
+  font-size: 12px;
+  line-height: 1.5;
+  }
+  @include mq(desc){
   position: absolute;
   width: 90px;
   height: 21px;
   left: 320px;
   top: 137px;
+  font-size: 14px;
+  line-height: 1.5;}
   font-family: var(--title-poppins);
   font-style: normal;
   font-weight: 300;
-  font-size: 14px;
-  line-height: 21px;
   color: var(--title-secondary-light-theme);
 }
 .modal-coctail-components {
-  position: absolute;
-  width: 215px;
-  height: 130px;
-  left: 320px;
-  top: 166px;
+  @include mq(mob){
+    position: absolute;
+    width: 215px;
+    height: 130px;
+    left: 16px;
+    top: 741px;}
+    @include mq(tab){
+      left: 300px;
+      top: 166px;
+      font-size: 12px;
+      line-height: 1.6;}
+    @include mq(desc){position: absolute;
+      width: 215px;
+      height: 130px;
+      left: 320px;
+      top: 166px;
+      font-size: 16px;
+      line-height: 1.6;}
   font-family: var(--title-poppins);
   font-style: normal;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 26px;
   color: #000917;
   padding: 0;
 }
 .modal-Instractions {
+  @include mq(mob){
+    position: absolute;
+    width: 122px;
+    height: 26px;
+    left: 16px;
+    top: 87px;
+  }
+  @include mq(tab){
+  position: absolute;
+  width: 122px;
+  height: 26px;
+  left: 28px;
+  top: 308px;
+  font-size: 14px;
+  line-height: 1.6;
+  }
+  @include mq(desc){
   position: absolute;
   width: 122px;
   height: 26px;
   left: 28px;
   top: 348px;
+  font-size: 16px;
+  line-height: 1.6;
+  }
   font-family: var(--title-poppins);
   color: var(--background-dark);
   font-style: normal;
   font-weight: 600;
-  font-size: 16px;
-  line-height: 26px;
   text-transform: uppercase;
 }
 .modal-text {
+  @include mq(mob){
+    position: absolute;
+width: 275px;
+height: 168px;
+left: 16px;
+top: 137px;
+  }
+  @include mq(tab){
+  position: absolute;
+  width: 615px;
+  height: 84px;
+  left: 28px;
+  top: 338px;
+  font-size: 12px;
+  line-height: 1.75;
+  }
+  @include mq(desc){
   position: absolute;
   width: 615px;
   height: 84px;
   left: 28px;
   top: 398px;
+  font-size: 16px;
+  line-height: 1.75;
+  }
   font-family: var(--title-poppins);
   font-style: normal;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 1.75;
   color: #5f6775;
   margin: 0;
 }
 .modal-button_add {
+    @include mq(mob){
+    position:absolute;
+    left: 16px;
+    top: 901px;
+  }
+  @include mq(tab){
+    top: 430px;
+    left: 500px;
+  }
+  @include mq(desc){
+    top: 522px;
+    left: 609px;
+  }
   flex-direction: row;
   align-items: flex-start;
   padding: 12px 22px;
@@ -131,8 +275,7 @@ h3 {
   background: var(--title-main);
   border-radius: 4px;
   right: 28px;
-  top: 522px;
-  left: 609px;
+  
   font-family: var(--text-roboto);
   font-style: normal;
   font-weight: 400;
@@ -143,13 +286,25 @@ h3 {
 }
 
 .modal-menu__close {
-  margin: 0;
+
+  @include mq(mob){
+left: 270px;
+top: 12px;
+  }
+  @include mq(tab){
+    left: 670px;
+  top: 12px;
+  }
+  @include mq(desc){
+  left: 778px;
+  top: 12px;
+  }
+  margin:0;
+
   position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
-  left: 778px;
-  top: 12px;
   border: none;
   background: transparent;
   color: var(--background-dark);
@@ -165,14 +320,24 @@ h3 {
   display: none;
 }
 .modal-button_remove {
+    @include mq(mob){
+    position:absolute;
+    left: 16px;
+    top: 901px;
+  }
+  @include mq(tab){
+    top: 430px;
+    left: 437px;}
+  @include mq(desc){
+    left: 546px;
+  top: 522px;}
   flex-direction: row;
   padding: 12px 22px;
   gap: 10px;
   position: absolute;
   width: 248px;
   height: 48px;
-  left: 546px;
-  top: 522px;
+  
   background: var(--title-main);
   border-radius: 4px;
   font-family: var(--text-roboto);
@@ -183,3 +348,6 @@ h3 {
   letter-spacing: 0.02em;
   color: var(--button-text-white);
 }
+
+
+
