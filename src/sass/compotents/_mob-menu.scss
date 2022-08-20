@@ -24,15 +24,23 @@
   z-index: 99;
 }
 
-.burger-menu__header {
+.burger-menu__item {
   display: flex;
-  align-items: flex-end;
-  gap: 100px;
+  align-items: center;
+  justify-content: space-around;
   margin-bottom: 40px;
+  height: 45px;
+  max-width: 90%;
 
   @include mq(tab) {
     margin-bottom: 60px;
   }
+}
+
+.burger-menu__header {
+  display: flex;
+  align-items: flex-end;
+  gap: 100px;
 }
 
 .burger-switch__list {
@@ -60,10 +68,18 @@
   }
 }
 
+.burger__site-nav {
+  margin-bottom: 75px;
+}
 .burger-nav {
   display: flex;
   flex-direction: column;
   gap: 32px;
+  @include mq(tab) {
+    width: 310px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 .burger-nav__link {
@@ -91,11 +107,11 @@
   }
 }
 
-.burger-nav__item {
-  @include mq(tab-only) {
-    margin-left: 300px;
-  }
-}
+// .burger-nav__item {
+//   @include mq(tab-only) {
+//     margin-left: 300px;
+//   }
+// }
 
 .btn-burger__icon {
   fill: currentColor;
@@ -129,31 +145,6 @@
   }
 }
 
-// .mob-input {
-//   padding-left: 50px;
-//   width: 100%;
-//   height: 40px;
-//   outline: none;
-//   font-family: 'Poppins';
-//   // font-weight: 400;
-//   font-size: 14px;
-//   line-height: 1.71;
-//   border: 1px solid var(--button-text-color);
-//   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
-//   border-radius: 4px;
-//   background-color: inherit;
-//   color: rgba(95, 103, 117, 0.4);
-//   transform: border-color var(--transition);
-
-//   &::placeholder {
-//     color: rgba(95, 103, 117, 0.4);
-//   }
-
-//   @include mq(tab) {
-//     display: none;
-//   }
-// }
-
 .btn-menu__open {
   // position: absolute;
   display: flex;
@@ -185,8 +176,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  right: 10px;
-  top: 30px;
+  right: 5px;
+  top: 25px;
   border: none;
   background: transparent;
   color: var(--background-dark);
@@ -200,4 +191,52 @@
 
 .display-none {
   display: none;
+}
+
+.burger-btn__login {
+  display: block;
+  width: 80px;
+  height: 35px;
+  background-color: var(--button-text-color);
+  border: #fd5103;
+  border-radius: 4px;
+  color: #fff;
+  // margin-left: auto;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.33;
+
+  &:hover,
+  &:focus {
+    background-color: #fff;
+    color: #fd5103;
+  }
+}
+
+.burger-btn__support {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: --title-poppins;
+  color: #0000ff;
+  border: none;
+  background-color: #ffff00;
+  font-size: 18;
+  height: 40px;
+  width: 250px;
+  border-radius: 4px;
+  text-shadow: 0 2px 3px rgb(225 224 233 / 50%);
+  box-shadow: 0 3px 1px rgb(43 8 243 / 10%), 0 1px 2px rgb(0 0 0 / 8%),
+    0 2px 2px rgb(98 3 250 / 12%);
+  transition: background-color var(--transition);
+
+  &:hover,
+  &:focus {
+    background-color: #3131e7;
+    color: #ffff00;
+    text-shadow: 0 2px 3px rgb(225 224 233 / 50%);
+    box-shadow: 4px 4px 8px 0px rgba(255, 255, 0, 0.1),
+      4px 4px 8px 0px rgba(255, 255, 0, 0.1),
+      4px 4px 8px 0px rgba(255, 255, 0, 0.1);
+  }
 }
