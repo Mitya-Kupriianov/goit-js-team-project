@@ -1,9 +1,9 @@
 
 .backdrop-modal-is-hidden{
   display:none;
+  transition-duration: 700ms;
 }
 .backdrop-modal {
-  // @include mq(tab){
   position: fixed;
   top: 0;
   left: 0;
@@ -12,17 +12,23 @@
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.2);
   opacity: 1;
+  transition-duration: 700ms;
 }
 .modal-scale {
   display:none;
+  transition-duration: 700ms;
+ 
 }
 .is-hidden-modal-coctails {
   opacity: 0;
   pointer-events: none;
+  transition-duration: 700ms;
 }
 
 .modal-coctail-components {
   list-style-type: none;
+  transition-duration: 700ms;
+  
 }
 .modal-coctails {
   @include mq(mob){
@@ -30,17 +36,17 @@
     width: 320px;
     height: 990px;
   overflow:auto;
-  top: 500px;
+  top: 700px;
   }
   @include mq(tab){
       width: 822px;
       height: 598px;
     }
-    position: absolute;
-  transition: var(--transition);
+  position: absolute;
   background-color: var(--button-color-white);
   left: 50%;
-  transform: translate(-50%, -50%);
+  top: 0;
+  transform: translate(-50%, -70%);
 }
 
 .modal-img {
@@ -57,7 +63,7 @@ top: 340px;
   height: 320px;
   left: 0px;
   top: 0px;}
-  border-radius: 4px 4px 4px 45px;
+  border-radius: 4px;
 }
 .modal-coctail-name {
   @include mq(mob){
@@ -116,12 +122,12 @@ top: 712px;
 .modal-coctail-components {
   @include mq(mob){
     position: absolute;
-    width: 215px;
+    width: 230px;
     height: 130px;
     left: 16px;
     top: 741px;}
     @include mq(tab){position: absolute;
-      width: 215px;
+      width: 230px;
       height: 130px;
       left: 320px;
       top: 166px;
@@ -201,7 +207,7 @@ top: 137px;
   background: var(--title-main);
   border-radius: 4px;
   right: 28px;
-  
+  border: none;
   font-family: var(--text-roboto);
   font-style: normal;
   font-weight: 400;
@@ -209,10 +215,13 @@ top: 137px;
   line-height: 24px;
   letter-spacing: 0.02em;
   color: var(--button-text-white);
+  &:focus,
+  &:hover {
+    box-shadow: 1px 1px 5px 1px rgba(255, 107, 8, 0.8);
+  }
 }
 
 .modal-menu__close {
-
   @include mq(mob){
 left: 270px;
 top: 12px;
@@ -222,7 +231,6 @@ top: 12px;
   top: 12px;
   }
   margin:0;
-
   position: absolute;
   display: flex;
   align-items: center;
@@ -234,7 +242,7 @@ top: 12px;
 
   &:focus,
   &:hover {
-    color: var(--button-text-color);
+    color: var(--button-color-orange);
   }
 }
 
@@ -257,7 +265,7 @@ top: 12px;
   position: absolute;
   width: 248px;
   height: 48px;
-  
+  border: none;
   background: var(--title-main);
   border-radius: 4px;
   font-family: var(--text-roboto);
@@ -267,6 +275,10 @@ top: 12px;
   line-height: 24px;
   letter-spacing: 0.02em;
   color: var(--button-text-white);
+  &:focus,
+  &:hover {
+    box-shadow: 1px 1px 1px 1px rgba(255, 107, 8, 0.8);
+  }
 }
 
 
