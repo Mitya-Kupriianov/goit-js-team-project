@@ -185,6 +185,7 @@
 
 .active .hero__select-btn {
   background-color: #fff;
+  border: 1px solid var(--button-color-orange);
 }
 
 .hero__select-text {
@@ -221,9 +222,10 @@
 
 .active .options {
   position: absolute;
-  width: 73px;
+  width: 70px;
   display: block;
-  height: 150px;
+  height: 130px;
+  border: 1px solid var(--button-color-orange);
   overflow-y: scroll;
 }
 
