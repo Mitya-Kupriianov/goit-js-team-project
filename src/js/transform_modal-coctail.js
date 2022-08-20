@@ -1,3 +1,9 @@
+(() => {
+  const refs = {
+    removBtn: document.querySelector('[data-modal-b]'),
+    addBtn: document.querySelector('[data-modal-a]'),
+  };
+
 
   
   (() => {
@@ -18,3 +24,4 @@
     refs.removBtn.classList.toggle('hidden_remove');
     }
   })();
+

@@ -1,5 +1,4 @@
 //footer
-
 const refs = {
   footerOpenBtn: document.querySelector('[data-modal-team-open]'),
   footerCloseBtn: document.querySelector('[data-modal-team-close]'),
@@ -16,3 +15,17 @@ function toggleModalTeam(event) {
   document.body.classList.toggle('modal-open');
   refs.modal.classList.toggle('is-hidden');
 }
+
+document.addEventListener('keydown', function closeByEsc(e) {
+  if (e.key === 'Escape') {
+    refs.modal.classList.add('is-hidden');
+  }
+});
+
+// function closeBySec(e, element) {
+//   if (e.key === 'Escape') {
+//     element.classList.add('is-hidden');
+//   }
+// }
+
+// closeBySec('keydown', refs.modal);

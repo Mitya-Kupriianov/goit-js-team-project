@@ -4,8 +4,6 @@ const refs = {
   teamContainer: document.querySelector('.team__container'),
 };
 
-console.log(refs);
-
 const teamData = [
   {
     git: 'https://github.com/Mitya-Kupriianov/',
@@ -63,11 +61,9 @@ const teamData = [
   },
 ];
 
-console.log(teamData);
-
 function createMarkup(teamData) {
   const markup = templateFunction(teamData);
-  console.log(markup);
+
   return (refs.teamContainer.innerHTML = markup);
 }
 

@@ -1,4 +1,18 @@
 
+.backdrop-modal,
+.backdrop-modal-components {
+  // для меня
+  display: none;
+  // для меня
+}
+
+h1,
+h2,
+h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
 .backdrop-modal {
   @include mq(tab){
   position: fixed;
@@ -13,9 +27,9 @@
   display:none;
 }
 .is-hidden-modal-coctails {
-    opacity: 0;
-    pointer-events: none;
-  } 
+  opacity: 0;
+  pointer-events: none;
+}
 
 .modal-coctail-components {
   list-style-type: none;
@@ -79,12 +93,14 @@ margin-top: 30px;
   }
   @include mq(tab){
   margin-top: 40px;
+
   margin-left: 300px
   }
   @include mq(desc){
   margin-top: 40px;
   margin-left: 300px}
   color: var( --background-dark)
+
 }
 .modal-ingredients {
   @include mq(mob){position: absolute;
@@ -196,7 +212,7 @@ top: 712px;
   line-height: 1.6;
   }
   font-family: var(--title-poppins);
-  color:  var(--background-dark);
+  color: var(--background-dark);
   font-style: normal;
   font-weight: 600;
   text-transform: uppercase;
@@ -270,6 +286,7 @@ top: 137px;
 }
 
 .modal-menu__close {
+
   @include mq(mob){
 left: 270px;
 top: 12px;
@@ -283,6 +300,7 @@ top: 12px;
   top: 12px;
   }
   margin:0;
+
   position: absolute;
   display: flex;
   align-items: center;
