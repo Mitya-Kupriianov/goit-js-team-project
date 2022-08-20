@@ -13,5 +13,6 @@ import './js/header';
 
 import './js/service/login';
 import './js/service/index';
+import './js/service/select';
 import './js/service/getCocktail';
 import './js/service/getRandomCocktails';
