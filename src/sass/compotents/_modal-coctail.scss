@@ -1,27 +1,17 @@
 
-.backdrop-modal,
-.backdrop-modal-components {
-  // для меня
-  display: none;
-  // для меня
+.backdrop-modal-is-hidden{
+  display:none;
 }
-
-h1,
-h2,
-h3 {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
 .backdrop-modal {
-  @include mq(tab){
+  // @include mq(tab){
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  overflow: auto;
   background-color: rgba(0, 0, 0, 0.2);
-  opacity: 1;}
+  opacity: 1;
 }
 .modal-scale {
   display:none;
@@ -42,21 +32,13 @@ h3 {
   overflow:auto;
   top: 500px;
   }
-    @include mq(tab){
-      position: absolute;
-      width: 722px;
-      height: 498px;
-      top: 50%;
-  left: 50%;
-    }
-    @include mq(desc){
+  @include mq(tab){
       width: 822px;
       height: 598px;
     }
     position: absolute;
   transition: var(--transition);
   background-color: var(--button-color-white);
-  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -70,13 +52,6 @@ left: 20px;
 top: 340px;
   }
   @include mq(tab){
-    position: absolute;
-  width: 248px;
-  height: 280px;
-  left: 0px;
-  top: 0px;
-  }
-  @include mq(desc){
   position: absolute;
   width: 288px;
   height: 320px;
@@ -93,11 +68,6 @@ margin-top: 30px;
   }
   @include mq(tab){
   margin-top: 40px;
-
-  margin-left: 300px
-  }
-  @include mq(desc){
-  margin-top: 40px;
   margin-left: 300px}
   color: var( --background-dark)
 
@@ -109,14 +79,6 @@ margin-top: 30px;
     left: 16px;
     top: 680px;}
     @include mq(tab){
-      position: absolute;
-      width: 103px;
-      height: 24px;
-      left: 300px;
-      top: 100px;
-      font-size: 14px;
-      line-height: 1.5;}
-    @include mq(desc){
   position: absolute;
   width: 103px;
   height: 24px;
@@ -142,15 +104,6 @@ top: 712px;
   position: absolute;
   width: 90px;
   height: 21px;
-  left: 300px;
-  top: 137px;
-  font-size: 12px;
-  line-height: 1.5;
-  }
-  @include mq(desc){
-  position: absolute;
-  width: 90px;
-  height: 21px;
   left: 320px;
   top: 137px;
   font-size: 14px;
@@ -167,12 +120,7 @@ top: 712px;
     height: 130px;
     left: 16px;
     top: 741px;}
-    @include mq(tab){
-      left: 300px;
-      top: 166px;
-      font-size: 12px;
-      line-height: 1.6;}
-    @include mq(desc){position: absolute;
+    @include mq(tab){position: absolute;
       width: 215px;
       height: 130px;
       left: 320px;
@@ -194,15 +142,6 @@ top: 712px;
     top: 87px;
   }
   @include mq(tab){
-  position: absolute;
-  width: 122px;
-  height: 26px;
-  left: 28px;
-  top: 308px;
-  font-size: 14px;
-  line-height: 1.6;
-  }
-  @include mq(desc){
   position: absolute;
   width: 122px;
   height: 26px;
@@ -230,15 +169,6 @@ top: 137px;
   width: 615px;
   height: 84px;
   left: 28px;
-  top: 338px;
-  font-size: 12px;
-  line-height: 1.75;
-  }
-  @include mq(desc){
-  position: absolute;
-  width: 615px;
-  height: 84px;
-  left: 28px;
   top: 398px;
   font-size: 16px;
   line-height: 1.75;
@@ -256,10 +186,6 @@ top: 137px;
     top: 901px;
   }
   @include mq(tab){
-    top: 430px;
-    left: 500px;
-  }
-  @include mq(desc){
     top: 522px;
     left: 609px;
   }
@@ -292,10 +218,6 @@ left: 270px;
 top: 12px;
   }
   @include mq(tab){
-    left: 670px;
-  top: 12px;
-  }
-  @include mq(desc){
   left: 778px;
   top: 12px;
   }
@@ -326,11 +248,9 @@ top: 12px;
     top: 901px;
   }
   @include mq(tab){
-    top: 430px;
-    left: 437px;}
-  @include mq(desc){
     left: 546px;
-  top: 522px;}
+  top: 522px;
+}
   flex-direction: row;
   padding: 12px 22px;
   gap: 10px;
