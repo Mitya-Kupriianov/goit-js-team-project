@@ -40,10 +40,8 @@
         }
 
 .footer__team {
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 400;
-    font-size: 14px;
+ @include fonts(14px, 14, 1.91, 0em);
+    font-family: Roboto;
     color: var(--button-color-orange);
     text-decoration: underline;
-
 }
