@@ -7,7 +7,7 @@
 .cocktails__first-title {
   @include fonts($fs: 22px, $fw: 600, $lh: 1.91, $ls: null);
   text-align: center;
-  color: var(--button-text-white);
+  color: var(--title-secondary);
   margin-bottom: 60px;
 
   @include mq(tab) {
@@ -55,7 +55,7 @@
   @include fonts(26px, 900, 1.62, 0em);
   font-family: var(--text-roboto);
   text-align: center;
-  color: var(--button-text-white);
+  color: var(--title-secondary);
 
   @include mq(tablet) {
     font-size: 28px;
