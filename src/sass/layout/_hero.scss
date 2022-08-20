@@ -48,6 +48,8 @@
 
 .hero__picture {
   @include mq(mob) {
+    position: relative;
+    right: -20%;
     height: 367px;
     background-image: url(../images/hero/mob/mob-hero-1x.webp);
     background-repeat: no-repeat;
@@ -68,8 +70,8 @@
     width: 265px;
     // background-position: left 0 bottom 0;
     background-image: url(../images/hero/tab/tab-hero-1x.webp);
-    background-repeat: no-repeat;
-    background-size: contain;
+    // background-repeat: no-repeat;
+    // background-size: contain;
 
     @include mq(retina) {
       background-image: url(../images/hero/tab/tab-hero-2x.webp);
@@ -108,12 +110,12 @@
     display: flex;
     align-content: center;
     justify-content: center;
-    max-width: 336px;
+    max-width: 460px;
   }
 
   @include mq(tab) {
     @include fonts($fs: 26px, $fw: 600, $lh: 1.62, $ls: null);
-    display: inline-block;
+    display: inline-flex;
   }
 
   @include mq(tab-only) {
