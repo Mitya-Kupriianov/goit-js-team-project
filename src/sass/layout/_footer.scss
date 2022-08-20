@@ -1,4 +1,3 @@
-
 .footer__container {
     display: flex;
     align-items: center;
@@ -14,7 +13,7 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 10px;
-        
+
 }
 
 
@@ -22,28 +21,38 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'DM Sans', sans-serif;
+    @include fonts(14px, 14, 1.91, 0em);
+        font-family: Roboto;
     font-weight: 400;
     color: #202025;
-        @include mq (mob) {
-                flex-direction: column;
-                font-size: 8px;
-            }
-        @include mq (tab) {     
-            font-size: 12px;
-                        flex-direction: row;
-        }   
-        @include mq(desc) {
-            font-size: 14px;
 
-        }
-        }
+    @include mq (mob) {
+        flex-direction: column;
+        font-size: 8px;
+    }
+
+    @include mq (tab) {
+        font-size: 12px;
+        flex-direction: row;
+    }
+
+    @include mq(desc) {
+        font-size: 14px;
+
+    }
+}
 
 .footer__team {
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 400;
-    font-size: 14px;
+    @include fonts(10px, 14, 1.91, 0em);
+    font-family: Roboto;
     color: var(--button-color-orange);
     text-decoration: underline;
 
+    @include mq(tab) {
+        font-size: 13px;
+    }
+
+    @include mq(desc) {
+        font-style: 15px;
+    }
 }
