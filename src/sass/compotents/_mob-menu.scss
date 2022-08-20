@@ -194,22 +194,23 @@
 }
 
 .burger-btn__login {
+  @include fonts($fs: 18px, $fw: 400, $lh: 1.33, $ls: null);
   display: block;
   width: 80px;
   height: 35px;
   background-color: var(--button-text-color);
   border: #fd5103;
   border-radius: 4px;
-  color: #fff;
-  // margin-left: auto;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 1.33;
+  color: var(--button-color-white);
+
+  transition: color var(--transition), background-color var(--transition),
+    outline var(--transition);
 
   &:hover,
   &:focus {
-    background-color: #fff;
-    color: #fd5103;
+    color: var(--button-text-color);
+    background-color: var(--button-color-white);
+    outline: 1px solid var(--button-text-color);
   }
 }
 

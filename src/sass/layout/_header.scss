@@ -260,8 +260,7 @@ input[type='search']::-webkit-search-results-decoration {
     background-color: var(--button-color-orange);
     border: none;
     border-radius: 4px;
-    color: #fff;
-    // margin-left: auto;
+    color: var(--button-color-white);
 
     transition: color var(--transition), background-color var(--transition),
       outline var(--transition);
