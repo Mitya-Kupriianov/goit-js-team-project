@@ -70,17 +70,15 @@
 .cocktails__button-box {
   @include mq(mob) {
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 20px;
   }
   @include mq(fab) {
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
   }
   @include mq(tab) {
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
   }
 }
 
