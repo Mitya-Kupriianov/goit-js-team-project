@@ -1,7 +1,8 @@
 <div class="burger-menu" data-menu>
   <div class="burger-container">
-    <div class="burger-menu__header">
-      <a class="burger-logo">
+    <div class="burger-menu__item">
+      <div class="burger-menu__header">
+        <a class="burger-logo">
         <picture>
           <source
             srcset="./images/logo-mob@1x.png 1x, ./images/logo-mob@2x.png 2x"
@@ -30,6 +31,16 @@
 
         <li class="switch__list-item switch__dark">Dark</li>
       </ul>
+      </div>
+      <button class="burger-btn__login js-btn-login" type="button" data-id="Log in">
+      Log in
+    </button>
+    <button
+      type="button"
+      class="btn-menu__open btn__burger-menu-open"
+      data-menu-open
+      aria-label="Mobile menu open"
+    >
     </div>
     <div class="burger-search">
       <form class="header__search-wrapper">
@@ -74,5 +85,8 @@
         </li>
       </ul>
     </nav>
+    <form action="https://savelife.in.ua/donate/" method="get" target="_blank">
+      <button type="submit" class="burger-btn__support">Support Ukraine</button>
+    </form>
   </div>
 </div>

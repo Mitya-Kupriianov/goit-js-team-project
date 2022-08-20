@@ -8,6 +8,7 @@ import './js/transform_modal-components';
 import './js/team_modal';
 import './js/open-close-footer-modal';
 import './js/service/hero-refs';
+import './js/open_modal';
 
 import './js/header';
 
