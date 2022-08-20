@@ -11,6 +11,6 @@
 
   function toggleModal() {
     refs.menu.classList.toggle('is-open');
-    refs.menuBtns.classList.toggle('display-none');
+    // refs.menuBtns.classList.toggle('display-none');
   }
 })();

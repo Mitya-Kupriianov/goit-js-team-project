@@ -8,6 +8,7 @@ import './js/render';
 import './js/team_modal';
 import './js/open-close-footer-modal';
 import './js/service/hero-refs';
+
 import './js/header';
 import './js/darkmode-theme';
 
@@ -15,3 +16,4 @@ import './js/service/login';
 import './js/service/index';
 import './js/service/getCocktail';
 import './js/service/getRandomCocktails';
+
