@@ -3,5 +3,6 @@ export const refs = {
   selectMenuRef: document.querySelector('.hero__select-menu'),
   selectBtnRef: document.querySelector('.hero__select-btn'),
   optionsRef: document.querySelectorAll('.option'),
-  heroSelectTextRef: document.querySelector('.hero__select-text'),
+   heroSelectTextRef: document.querySelector('.hero__select-text'),
+    loginHeaderBtn: document.querySelector('.btn__login'),
 };
