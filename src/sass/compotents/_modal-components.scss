@@ -1,5 +1,4 @@
 .backdrop-modal-components {
-  
   position: fixed;
   top: 0;
   left: 0;
@@ -8,30 +7,30 @@
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.2);
   opacity: 1;
-  }
-  
- .is-hidden-modal-two {
-    opacity: 0;
-    pointer-events: none;
-  } 
+}
+
+.is-hidden-modal-two {
+  opacity: 0;
+  pointer-events: none;
+}
 
 .modal-two-container {
-  @include mq(mob){
+  @include mq(mob) {
     position: absolute;
     width: 320px;
     height: 730px;
     top: 500px;
     background-color: var(--button-color-white);
   }
-  @include mq(tab){
+  @include mq(tab) {
     width: 822px;
     height: 598px;
   }
   position: absolute;
-transition: var(--transition);
-background-color: var(--button-color-white);
-left: 50%;
-transform: translate(-50%, -50%);
+  transition: var(--transition);
+  background-color: var(--button-color-white);
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .modal-two-header {
   position: absolute;
@@ -62,45 +61,46 @@ transform: translate(-50%, -50%);
 }
 .modal-two-container::after {
   content: '';
-position: absolute;
-width: 320px;
-@include mq(tab){
-  width: 713px;
-}
-height: 0px;
-left: 0px;
-top: 169px;
-border: 1px solid #FD5103
+  position: absolute;
+  width: 320px;
+  @include mq(tab) {
+    width: 713px;
+  }
+  height: 0px;
+  left: 0px;
+  top: 169px;
+  border: 1px solid #fd5103;
 }
 .modal-two-text {
-  @include mq(mob){
+  @include mq(mob) {
     position: absolute;
     width: 275px;
-height: 168px;
-left: 26px;
-top: 200px;
+    height: 168px;
+    left: 26px;
+    top: 200px;
   }
-  @include mq(tab){
+  @include mq(tab) {
     position: absolute;
     width: 554px;
     height: 112px;
     left: 28px;
     top: 197px;
     font-size: 14px;
-    line-height: 1.7;}
-    @include mq(desc){
-      position: absolute;
-  width: 654px;
-  height: 112px;
-  left: 28px;
-  top: 197px;
-  font-size: 16px;
-  line-height: 1.7;
-    }
+    line-height: 1.7;
+  }
+  @include mq(desc) {
+    position: absolute;
+    width: 654px;
+    height: 112px;
+    left: 28px;
+    top: 197px;
+    font-size: 16px;
+    line-height: 1.7;
+  }
   font-family: var(--title-poppins);
   font-style: normal;
   font-weight: 400;
-  
+
   color: var(--background-dark);
 }
 .modal-two-span {
@@ -112,31 +112,33 @@ top: 200px;
   color: var(--background-dark);
 }
 .modal-two-ingridients {
-  @include mq(mob){position: absolute;
+  @include mq(mob) {
+    position: absolute;
     width: 266px;
     height: 104px;
     left: 28px;
     top: 500px;
     font-size: 16px;
-    line-height: 1.6;}
-    @include mq(tab){
-      position: absolute;
-  width: 266px;
-  height: 104px;
-  left: 28px;
-  top: 337px;
-  font-size: 14px;
-  line-height: 1.6;
-    }
-    @include mq(desc){
-      position: absolute;
-  width: 266px;
-  height: 104px;
-  left: 28px;
-  top: 337px;
-  font-size: 16px;
-  line-height: 1.6;
-    }
+    line-height: 1.6;
+  }
+  @include mq(tab) {
+    position: absolute;
+    width: 266px;
+    height: 104px;
+    left: 28px;
+    top: 337px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  @include mq(desc) {
+    position: absolute;
+    width: 266px;
+    height: 104px;
+    left: 28px;
+    top: 337px;
+    font-size: 16px;
+    line-height: 1.6;
+  }
   list-style-type: none;
   font-family: var(--title-poppins);
   font-style: normal;
@@ -144,66 +146,78 @@ top: 200px;
   color: var(--title-secondary-light-theme);
 }
 .modal-button-add {
-  @include mq(mob){
+  @include mq(mob) {
     position: absolute;
     left: 16px;
     top: 661px;
   }
-  @include mq(tab){
+  @include mq(tab) {
     position: absolute;
     top: 522px;
     left: 609px;
   }
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    padding: 12px 22px;
-    gap: 10px; 
-    width: 185px;
-    height: 48px;
-    left: 0px;
-    top: 0px;  
-    background: var(--title-main);
-    border-radius: 4px;
-    right: 28px;
-    font-family: var(--text-roboto);
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 24px;
-    letter-spacing: 0.02em;
-    color: var(--button-text-white);
+
+  @include fonts($fs: 20px, $fw: 400, $lh: 1.2, $ls: 0.02em);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 12px 22px;
+  gap: 10px;
+  width: 185px;
+  height: 48px;
+  left: 0px;
+  top: 0px;
+
+  right: 28px;
+  font-family: var(--text-roboto);
+
+  font-weight: 400;
+
+  color: var(--button-text-white);
+  background-color: var(--button-color-orange);
+  border-radius: 4px;
+  border: none;
+
+  transition: color var(--transition), background-color var(--transition),
+    outline var(--transition);
+
+  &:hover,
+  &:focus {
+    color: var(--button-text-color);
+    background-color: var(--button-color-white);
+    outline: 1px solid var(--button-text-color);
+  }
 }
 
 .modal-two-menu__close {
-  @include mq(mob){
+  @include mq(mob) {
     position: absolute;
     left: 271px;
     top: 12px;
   }
-  @include mq(tab){
+  @include mq(tab) {
     position: absolute;
     left: 778px;
     top: 12px;
-  }   
-    display: flex;
-    align-items: center;
-    justify-content: center;  
-    border: none;
-    background: transparent;
-    color: var(--background-dark);
-    text-align: center;
-    &:focus,
-    &:hover {
-      color: var(--button-text-color);
-    }
   }
-
- .hidden-components-modal {
-    display: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  color: var(--background-dark);
+  text-align: center;
+  &:focus,
+  &:hover {
+    color: var(--button-text-color);
+  }
 }
- .modal-button-remove {
-  @include mq(mob){
+
+.hidden-components-modal {
+  display: none;
+}
+.modal-button-remove {
+  @include mq(mob) {
     position: absolute;
     width: 248px;
     height: 48px;
@@ -212,22 +226,22 @@ top: 200px;
     font-size: 20px;
     line-height: 1.2;
   }
-  @include mq(tab){
+  @include mq(tab) {
     position: absolute;
     left: 546px;
     top: 522px;
   }
-    padding: 12, 24, 12, 24px;   
-    flex-direction: row;
-    padding: 12px 22px;
-    gap: 10px; 
-    width: 248px;
-    height: 48px;
-    background: var(--title-main);
-    border-radius: 4px;
-    font-family: var(--text-roboto);
-    font-style: normal;
-    font-weight: 400;
-    letter-spacing: 0.02em;
-    color: var(--button-text-white);
-} 
+  padding: 12, 24, 12, 24px;
+  flex-direction: row;
+  padding: 12px 22px;
+  gap: 10px;
+  width: 248px;
+  height: 48px;
+  background: var(--title-main);
+  border-radius: 4px;
+  font-family: var(--text-roboto);
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: var(--button-text-white);
+}

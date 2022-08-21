@@ -49,7 +49,7 @@
 .hero__picture {
   @include mq(mob) {
     position: relative;
-    right: -20%;
+    // right: -20%;
     height: 367px;
     background-image: url(../images/hero/mob/mob-hero-1x.webp);
     background-repeat: no-repeat;
@@ -104,16 +104,14 @@
 
   @include mq(mob-only) {
     padding-bottom: 28px;
-    // min-width: 280px;
-    max-width: 300px;
+    max-width: 280px;
   }
   @include mq(fab-only) {
-    @include fonts($fs: 22px, $fw: 600, $lh: 1.91, $ls: null);
-    min-width: 550px;
+    @include fonts($fs: 24px, $fw: 600, $lh: 1.91, $ls: null);
+
     display: flex;
     align-content: center;
     justify-content: center;
-    // max-width: 460px;
   }
 
   @include mq(tab) {
