@@ -35,6 +35,18 @@ export function renderMarkup(element, markup) {
   element.insertAdjacentHTML('beforeend', markup);
 }
 
+export function addEvents() {
+  const refs = {
+    modalOpenBtn: document.querySelectorAll('[data-modal-cocktail-open]'),
+    backdrop: document.querySelector('[data-modal]'),
+  };
+  refs.modalOpenBtn.forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      refs.backdrop.classList.remove('is-hidden-modal-coctails');
+    });
+  });
+}
+
 export function createRandomMarkup(arr) {
   return arr
     .map(item => {
