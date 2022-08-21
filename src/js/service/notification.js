@@ -1,0 +1,14 @@
+import Notiflix from 'notiflix';
+import 'notiflix/dist/notiflix-3.2.5.min.css';
+
+export const error = () => {
+return Notiflix.Notify.failure('Oops... something went wrong!')
+};
+
+export const noLogin = () => {
+return Notiflix.Notify.info('You need to logIn')
+};
+
+export const succesNotice= (total) => {
+return Notiflix.Notify.info(`Hooray! We found ${total} coctails.`)
+};

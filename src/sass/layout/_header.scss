@@ -140,18 +140,12 @@ input[type='search']::-webkit-search-results-decoration {
 
 .search__input {
   padding: 8px 8px 8px 48px;
-  width: 288px;
+  width: 100%;
   height: 40px;
-  outline: 1px solid var(--button-color-orange);
-  border: none;
+  border: 1px solid #fd5103;
   border-radius: 5px;
+  outline: none;
   color: var(--alfavito-color);
-  transition: outline var(--transition);
-
-  &:hover,
-  &:focus {
-    outline: 1px solid var(--button-text-color);
-  }
 }
 
 .switch__list {
@@ -188,13 +182,11 @@ input[type='search']::-webkit-search-results-decoration {
   margin-left: auto;
   border: 0;
   background-color: transparent;
-
-  @include mq(desk) {
-    display: none;
-  }
+  top: 25px;
+  right: 5px;
 }
 
-.menu-open__icon {
+.btn-menu__icon {
   transition: fill var(--transition);
 
   &:hover,
@@ -252,24 +244,18 @@ input[type='search']::-webkit-search-results-decoration {
   display: none;
 
   @include mq(desc) {
-    @include fonts($fs: 18px, $fw: 400, $lh: 1.33, $ls: null);
-
     display: block;
     width: 80px;
     height: 35px;
-    background-color: var(--button-color-orange);
-    border: none;
+    background-color: var(--button-text-color);
+    border: #fd5103;
     border-radius: 4px;
+
     color: var(--button-color-white);
 
-    transition: color var(--transition), background-color var(--transition),
-      outline var(--transition);
-
-    &:hover,
-    &:focus {
-      color: var(--button-text-color);
-      background-color: var(--button-color-white);
-      outline: 1px solid var(--button-text-color);
+    &:hover {
+      background-color: #fff;
+      color: #fd5103;
     }
   }
 }
@@ -280,7 +266,7 @@ input[type='search']::-webkit-search-results-decoration {
   @include mq(desc) {
     display: block;
     margin-left: auto;
-    font-family: var(--title-poppins);
+    font-family: --title-poppins;
     color: #0000ff;
     border: none;
     background-color: #ffff00;
@@ -294,8 +280,7 @@ input[type='search']::-webkit-search-results-decoration {
     transition: background-color var(--transition);
   }
 
-  &:hover,
-  &:focus {
+  &:hover {
     background-color: #3131e7;
     color: #ffff00;
     text-shadow: 0 2px 3px rgb(225 224 233 / 50%);
