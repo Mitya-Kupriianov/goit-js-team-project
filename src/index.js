@@ -19,11 +19,8 @@ import './js/service/select';
 
 import './js/service/getCocktail';
 
-// import './js/render-random-cards-to main';
-// import './js/searchByLetter';
-// import './js/service/create-markup';
-// import './js/service/render-markup';
-// import './js/service/localStorage';
-
-const addBtn = document.querySelectorAll('.js-add-btn');
-addBtn.addEventListener('click', onAddBtnClick);
+import './js/render-random-cards-to main';
+import './js/searchByLetter';
+import './js/service/create-markup';
+import './js/service/render-markup';
+import './js/service/localStorage';

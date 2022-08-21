@@ -3,7 +3,6 @@
 
   @include mq(tab) {
     padding-top: -60px;
-    // position: relative;
   }
 }
 
@@ -21,6 +20,7 @@
     justify-content: space-evenly;
     gap: 15px;
     max-width: 393px;
+
     &:hover {
       cursor: pointer;
     }
@@ -36,10 +36,12 @@
 .hero__item {
   transition: transform 400ms linear;
   color: (--alfavito-color);
+
   &:hover {
     transform: scale(1.7);
     color: var(--button-color-orange);
   }
+
   @include mq(tab) {
     @include fonts($fs: 14px, $fw: 700, $lh: 1.5, $ls: 0.02em);
     padding: 3px;
@@ -49,12 +51,11 @@
 .hero__picture {
   @include mq(mob) {
     position: relative;
-    // right: -20%;
+
     height: 367px;
     background-image: url(../images/hero/mob/mob-hero-1x.webp);
     background-repeat: no-repeat;
     background-size: contain;
-
     background-position: right 0 bottom 0;
 
     @include mq(retina) {
@@ -69,22 +70,20 @@
 
     height: 367px;
     width: 265px;
-    // background-position: left 0 bottom 0;
+
     background-image: url(../images/hero/tab/tab-hero-1x.webp);
-    // background-repeat: no-repeat;
-    // background-size: contain;
 
     @include mq(retina) {
       background-image: url(../images/hero/tab/tab-hero-2x.webp);
     }
   }
+
   @include mq(desc) {
     position: absolute;
     height: 580px;
     width: 500px;
+
     background-image: url(../images/hero/desc/desc-hero-1x.webp);
-    background-repeat: no-repeat;
-    background-size: contain;
 
     @include mq(retina) {
       background-image: url(../images/hero/desc/desc-hero-2x.webp);
@@ -106,6 +105,7 @@
     padding-bottom: 28px;
     max-width: 280px;
   }
+
   @include mq(fab-only) {
     @include fonts($fs: 24px, $fw: 600, $lh: 1.91, $ls: null);
 
@@ -117,36 +117,39 @@
   @include mq(tab) {
     @include fonts($fs: 26px, $fw: 600, $lh: 1.62, $ls: null);
     display: inline-flex;
+    padding-bottom: 40px;
   }
 
   @include mq(tab-only) {
-    // min-width: 280px;
     max-width: 336px;
-    padding-bottom: 40px;
   }
+
   @include mq(desc) {
     @include fonts($fs: 52px, $fw: 600, $lh: 1.54, $ls: null);
 
     max-width: 688px;
-    padding-bottom: 40px;
   }
 }
 
 .hero__text {
   @include fonts($fs: 14px, $fw: 500, $lh: 2, $ls: null);
+
   color: var(--title-secondary-light-theme);
+
+  min-width: 280px;
   padding-top: 28px;
   padding-bottom: 20px;
-  min-width: 280px;
 
   @include mq(fab) {
     text-align: center;
   }
+
   @include mq(tab) {
     display: flex;
     justify-content: flex-start;
     padding-top: 0;
   }
+
   @include mq(desc) {
     @include fonts($fs: 18px, $fw: 500, $lh: 1.56, $ls: null);
   }
@@ -155,12 +158,11 @@
 .hero__select-menu {
   width: 93px;
   margin: 0 auto;
+
   @include mq(mob-only) {
     padding-bottom: 40px;
-    // display: flex;
-    // align-items: center;
-    // justify-content: center;
   }
+
   @include mq(tab) {
     display: none;
   }
@@ -171,11 +173,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  // flex-shrink: 0;
+
   height: 34px;
   padding: 6px 10px;
 
-  color: #fff;
+  color: var(--button-color-white);
   background: var(--button-color-orange);
 
   border: 1px solid #aaa;
@@ -190,8 +192,10 @@
 }
 
 .hero__select-text {
-  display: flex;
   @include fonts($fs: 16px, $fw: 700, $lh: 1.3, $ls: null);
+
+  display: flex;
+
   transition: border var(--transition), background-color var(--transition);
 
   &:hover {
@@ -223,18 +227,23 @@
 
 .active .options {
   position: absolute;
-  width: 70px;
   display: block;
+
+  width: 93px;
   height: 130px;
+
   border: 1px solid var(--button-color-orange);
+
   overflow-y: scroll;
 }
 
 .option {
   height: 34px;
   cursor: pointer;
-  &:hover {
-    background-color: #f2f2f2;
+
+  &:hover,
+  &:focus {
+    background-color: var(--button-color-white);
   }
 }
 
@@ -243,8 +252,8 @@
 }
 
 .hero__icon {
-  transition: 300ms linear;
-  fill: #fff;
+  transition: var(--transition);
+  fill: var(--button-color-white);
 }
 
 .active .hero__icon {

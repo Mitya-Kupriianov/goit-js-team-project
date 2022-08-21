@@ -32,3 +32,7 @@ export function onAddBtnClick(event) {
   favorite.addFavoriteDrinkById(idDrink);
   setCocktailToLocalStorage(event);
 }
+
+export function removeFromLocalStorage(idDrink) {
+  localStorage.removeItem(key);
+}
