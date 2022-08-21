@@ -13,6 +13,53 @@
 .dark {
   background-image: radial-gradient(ellipse at bottom, #5f5d5d 30%, #000 100%);
 }
-.dark .all {
+
+.dark .dark--background-modal {
+  background-image: radial-gradient(ellipse at bottom, #5f5d5d 30%, #000 100%);
+}
+.dark .dark--background-top {
+  background-image: radial-gradient(ellipse at top, #5f5d5d 30%, #000 100%);
+}
+
+.dark .dark--background {
+  background-image: radial-gradient(ellipse at left, #5f5d5d 30%, #000 100%);
+}
+
+.dark .dark--white-trans::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.dark .dark--title {
+  color: var(--title-secondary-dark-theme);
+}
+
+.dark .dark--white-trans {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.dark .dark--white {
   color: #ffffff;
+}
+
+.dark .dark--grey {
+  color: var(--alfavito-color);
+}
+.dark .dark--grey-hero {
+  color: var(--alfavito-color);
+  &:focus,
+  &:hover {
+    color: var(--footer-color);
+  }
+}
+
+.dark .dark--orang {
+  color: var(--footer-color);
+}
+
+.dark .dark--fill {
+  fill: var(--background-main);
+  &:focus,
+  &:hover {
+    fill: var(--footer-color);
+  }
 }
