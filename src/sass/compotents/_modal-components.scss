@@ -19,13 +19,14 @@
     position: absolute;
     width: 320px;
     height: 730px;
-    top: 500px;
+    top: 400px;
     background-color: var(--button-color-white);
   }
   @include mq(tab) {
     width: 822px;
     height: 598px;
   }
+
   position: absolute;
   transition: var(--transition);
   background-color: var(--button-color-white);
@@ -145,41 +146,26 @@
   font-weight: 400;
   color: var(--title-secondary-light-theme);
 }
-.modal-button-add {
+.modal-button {
   @include mq(mob) {
+    @include fonts($fs: 20px, $fw: 400, $lh: 1.2, $ls: 0.02em);
+    font-family: var(--text-roboto);
+
     position: absolute;
-    left: 16px;
-    top: 661px;
+    bottom: 28px;
+    right: 28px;
+
+    padding: 12px 22px;
+    min-width: 185px;
+
+    color: var(--button-text-white);
+    background-color: var(--button-color-orange);
+    border-radius: 4px;
+    border: none;
+
+    transition: color var(--transition), background-color var(--transition),
+      outline var(--transition);
   }
-  @include mq(tab) {
-    position: absolute;
-    top: 522px;
-    left: 609px;
-  }
-
-  @include fonts($fs: 20px, $fw: 400, $lh: 1.2, $ls: 0.02em);
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  padding: 12px 22px;
-  gap: 10px;
-  width: 185px;
-  height: 48px;
-  left: 0px;
-  top: 0px;
-
-  right: 28px;
-  font-family: var(--text-roboto);
-
-  font-weight: 400;
-
-  color: var(--button-text-white);
-  background-color: var(--button-color-orange);
-  border-radius: 4px;
-  border: none;
-
-  transition: color var(--transition), background-color var(--transition),
-    outline var(--transition);
 
   &:hover,
   &:focus {
@@ -189,59 +175,3 @@
   }
 }
 
-.modal-two-menu__close {
-  @include mq(mob) {
-    position: absolute;
-    left: 271px;
-    top: 12px;
-  }
-  @include mq(tab) {
-    position: absolute;
-    left: 778px;
-    top: 12px;
-  }
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  background: transparent;
-  color: var(--background-dark);
-  text-align: center;
-  &:focus,
-  &:hover {
-    color: var(--button-text-color);
-  }
-}
-
-.hidden-components-modal {
-  display: none;
-}
-.modal-button-remove {
-  @include mq(mob) {
-    position: absolute;
-    width: 248px;
-    height: 48px;
-    left: 16px;
-    top: 661px;
-    font-size: 20px;
-    line-height: 1.2;
-  }
-  @include mq(tab) {
-    position: absolute;
-    left: 546px;
-    top: 522px;
-  }
-  padding: 12, 24, 12, 24px;
-  flex-direction: row;
-  padding: 12px 22px;
-  gap: 10px;
-  width: 248px;
-  height: 48px;
-  background: var(--title-main);
-  border-radius: 4px;
-  font-family: var(--text-roboto);
-  font-style: normal;
-  font-weight: 400;
-  letter-spacing: 0.02em;
-  color: var(--button-text-white);
-}
