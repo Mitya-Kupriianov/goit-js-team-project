@@ -16,3 +16,12 @@ import './js/service/hero-refs';
 import './js/service/login';
 import './js/service/index';
 import './js/service/select';
+
+import './js/service/getCocktail';
+import './js/service/search coctails and load more';
+
+import './js/render-random-cards-to main';
+import './js/searchByLetter';
+import './js/service/search coctails and load more';
+import './js/service/create-markup';
+import './js/service/render-markup';
