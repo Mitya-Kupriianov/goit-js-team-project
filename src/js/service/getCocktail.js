@@ -61,7 +61,7 @@ export default class CocktailAPI {
         arr.push(cocktail);
       }
 
-      const promise = await Promise.all(array).then(response => {
+      const promise = await Promise.all(arr).then(response => {
         return response;
       });
       return promise;
