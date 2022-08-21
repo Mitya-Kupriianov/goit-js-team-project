@@ -64,6 +64,7 @@
   @include mq(tablet) {
     font-size: 28px;
     margin-bottom: 25px;
+    max-width: 204px;
   }
 
   @include mq(desc) {
