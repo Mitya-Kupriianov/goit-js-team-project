@@ -33,9 +33,9 @@ document.addEventListener('keydown', function closeByEsc(e) {
 // When the user clicks anywhere outside of the modal, close it
 
 window.addEventListener('click', event => {
-  console.log(event.target);
   if (event.target === refs.modal) {
     refs.modal.style.display = 'none';
+    window.removeEventListener();
   }
 });
 

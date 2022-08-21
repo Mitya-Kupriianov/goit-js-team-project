@@ -4,8 +4,8 @@ import { signIn, signOutUser, getUser, onAuthStateChanged } from './index';
 refs.buttonLogin.addEventListener('click', onLoginClick);
 
 console.log('11111 :>> ', 11111);
-// console.log();
-function onLoginClick(event) {
+// console.dir();
+export function onLoginClick(event) {
   let id = event.target.dataset.id;
   console.dir(event);
   if (id === 'Log in') {
