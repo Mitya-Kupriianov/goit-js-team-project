@@ -1,4 +1,3 @@
-import { each } from 'lodash';
 import { getRandomCocktail } from './getCocktail';
 
 export default async function insertCocktails() {
@@ -8,5 +7,3 @@ export default async function insertCocktails() {
     array.push(element.data.drinks);
   }
 }
-
-insertCocktails();
