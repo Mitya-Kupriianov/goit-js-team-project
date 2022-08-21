@@ -19,6 +19,7 @@ import './js/service/select';
 
 import './js/service/getCocktail';
 
+
 import './js/render-random-cards-to main';
 import './js/searchByLetter';
 import './js/service/create-markup';
