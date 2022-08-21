@@ -6,11 +6,13 @@ export default class CocktailAPI {
   constructor() {
     this.name = '';
     this.letter = '';
-    this.page = '';
+    this.page = 1;
     this.searchQuery = '';
     this.id = '';
     this.category = '';
-    this.ingredients = '';
+    this.ingredients = {};
+    this.favoriteDrinks = [];
+    this.favoriteIngredients = [];
   }
 
   // todo byName //
@@ -56,7 +58,7 @@ export default class CocktailAPI {
   async getRandomCocktail() {
     try {
       let arr = [];
-      for (let i = 0; i <= 9; i += 1) {
+      for (let i = 0; i < 9; i += 1) {
         const cocktail = axios(BASE_URL + 'random.php');
         arr.push(cocktail);
       }

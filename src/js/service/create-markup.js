@@ -1,6 +1,6 @@
 export function createMarkup(arr) {
   return arr.data.drinks
-    .map(({ strDrink, strDrinkThumb }) => {
+    .map(({ strDrink, strDrinkThumb, idDrink }) => {
       return `
       <li class="cocktails__item card-set-item">
         <img
@@ -9,7 +9,7 @@ export function createMarkup(arr) {
         />
         <div class="cocktails__box">
           <h2 class="cocktails__second-title">${strDrink}</h2>
-          <div class="cocktails__button-box">
+          <div class="cocktails__button-box" id=${idDrink}>
             <button
               type="button"
               class="cocktails__btn"
@@ -38,7 +38,7 @@ export function renderMarkup(element, markup) {
 export function createRandomMarkup(arr) {
   return arr
     .map(item => {
-      const { strDrink, strDrinkThumb } = item.data.drinks[0];
+      const { strDrink, strDrinkThumb, idDrink } = item.data.drinks[0];
       return `
       <li class="cocktails__item card-set-item">
         <img
@@ -47,7 +47,7 @@ export function createRandomMarkup(arr) {
         />
         <div class="cocktails__box">
           <h2 class="cocktails__second-title">${strDrink}</h2>
-          <div class="cocktails__button-box">
+          <div class="cocktails__button-box id=${idDrink}">
             <button
               type="button"
               class="cocktails__btn"
@@ -66,4 +66,16 @@ export function createRandomMarkup(arr) {
       </li>`;
     })
     .join('');
+}
+
+export function markupFilter(markup) {
+  if (window.screen.width < 768) {
+    const markupFiltered = markup.filter((_, index) => index <= 3);
+    return markupFiltered.join('');
+  } else if (window.screen.width >= 768 && window.screen.width < 1280) {
+    const markupFiltered = markup.filter((_, index) => index <= 6);
+    return markupFiltered.join('');
+  }
+  const markupFiltered = markup.filter((_, index) => index <= 9);
+  return markupFiltered.join('');
 }
