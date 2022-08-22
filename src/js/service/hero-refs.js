@@ -4,4 +4,5 @@ export const refs = {
   selectBtnRef: document.querySelector('.hero__select-btn'),
   optionsRef: document.querySelectorAll('.option'),
   heroSelectTextRef: document.querySelector('.hero__select-text'),
+  logInBtn: document.querySelector('.js-burger-btn-login'),
 };

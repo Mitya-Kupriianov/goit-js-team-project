@@ -2,6 +2,7 @@ import { refs } from './hero-refs';
 import { signIn, signOutUser, getUser, onAuthStateChanged } from './index';
 
 refs.buttonLogin.addEventListener('click', onLoginClick);
+refs.logInBtn.addEventListener('click', onLoginClick);
 
 console.log('11111 :>> ', 11111);
 // console.dir();
