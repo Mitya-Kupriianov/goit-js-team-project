@@ -1,38 +1,43 @@
-// подключить сюда KEY из getCocktails
+import { refs } from './hero-refs';
+const { addToFavBtn } = refs;
 
-// вызвать
-
-// favorite.addFavoriteDrinkById(setCocktailToLocalStorage())
-
-// добавить слушателя на кнопку "Add to"
-
-// js-add-btn в разметку Андрея
 import CocktailAPI from './getCocktail';
 const favorite = new CocktailAPI();
 
-console.log(1111);
+console.log(addToFavBtn);
 
-let cocktails = {
-  strDrink: '',
-  strDrinkThumb: '',
+let cocktail = {
+  // strDrink: '',
+  // strDrinkThumb: '',
   idDrink: '',
 };
 
-export function setCocktailToLocalStorage(event) {
-  localStorage.setItem('cocktails', JSON.stringify(cocktails));
+export function setCocktailToLocalStorage(id) {
+  let data = getCocktailStorageData(favorite.KEY);
+  data = data ? JSON.parse(data) : [];
+  data.push(id);
+  localStorage.setItem('cocktails', JSON.stringify(data));
 }
 
 export function getCocktailStorageData(KEY) {
-  const jsonData = JSON.parse(localStorage.getItem(KEY));
-  if (!jsonData) return;
+  try {
+    const jsonData = localStorage.getItem(KEY);
+    // console.log('KEY :>> ', KEY);
+    // console.log('jsonData :>> ', jsonData);
+    if (jsonData) return jsonData;
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 export function onAddBtnClick(event) {
-  console.dir(event);
+  const idDrink = event.target.parentElement.id;
   favorite.addFavoriteDrinkById(idDrink);
-  setCocktailToLocalStorage(event);
+  setCocktailToLocalStorage(idDrink);
 }
 
 export function removeFromLocalStorage(idDrink) {
-  localStorage.removeItem(key);
+  localStorage.removeItem(KEY);
 }
+
+//

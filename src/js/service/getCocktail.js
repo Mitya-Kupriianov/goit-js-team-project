@@ -10,6 +10,7 @@ export default class CocktailAPI {
     this.page = 1;
     this.searchQuery = '';
     this.category = '';
+    this.drinks = '';
     this.ingredients = {};
     this.favoriteDrinks = [];
     this.favoriteIngredients = [];
@@ -96,9 +97,6 @@ export default class CocktailAPI {
     this.favoriteDrinks = this.favoriteDrinks.filter(data => data !== idDrink);
   }
 }
-
-// const favorite = new CocktailAPI();
-// favorite.removeFavoriteDrinkById()
 
 // ___________________________________________________________________________
 
