@@ -51,7 +51,7 @@
   color: var(--alfavito-color);
   font-size: 18px;
   transition: color var(--transition), background-color var(--transition);
-
+  letter-spacing: 0.3px;
   &:hover,
   &:focus {
     color: var(--button-text-white);

@@ -29,6 +29,10 @@
   color: rgba(255, 255, 255, 0.4);
 }
 
+.dark .dark--text {
+  color: var(--text-dark-mod);
+}
+
 .dark .dark--title {
   color: var(--title-secondary-dark-theme);
 }
@@ -63,3 +67,22 @@
     fill: var(--footer-color);
   }
 }
+
+.dark .dark--btn-back {
+  background-color: #313030;
+}
+
+.dark .dark--modal-back {
+  background-color: #313030;
+}
+
+.dark .dark--team-body {
+  background-color: #e2eff97d;
+}
+
+.dark .dark--team-back {
+  background-color: #07131bad;
+}
+
+// background-color: #07131bad;
+// background-color: #e2eff97d;
