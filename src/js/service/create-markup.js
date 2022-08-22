@@ -7,8 +7,9 @@ export function createMarkup(array) {
           alt="${strDrink}"
         />
         <div class="cocktails__box">
-          <h2 class="cocktails__second-title">${strDrink}</h2>
-          <div class="cocktails__button-box id=${idDrink}">
+
+          <h2 class="cocktails__second-title dark--title">${strDrink}</h2>
+          <div class="cocktails__button-box" id=${idDrink}>
             <button
               type="button"
               class="cocktails__btn"
@@ -16,11 +17,11 @@ export function createMarkup(array) {
             >
               <span class="cocktails__button-text">Learn more</span>
             </button>
-            <button type="button" class="cocktails__btn transparent">
+            <button type="button" class="cocktails__btn dark--btn-back js-add-btn transparent">
               <span class="cocktails__button-text">Add to</span>
-              <svg class="cocktails__btn-icon" width="18" height="18">
-                <use href="./images/icon.svg#icon-redlike"></use>
-              </svg>
+              // <svg class="cocktails__btn-icon" width="18" height="18">
+              //   <use href="./images/icon.svg#icon-redlike"></use>
+              // </svg>
             </button>
           </div>
         </div>
@@ -30,7 +31,6 @@ export function createMarkup(array) {
 
 export function renderMarkup(element, markup) {
   element.innerHTML = markup;
-  // element.insertAdjacentHTML('beforeend', markup);
 }
 
 export function createRandomMarkup(array) {
@@ -38,13 +38,16 @@ export function createRandomMarkup(array) {
     const { strDrink, strDrinkThumb, idDrink } = item.data.drinks[0];
     return `
       <li class="cocktails__item card-set-item ">
+
         <img
           src="${strDrinkThumb}"
           alt="${strDrink}"
         />
         <div class="cocktails__box">
+
           <h2 class="cocktails__second-title">${strDrink}</h2>
-          <div class="cocktails__button-box id=${idDrink}">
+          <div class="cocktails__button-box">
+
             <button
               type="button"
               class="cocktails__btn"
@@ -52,11 +55,11 @@ export function createRandomMarkup(array) {
             >
               <span class="cocktails__button-text" id=${idDrink} >Learn more</span>
             </button>
-            <button type="button" class="cocktails__btn transparent">
+            <button type="button" class="cocktails__btn dark--btn-back js-add-btn transparent" data-id=${idDrink}>
+
               <span class="cocktails__button-text">Add to</span>
-              <svg class="cocktails__btn-icon" width="18" height="18">
-                <use href="./images/icon.svg#icon-redlike"></use>
-              </svg>
+           
+              <img src="${icons}" alt="image" width="18">
             </button>
           </div>
         </div>

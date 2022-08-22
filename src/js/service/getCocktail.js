@@ -3,14 +3,15 @@ import axios from 'axios';
 const BASE_URL = 'https://www.thecocktaildb.com/api/json/v1/1/';
 
 export default class CocktailAPI {
+  KEY = 'cocktails';
   constructor() {
     this.name = '';
     this.letter = '';
     this.page = 1;
     this.drinks = '';
     this.searchQuery = '';
-    this.id = '';
     this.category = '';
+    this.drinks = '';
     this.ingredients = {};
     this.favoriteDrinks = [];
     this.favoriteIngredients = [];
@@ -88,4 +89,13 @@ export default class CocktailAPI {
   set query(newQuery) {
     this.searchQuery = newQuery;
   }
+
+  addFavoriteDrinkById(idDrink) {
+    this.favoriteDrinks.push(idDrink);
+  }
+
+  removeFavoriteDrinkById(idDrink) {
+    this.favoriteDrinks = this.favoriteDrinks.filter(data => data !== idDrink);
+  }
 }
+

@@ -23,5 +23,8 @@ import './js/search_input';
 import './js/searchByLetter';
 import './js/service/create-markup';
 import './js/service/render-markup';
+
 import './js/refs';
 import './js/modal_markup';
+import './js/service/localStorage';
+

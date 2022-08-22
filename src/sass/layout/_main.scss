@@ -26,6 +26,9 @@
 }
 
 .cocktails__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   border-radius: 4px;
   outline: 1px solid var(--button-text-color);
 
@@ -61,6 +64,7 @@
   @include mq(tablet) {
     font-size: 28px;
     margin-bottom: 25px;
+    max-width: 204px;
   }
 
   @include mq(desc) {
@@ -142,6 +146,20 @@
   outline: 1px solid var(--button-text-color);
   transition: color var(--transition), background-color var(--transition),
     outline var(--transition);
+
+  // &::after {
+  //   margin-left: 5px;
+  //   width: 19px;
+  //   height: 21px;
+  //   display: inline-block;
+  //   content: '';
+  //   background-image: url(../images/test.svg);
+  //   background-repeat: no-repeat;
+  //   background-size: contain;
+  //   fill: #000;
+  //   // stroke-width: 1px solid var(--button-color-orange);
+  // }
+
   @include mq(tab) {
     min-width: 123px;
     padding: 12px 13px;
