@@ -12,18 +12,19 @@ let cocktail = {
   idDrink: '',
 };
 
-export function setCocktailToLocalStorage(event, arr) {
-  console.dir(event);
-  cocktail = event.target.parentElement.id;
-  // console.log(cocktail);
-  addCocktailsToArrayLS(arr);
-  localStorage.setItem('cocktails', JSON.stringify(cocktail));
+export function setCocktailToLocalStorage(id) {
+  let data = getCocktailStorageData(favorite.KEY);
+  data = data ? JSON.parse(data) : [];
+  data.push(id);
+  localStorage.setItem('cocktails', JSON.stringify(data));
 }
 
 export function getCocktailStorageData(KEY) {
   try {
-    const jsonData = JSON.parse(localStorage.getItem(KEY));
-    if (!jsonData) return;
+    const jsonData = localStorage.getItem(KEY);
+    // console.log('KEY :>> ', KEY);
+    // console.log('jsonData :>> ', jsonData);
+    if (jsonData) return jsonData;
   } catch (error) {
     console.log(error);
   }
@@ -32,7 +33,7 @@ export function getCocktailStorageData(KEY) {
 export function onAddBtnClick(event) {
   const idDrink = event.target.parentElement.id;
   favorite.addFavoriteDrinkById(idDrink);
-  setCocktailToLocalStorage(event);
+  setCocktailToLocalStorage(idDrink);
 }
 
 export function removeFromLocalStorage(idDrink) {

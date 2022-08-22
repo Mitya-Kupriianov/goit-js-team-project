@@ -5,4 +5,5 @@ export const refs = {
   optionsRef: document.querySelectorAll('.option'),
   heroSelectTextRef: document.querySelector('.hero__select-text'),
   addToFavBtn: document.querySelectorAll('.js-add-btn'),
+  
 };

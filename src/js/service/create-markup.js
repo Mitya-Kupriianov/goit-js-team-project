@@ -1,6 +1,7 @@
 import CocktailAPI from './getCocktail';
-import * as icons from '../../images/test.svg';
-
+import icons from '../../images/icon.svg';
+import { setCocktailToLocalStorage } from './localStorage';
+console.log('icons :>> ', icons);
 const favorite = new CocktailAPI();
 import { onAddBtnClick } from './localStorage';
 
@@ -57,19 +58,31 @@ export function addEvents() {
   });
 }
 
-export function addFavoriteEvents() {
-  const refs = {
-    addToFavBtn: document.querySelectorAll('.js-add-btn'),
-  };
+const cocktailList = document.querySelector('.cocktails__list');
+cocktailList.addEventListener('click', onClickCard);
 
-  // console.log(addToFavBtn);
-  refs.addToFavBtn.forEach(function (btn) {
-    btn.addEventListener('click', function (e, idDrink) {
-      // console.log(idDrink);
-      favorite.addFavoriteDrinkById(idDrink);
-      btn.addEventListener('click', onAddBtnClick);
-    });
-  });
+function onClickCard(e) {
+  const btn = e.target.closest('.js-add-btn');
+  if (btn) {
+    setCocktailToLocalStorage(btn.dataset.id);
+  }
+}
+
+console.log('cocktailList :>> ', cocktailList);
+
+export function addFavoriteEvents() {
+  // const refs = {
+  //   addToFavBtn: document.querySelectorAll('.js-add-btn'),
+  // };
+  // // console.log(addToFavBtn);
+  // refs.addToFavBtn.forEach(function (btn) {
+  //   btn.addEventListener('click', function (e, idDrink) {
+  //     console.log('1111 :>> ', 1111);
+  //     // console.log(idDrink);
+  //     favorite.addFavoriteDrinkById(idDrink);
+  //     btn.addEventListener('click', onAddBtnClick);
+  //   });
+  // });
 }
 
 export function createRandomMarkup(arr) {
@@ -93,11 +106,10 @@ export function createRandomMarkup(arr) {
             >
               <span class="cocktails__button-text">Learn more</span>
             </button>
-            <button type="button" class="cocktails__btn js-add-btn transparent" id=${idDrink}>
+            <button type="button" class="cocktails__btn js-add-btn transparent" data-id=${idDrink}>
               <span class="cocktails__button-text">Add to</span>
-              <svg class="cocktails__btn-icon" width="18" height="18">
-                <use href="${icons}"></use>
-               </svg>
+           
+              <img src="${icons}" alt="image" width="18">
             </button>
           </div>
         </div>

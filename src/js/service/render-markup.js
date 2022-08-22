@@ -17,7 +17,5 @@ export async function createAndRenderRandomMarkup() {
   addEvents();
   addFavoriteEvents();
 }
-export function addCocktailsToArrayLS(arr) {
-  addFavoriteEvents(cocktailAPI.favoriteDrinks).JSON.stringify(arr);
-}
+
 window.addEventListener('load', createAndRenderRandomMarkup);
