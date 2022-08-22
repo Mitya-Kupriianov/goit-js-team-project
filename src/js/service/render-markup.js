@@ -3,7 +3,7 @@ import {
   createRandomMarkup,
   renderMarkup,
   markupFilter,
-  addEvents,
+  // addEvents,
   addFavoriteEvents,
 } from './create-markup';
 
@@ -19,7 +19,7 @@ export async function createAndRenderRandomMarkup() {
 
   const markup = createRandomMarkup(arr);
   renderMarkup(cocktailList, markup);
-  addEvents();
+  // addEvents();
   addFavoriteEvents();
 }
 
