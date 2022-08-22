@@ -206,3 +206,10 @@
 .hidden_remove {
   display: none;
 }
+.modal-coctail-component {
+  &:hover,
+  &:focus {
+    color: var(--button-text-color);
+   cursor:pointer;
+  }
+}
