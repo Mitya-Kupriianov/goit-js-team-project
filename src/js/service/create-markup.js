@@ -2,13 +2,12 @@ import CocktailAPI from './getCocktail';
 // import '../../images/hearts/empty-heart.png';
 // import '../../images/hearts/full-heart.png';
 import { setCocktailToLocalStorage } from './localStorage';
-console.log('icons :>> ', icons);
 const favorite = new CocktailAPI();
 // import { onAddBtnClick } from './localStorage';
 
 import { refs } from './hero-refs';
 
-const { addToFavBtn, imgRef, cocktailsBoxRef } = refs;
+const { addToFavBtn, imgRef, RemoveCocktailBtnRef } = refs;
 const cocktailList = document.querySelector('.cocktails__list');
 
 export function createMarkup(arr) {
@@ -62,8 +61,6 @@ export function addEvents() {
 
 // Перенести 63-64
 
-cocktailList.addEventListener('click', onAddBtnClick);
-
 function onAddBtnClick(e) {
   const btn = e.target.closest('.js-add-btn');
   console.log(btn);
@@ -108,8 +105,7 @@ export function createRandomMarkup(arr) {
             <button type="button" class="cocktails__btn dark--btn-back js-add-btn transparent" data-id="${idDrink}">
               <span class="cocktails__button-text">Add to</span>
  
-              <img src="../images/hearts/empty-heart.png" class="img" alt="add-to-favorite" width="18">
-              <img src="../images/hearts/full-heart.png'" class="img hidden_heart" alt="remove-from-favorite" width="18">
+
             </button>
           </div>
         </div>
@@ -130,10 +126,12 @@ export function markupFilter(markup) {
   return markupFiltered.join('');
 }
 
-// cocktailsBoxRef.addEventListener('click', () => {
-//   const refMenu = document.querySelector('.menu__wrap');
-//   refMenu.classList.toggle('menu__wrap-close');
-// });
+// Listener for remove button
 
-// selectBtnRef.addEventListener('click', event => {
-//   //   selectMenuRef.classList.toggle('active');
+cocktailList.addEventListener('click', onAddBtnClick);
+
+// console.log(refs);
+// RemoveCocktailBtnRef.addEventListener('click', event => {
+//   imgRef.classList.toggle('.hidden_heart');
+//   // event.stopPropagation();
+// });

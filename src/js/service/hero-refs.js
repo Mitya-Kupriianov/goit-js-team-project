@@ -8,5 +8,5 @@ export const refs = {
   logInBtn: document.querySelector('.js-burger-btn-login'),
   // removeCocktail: document.querySelector('.js-remove'),
   imgRef: document.querySelector('.img'),
-  RemoveCocktailBtnRef: document.querySelector('.cocktails__btn'),
+  RemoveCocktailBtnRef: document.querySelector('.transparent'),
 };
