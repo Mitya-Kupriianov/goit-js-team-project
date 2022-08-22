@@ -30,14 +30,18 @@ export function getCocktailStorageData(KEY) {
   }
 }
 
-export function onAddBtnClick(event) {
-  const idDrink = event.target.parentElement.id;
-  favorite.addFavoriteDrinkById(idDrink);
-  setCocktailToLocalStorage(idDrink);
-}
-
 export function removeFromLocalStorage(idDrink) {
   localStorage.removeItem(KEY);
 }
 
-//
+// export function onAddBtnClick(event) {
+//   const idDrink = event.target.parentElement.id;
+//   favorite.addFavoriteDrinkById(idDrink);
+//   setCocktailToLocalStorage(idDrink);
+// }
+
+export function onRemoveBtnClick(event) {
+  const idDrink = event.target.parentElement.id;
+  favorite.removeFavoriteDrinkById(idDrink);
+  removeFromLocalStorage(idDrink);
+}

@@ -1,13 +1,15 @@
 import CocktailAPI from './getCocktail';
-import icons from '../../images/icon.svg';
+// import '../../images/hearts/empty-heart.png';
+// import '../../images/hearts/full-heart.png';
 import { setCocktailToLocalStorage } from './localStorage';
 console.log('icons :>> ', icons);
 const favorite = new CocktailAPI();
-import { onAddBtnClick } from './localStorage';
+// import { onAddBtnClick } from './localStorage';
 
 import { refs } from './hero-refs';
 
-const { addToFavBtn } = refs;
+const { addToFavBtn, imgRef, cocktailsBoxRef } = refs;
+const cocktailList = document.querySelector('.cocktails__list');
 
 export function createMarkup(arr) {
   return arr.data.drinks
@@ -58,32 +60,27 @@ export function addEvents() {
   });
 }
 
-const cocktailList = document.querySelector('.cocktails__list');
-cocktailList.addEventListener('click', onClickCard);
+// Перенести 63-64
 
-function onClickCard(e) {
+cocktailList.addEventListener('click', onAddBtnClick);
+
+function onAddBtnClick(e) {
   const btn = e.target.closest('.js-add-btn');
+  console.log(btn);
   if (btn) {
     setCocktailToLocalStorage(btn.dataset.id);
   }
 }
 
-console.log('cocktailList :>> ', cocktailList);
+// function onRemoveBtnClick(e) {
+//   const btn = e.target.closest('.js-remove');
+//   console.log(btn);
+//   if (btn) {
+//     setCocktailToLocalStorage(btn.dataset.id);
+//   }
+// }
 
-export function addFavoriteEvents() {
-  // const refs = {
-  //   addToFavBtn: document.querySelectorAll('.js-add-btn'),
-  // };
-  // // console.log(addToFavBtn);
-  // refs.addToFavBtn.forEach(function (btn) {
-  //   btn.addEventListener('click', function (e, idDrink) {
-  //     console.log('1111 :>> ', 1111);
-  //     // console.log(idDrink);
-  //     favorite.addFavoriteDrinkById(idDrink);
-  //     btn.addEventListener('click', onAddBtnClick);
-  //   });
-  // });
-}
+console.log('cocktailList :>> ', cocktailList);
 
 export function createRandomMarkup(arr) {
   return arr
@@ -108,11 +105,11 @@ export function createRandomMarkup(arr) {
             >
               <span class="cocktails__button-text">Learn more</span>
             </button>
-            <button type="button" class="cocktails__btn dark--btn-back js-add-btn transparent" data-id=${idDrink}>
-
+            <button type="button" class="cocktails__btn dark--btn-back js-add-btn transparent" data-id="${idDrink}">
               <span class="cocktails__button-text">Add to</span>
-           
-              <img src="${icons}" alt="image" width="18">
+ 
+              <img src="../images/hearts/empty-heart.png" class="img" alt="add-to-favorite" width="18">
+              <img src="../images/hearts/full-heart.png'" class="img hidden_heart" alt="remove-from-favorite" width="18">
             </button>
           </div>
         </div>
@@ -132,3 +129,11 @@ export function markupFilter(markup) {
   const markupFiltered = markup.filter((_, index) => index <= 9);
   return markupFiltered.join('');
 }
+
+// cocktailsBoxRef.addEventListener('click', () => {
+//   const refMenu = document.querySelector('.menu__wrap');
+//   refMenu.classList.toggle('menu__wrap-close');
+// });
+
+// selectBtnRef.addEventListener('click', event => {
+//   //   selectMenuRef.classList.toggle('active');

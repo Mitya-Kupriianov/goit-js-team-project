@@ -6,5 +6,7 @@ export const refs = {
   heroSelectTextRef: document.querySelector('.hero__select-text'),
   addToFavBtn: document.querySelectorAll('.js-add-btn'),
   logInBtn: document.querySelector('.js-burger-btn-login'),
-
+  // removeCocktail: document.querySelector('.js-remove'),
+  imgRef: document.querySelector('.img'),
+  RemoveCocktailBtnRef: document.querySelector('.cocktails__btn'),
 };
