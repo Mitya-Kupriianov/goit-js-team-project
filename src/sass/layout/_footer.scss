@@ -1,58 +1,55 @@
 .footer__container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    background-color: #f5f5f5;
-    min-height: 110px;
+  background-color: var(--footer-color);
+  min-height: 110px;
 }
 
 .footer__list--icon {
-    display: flex;
+  display: flex;
 
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 10px;
-
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
-
 .footer__title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    @include fonts(14px, 14, 1.91, 0em);
-        font-family: Roboto;
-    font-weight: 400;
-    color: #202025;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include fonts(14px, 14, 1.91, 0em);
+  font-family: Roboto;
+  font-weight: 400;
+  color: #202025;
 
-    @include mq (mob) {
-        flex-direction: column;
-        font-size: 8px;
-    }
+  @include mq(mob) {
+    flex-direction: column;
+    font-size: 8px;
+  }
 
-    @include mq (tab) {
-        font-size: 12px;
-        flex-direction: row;
-    }
+  @include mq(tab) {
+    font-size: 12px;
+    flex-direction: row;
+  }
 
-    @include mq(desc) {
-        font-size: 14px;
-
-    }
+  @include mq(desc) {
+    font-size: 14px;
+  }
 }
 
 .footer__team {
-    @include fonts(10px, 14, 1.91, 0em);
-    font-family: Roboto;
-    color: var(--button-color-orange);
-    text-decoration: underline;
+  @include fonts(10px, 14, 1.91, 0em);
+  font-family: Roboto;
+  color: var(--title-secondary-dark-theme);
+  text-decoration: underline;
 
-    @include mq(tab) {
-        font-size: 13px;
-    }
+  @include mq(tab) {
+    font-size: 13px;
+  }
 
-    @include mq(desc) {
-        font-style: 15px;
-    }
+  @include mq(desc) {
+    font-style: 15px;
+  }
 }
