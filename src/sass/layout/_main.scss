@@ -1,8 +1,22 @@
+.cocktails__container {
+  @include mq(tab) {
+    padding-bottom: 60px;
+  }
+  @include mq(desc) {
+    padding-bottom: 60px;
+  }
+}
+
 .cocktails__first-title {
   @include fonts(22px, 600, 1.91, 0em);
   text-align: center;
   color: var(--title-secondary-light-theme);
   margin-bottom: 60px;
+
+  @include mq(fab) {
+    @include fonts(32px, 700, 1.31, 0em);
+    font-family: Roboto;
+  }
 
   @include mq(tab) {
     @include fonts(32px, 700, 1.31, 0em);
@@ -15,34 +29,73 @@
   }
 }
 
-.cocktails__item.card-set-item {
-  @include mq(mob-only) {
-    --card-item: 1;
-    gap: 20px;
+// .cocktails__item.card-set-item {
+//   --card-item: 1;
+//   --card-gap: 20px;
+
+//   @include mq(tab) {
+//     --card-item: 2;
+//     --card-gap: 32px;
+//   }
+//   @include mq(desc) {
+//     --card-item: 3;
+//   }
+// }
+.cocktails__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-around;
+  @include mq(fab) {
+    flex-wrap: wrap;
+    gap: 32px;
   }
-  @include mq(tab-only) {
-    --card-item: 2;
+  @include mq(tab) {
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+  @include mq(desc) {
+    gap: 32px;
+    padding: 0;
   }
 }
-
 .cocktails__item {
   border-radius: 4px;
   border: 1px solid var(--title-main);
+  width: 280px;
+  // padding-left: 20px;
+  // padding-right: 20px;
+  @include mq(fab) {
+    width: 480px;
+  }
+  @include mq(tab) {
+    width: 333px;
+  }
+  @include mq(desc) {
+    width: 395px;
+  }
 }
 
 .cocktails__box {
   padding: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+.cocktails__img {
+  width: 100%;
+  margin-bottom: 48px;
+  @include mq(fab) {
+    margin-bottom: 20px;
+  }
 }
 
 .cocktails__second-title {
-  margin-bottom: 16px;
   @include fonts(26px, 900, 1.62, 0em);
   font-family: Roboto;
   text-align: center;
   color: var(--title-secondary-light-theme);
   @include mq(tablet) {
     font-size: 28px;
-    margin-bottom: 25px;
   }
   @include mq(desc) {
     font-size: 32px;
@@ -52,25 +105,32 @@
 .cocktails__btn {
   @include fonts(14px, 400, 1.2, 0.02em);
   padding: 8px 16px;
-  display: inline-block;
+  // display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
   font-family: Roboto;
   text-align: center;
-  max-width: 108px;
+  // max-width: 108px;
   height: 39px;
   color: var(--button-text-white);
   background-color: var(--button-color-orange);
   border-radius: 4px;
   border: transparent;
-  @include mq(tab) {
-    padding: 12px 27px;
+  @include mq(fab) {
+    padding: 10px 20px;
     font-size: 20px;
-    max-width: 160px;
-    height: 48px;
+  }
+  @include mq(tab) {
+    padding: 12px 15px;
+    font-size: 20px;
+    // max-width: 160px;
+    // height: 48px;
   }
   @include mq(desc) {
-    padding: 12px 38px;
-    max-width: 182px;
-    height: 48px;
+    padding: 12px 34px;
+    // max-width: 182px;
+    // height: 48px;
   }
 }
 .cocktails__btn.transparent {
@@ -80,14 +140,18 @@
 }
 
 .cocktails__btn + .cocktails__btn {
-  padding: 8px 21px;
   margin-left: 20px;
+  @include mq(fab) {
+    margin-left: 12px;
+  }
   @include mq(tab) {
-    padding: 12px;
     margin-left: 12px;
   }
   @include mq(desc) {
-    padding: 12px 21px;
     margin-left: 16px;
   }
+}
+
+.cocktails__btn-icon {
+  margin-left: 4px;
 }
