@@ -7,24 +7,38 @@
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.2);
   opacity: 1;
+  transition: 700ms;
 }
-
+.backdrop-modal-components::after {
+content: '';
+pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+}
 .is-hidden-modal-two {
   opacity: 0;
   pointer-events: none;
+  transition: 700ms;
 }
 
 .modal-two-container {
   @include mq(mob) {
+    z-index: 19;
     position: absolute;
     width: 320px;
     height: 730px;
-    top: 400px;
+    top: 365px;
     background-color: var(--button-color-white);
+    overflow: auto;
   }
   @include mq(tab) {
     width: 822px;
     height: 598px;
+    top: 400px;
   }
 
   position: absolute;
@@ -32,6 +46,8 @@
   background-color: var(--button-color-white);
   left: 50%;
   transform: translate(-50%, -50%);
+  overflow: auto;
+  transition: 700ms;
 }
 .modal-two-header {
   position: absolute;
@@ -162,7 +178,7 @@
     background-color: var(--button-color-orange);
     border-radius: 4px;
     border: none;
-
+    transition: 700ms;
     transition: color var(--transition), background-color var(--transition),
       outline var(--transition);
   }
@@ -176,5 +192,8 @@
 }
 
 .hidden-components-modal{
+  display: none;
+}
+.modal-scale {
   display: none;
 }
