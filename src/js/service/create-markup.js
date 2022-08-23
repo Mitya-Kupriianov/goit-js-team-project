@@ -32,9 +32,8 @@ export function createMarkup(arr) {
             </button>
             <button type="button" class="cocktails__btn dark--btn-back js-add-btn transparent">
               <span class="cocktails__button-text">Add to</span>
-              // <svg class="cocktails__btn-icon" width="18" height="18">
-              //   <use href="./images/icon.svg#icon-redlike"></use>
-              // </svg>
+              <img class="empty-heart" data-toggle="hidden-hearFt" src="${emptyHeart}" alt="" width="18" height="18"/>
+              <img class="full-heart" data-toggle="empty-heart" src="${fullHeart}" alt="" width="18" height="18"/> 
             </button>
           </div>
         </div>
@@ -85,8 +84,8 @@ export function createRandomMarkup(arr, arrIds) {
     .map(item => {
       const { strDrink, strDrinkThumb, idDrink } = item.data.drinks[0];
       // const isChecked = arrIds.includes(idDrink);
-      // if (!isChecked) {
-      //   imgRef.classList.toggle('hidden-heart');
+      // if (arrIds.includes(idDrink)) {
+      //   // alert('This cocktail is already in your list');
       // }
       return `
       <li class="cocktails__item card-set-item">
@@ -139,9 +138,9 @@ console.log(imgRef);
 
 {
   /* <img class="img ${
-     isChecked ? 'hidden-heart' : ''
+     isChecked ? 'full-heart' : 'empty-heart'
      }" data-toggle="hidden-hearFt" src="${fullHeart}" alt="" width="18" height="18"/>
      <img class="img ${
-     !isChecked ? 'hidden-heart' : ''
+     !isChecked ? 'empty-heart' : 'full-heart'
      }" data-toggle="empty-heart" src="${emptyHeart} " alt="" width="18" height="18"/>*/
 }

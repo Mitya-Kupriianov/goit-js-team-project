@@ -2,16 +2,13 @@ import CocktailAPI from './getCocktail';
 import { createRandomMarkup, renderMarkup, addEvents } from './create-markup';
 import { getCocktailStorageData } from './localStorage';
 
-import { refs } from './hero-refs';
-
-const { imgRef } = refs;
-
 const cocktailList = document.querySelector('.cocktails__list');
 const cocktailAPI = new CocktailAPI();
+const ids = getCocktailStorageData(cocktailAPI.KEY);
 
 export async function createAndRenderRandomMarkup() {
   const arr = await cocktailAPI.getRandomCocktail();
-  const ids = getCocktailStorageData(cocktailAPI.KEY);
+  // const ids = getCocktailStorageData(cocktailAPI.KEY);
 
   const markup = createRandomMarkup(arr, ids);
   renderMarkup(cocktailList, markup);
@@ -23,23 +20,17 @@ export function toToggleAddToBtn() {
   const addToFavBtn = document.querySelectorAll('.js-add-btn');
 
   addToFavBtn.forEach(item => {
-    // const imgRef = item.querySelector('.img');
-    // console.log(item);
     item.addEventListener('click', function () {
       item.classList.toggle('activated');
     });
+    // console.dir(addToFavBtn.dataset.id);
   });
+  // if (ids.includes(addToFavBtn.dataset.id)) {
+  //   item.classList.add('activated');
+  // }
+  // else {
+  //   item.classList.remove('activated');
+  // }
 }
-// export function toToggleAddToBtn() {
-//   const addToFavBtn = document.querySelectorAll('.js-add-btn');
-
-//   addToFavBtn.forEach(item => {
-//     const imgRef = item.querySelector('.img');
-//     // console.log(item);
-//     item.addEventListener('click', function () {
-//       imgRef.classList.toggle('hidden-heart');
-//     });
-//   });
-// }
 
 window.addEventListener('load', createAndRenderRandomMarkup);
