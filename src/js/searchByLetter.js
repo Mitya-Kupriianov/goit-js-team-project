@@ -26,21 +26,3 @@ export async function renderByLetter(letter) {
   const filterMarkup = markupFilter(markup);
   renderMarkup(cocktailList, filterMarkup);
 }
-
-//! <----------2----------->//
-
-// async function onLetterClick(e) {
-//   console.log(e.target.innerHTML);
-//   if (!e.target.innerHTML) return;
-//   cocktailApi.searchQuery = e.target.innerHTML;
-
-//   try {
-//     await cocktailApi
-//       .getCocktailByLetter()
-//       .then((cocktailApi.drinks = cocktailApi.data.drinks));
-//     console.log(cocktailApi.drinks);
-//     renderMarkup(cocktailApi.drinks);
-//   } catch (error) {
-//     console.log(error.message);
-//   }
-// }

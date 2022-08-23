@@ -14,14 +14,12 @@ export function createMarkup(array) {
               type="button"
               class="cocktails__btn"
               data-modal-cocktail-open
+               data-id=${idDrink}
             >
               <span class="cocktails__button-text">Learn more</span>
             </button>
             <button type="button" class="cocktails__btn dark--btn-back js-add-btn transparent">
               <span class="cocktails__button-text">Add to</span>
-              // <svg class="cocktails__btn-icon" width="18" height="18">
-              //   <use href="./images/icon.svg#icon-redlike"></use>
-              // </svg>
             </button>
           </div>
         </div>
@@ -52,14 +50,15 @@ export function createRandomMarkup(array) {
               type="button"
               class="cocktails__btn"
               data-modal-cocktail-open
+               data-id=${idDrink}
             >
               <span class="cocktails__button-text" id=${idDrink} >Learn more</span>
             </button>
-            <button type="button" class="cocktails__btn dark--btn-back js-add-btn transparent" data-id=${idDrink}>
+            <button type="button" class="cocktails__btn dark--btn-back js-add-btn transparent">
 
               <span class="cocktails__button-text">Add to</span>
            
-              <img src="${icons}" alt="image" width="18">
+              <img src="" alt="image" width="18">
             </button>
           </div>
         </div>
@@ -72,5 +71,5 @@ export function markupFilter(markup) {
     return markup.filter((_, index) => index < 3).join('');
   } else if (window.screen.width >= 768 && window.screen.width < 1280) {
     return markup.filter((_, index) => index < 6).join('');
-  } else return markup.filter((_, index) => index <= 9).join('');
+  } else return markup.filter((_, index) => index < 9).join('');
 }
