@@ -14,7 +14,7 @@ let cocktail = {
 
 export function setCocktailToLocalStorage(id) {
   let data = getCocktailStorageData(favorite.KEY);
-  data = data ? JSON.parse(data) : [];
+  data = data ? data : [];
   data.push(id);
   localStorage.setItem('cocktails', JSON.stringify(data));
 }
@@ -22,22 +22,18 @@ export function setCocktailToLocalStorage(id) {
 export function getCocktailStorageData(KEY) {
   try {
     const jsonData = localStorage.getItem(KEY);
-    // console.log('KEY :>> ', KEY);
-    // console.log('jsonData :>> ', jsonData);
-    if (jsonData) return jsonData;
+    if (jsonData) return JSON.parse(jsonData);
   } catch (error) {
     console.log(error);
   }
-}
-
-export function onAddBtnClick(event) {
-  const idDrink = event.target.parentElement.id;
-  favorite.addFavoriteDrinkById(idDrink);
-  setCocktailToLocalStorage(idDrink);
 }
 
 export function removeFromLocalStorage(idDrink) {
   localStorage.removeItem(KEY);
 }
 
-//
+export function onRemoveBtnClick(event) {
+  const idDrink = event.target.parentElement.id;
+  favorite.removeFavoriteDrinkById(idDrink);
+  removeFromLocalStorage(idDrink);
+}

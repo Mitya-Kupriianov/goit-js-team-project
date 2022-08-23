@@ -1,6 +1,24 @@
-export function createMarkup(array) {
-  return array.data.drinks.map(({ strDrink, strDrinkThumb, idDrink }) => {
-    return `
+
+import CocktailAPI from './getCocktail';
+import {
+  setCocktailToLocalStorage,
+  getCocktailStorageData,
+} from './localStorage';
+import emptyHeart from '../../images/hearts/empty-heart.png';
+import fullHeart from '../../images/hearts/full-heart.png';
+
+const favorite = new CocktailAPI();
+
+import { refs } from './hero-refs';
+
+const { addToFavBtn, imgRef, RemoveCocktailBtnRef } = refs;
+const cocktailList = document.querySelector('.cocktails__list');
+
+export function createMarkup(arr) {
+  return arr.data.drinks
+    .map(({ strDrink, strDrinkThumb, idDrink }) => {
+      return `
+
       <li class="cocktails__item card-set-item">
         <img
           src="${strDrinkThumb}"
@@ -20,6 +38,8 @@ export function createMarkup(array) {
             </button>
             <button type="button" class="cocktails__btn dark--btn-back js-add-btn transparent">
               <span class="cocktails__button-text">Add to</span>
+              <img class="empty-heart" data-toggle="hidden-hearFt" src="${emptyHeart}" alt="" width="18" height="18"/>
+              <img class="full-heart" data-toggle="empty-heart" src="${fullHeart}" alt="" width="18" height="18"/> 
             </button>
           </div>
         </div>
@@ -36,6 +56,44 @@ export function createRandomMarkup(array) {
     const { strDrink, strDrinkThumb, idDrink } = item.data.drinks[0];
     return `
       <li class="cocktails__item card-set-item ">
+
+
+// Click on "Add to Favorites button"
+
+function onAddBtnClick(e) {
+  const btn = e.target.closest('.js-add-btn');
+  // console.dir(btn);
+  if (btn) {
+    const data = getCocktailStorageData(favorite.KEY);
+    console.log(btn);
+    console.log(data);
+    if (!data) {
+      btn.classList.add('activated');
+      setCocktailToLocalStorage(btn.dataset.id);
+    }
+    if (data.includes(btn.dataset.id)) {
+      return alert('This cocktail is already included!');
+    } else {
+      btn.classList.add('activated');
+      setCocktailToLocalStorage(btn.dataset.id);
+    }
+  }
+}
+
+// function onRemoveBtnClick(e) {
+//   const btn = e.target.closest('.js-remove');
+//   console.log(btn);
+//   if (btn) {
+//     setCocktailToLocalStorage(btn.dataset.id);
+//   }
+// }
+
+export function createRandomMarkup(arr) {
+  return arr
+    .map(item => {
+      const { strDrink, strDrinkThumb, idDrink } = item.data.drinks[0];
+      return `
+      <li class="cocktails__item card-set-item">
 
         <img
           src="${strDrinkThumb}"
@@ -54,11 +112,12 @@ export function createRandomMarkup(array) {
             >
               <span class="cocktails__button-text" id=${idDrink} >Learn more</span>
             </button>
-            <button type="button" class="cocktails__btn dark--btn-back js-add-btn transparent">
 
-              <span class="cocktails__button-text">Add to</span>
-           
-              <img src="" alt="image" width="18">
+            <button type="button" class="cocktails__btn dark--btn-back js-add-btn transparent" data-id="${idDrink}">
+              <span class="cocktails__button-text">Add to</span>  
+              <img class="empty-heart" data-toggle="hidden-hearFt" src="${emptyHeart}" alt="" width="18" height="18"/>
+              <img class="full-heart" data-toggle="empty-heart" src="${fullHeart}" alt="" width="18" height="18"/> 
+
             </button>
           </div>
         </div>
@@ -73,3 +132,14 @@ export function markupFilter(markup) {
     return markup.filter((_, index) => index < 6).join('');
   } else return markup.filter((_, index) => index < 9).join('');
 }
+
+// Listeners
+
+cocktailList.addEventListener('click', onAddBtnClick);
+
+/* <img class="img ${
+     isChecked ? 'full-heart' : 'empty-heart'
+     }" data-toggle="hidden-hearFt" src="${fullHeart}" alt="" width="18" height="18"/>
+     <img class="img ${
+     !isChecked ? 'empty-heart' : 'full-heart'
+     }" data-toggle="empty-heart" src="${emptyHeart} " alt="" width="18" height="18"/>*/
