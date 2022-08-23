@@ -98,4 +98,3 @@ export default class CocktailAPI {
     this.favoriteDrinks = this.favoriteDrinks.filter(data => data !== idDrink);
   }
 }
-

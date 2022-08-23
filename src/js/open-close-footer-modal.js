@@ -34,7 +34,7 @@ document.addEventListener('keydown', function closeByEsc(e) {
 
 window.addEventListener('click', event => {
   if (event.target === refs.modal) {
-    refs.modal.style.display = 'none';
+    refs.modal.classList.toggle('is-hidden');
     window.removeEventListener();
   }
 });
