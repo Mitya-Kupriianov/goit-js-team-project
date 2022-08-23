@@ -4,43 +4,38 @@ import {
   createMarkup,
   markupFilter,
 } from './service/create-markup';
+import Notiflix from 'notiflix';
+import { onError } from './service/notification';
+import { noResultsMarkup } from '../js/service/create-markup';
 
 const listOfLetters = document.querySelector('.hero__list');
 const cocktailList = document.querySelector('.cocktails__list');
+const title = document.querySelector('.cocktails__first-title');
+const mobileListOfLetter = document.querySelector('.hero__select');
 
 listOfLetters.addEventListener('click', onLetterClick);
+mobileListOfLetter.addEventListener('click', onLetterClick);
 const cocktailApi = new CocktailAPI();
 
 //! <--------1-------> ///
 
 export function onLetterClick(e) {
-  console.log(e.target.Node);
+  console.log(e.target.closest('.option'));
+  if (!e.target.innerHTML) return;
   const letter = e.target.innerHTML.toLowerCase();
   renderByLetter(letter);
 }
 
 export async function renderByLetter(letter) {
-  cocktailApi.letter = letter;
-  const response = await cocktailApi.getCocktailByLetter();
-  const markup = createMarkup(response);
-  const filterMarkup = markupFilter(markup);
-  renderMarkup(cocktailList, filterMarkup);
+  try {
+    cocktailApi.letter = letter;
+    const response = await cocktailApi.getCocktailByLetter();
+    const markup = createMarkup(response);
+    const filterMarkup = markupFilter(markup);
+    renderMarkup(cocktailList, filterMarkup);
+  } catch (error) {
+    onError();
+    title.innerHTML = "Sorry, we didn't find any cocktail for you";
+    return (cocktailList.innerHTML = noResultsMarkup());
+  }
 }
-
-//! <----------2----------->//
-
-// async function onLetterClick(e) {
-//   console.log(e.target.innerHTML);
-//   if (!e.target.innerHTML) return;
-//   cocktailApi.searchQuery = e.target.innerHTML;
-
-//   try {
-//     await cocktailApi
-//       .getCocktailByLetter()
-//       .then((cocktailApi.drinks = cocktailApi.data.drinks));
-//     console.log(cocktailApi.drinks);
-//     renderMarkup(cocktailApi.drinks);
-//   } catch (error) {
-//     console.log(error.message);
-//   }
-// }
