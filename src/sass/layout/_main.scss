@@ -1,4 +1,8 @@
 .cocktails {
+  padding-bottom: 20px;
+  @include mq(tab) {
+    padding-bottom: 60px;
+  }
   @include mq(desc) {
     padding-top: 180px;
   }
@@ -172,7 +176,31 @@
   }
 }
 
-.cocktails__btn-icon {
-  margin-left: 8px;
-  fill: var(--button-text-color);
+.empty-heart,
+.full-heart {
+  margin-left: 5px;
+}
+
+.empty-heart {
+  display: block;
+}
+.full-heart {
+  display: none;
+}
+
+.activated .empty-heart {
+  display: none;
+}
+.activated .full-heart {
+  display: block;
+}
+
+.cocktails__btn--position {
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 60px;
+}
+
+.btn_is-hidden {
+  display: none;
 }

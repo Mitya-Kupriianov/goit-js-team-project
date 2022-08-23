@@ -1,11 +1,14 @@
 import CocktailAPI from './service/getCocktail';
 import cardTmpl from '../tmp/random-card.hbs';
+
 import createMarkup from './/service/create-markup';
 import {
   createMarkup,
   renderMarkup,
   markupFilter,
 } from './/service/create-markup';
+
+
 const throttle = require('lodash.throttle');
 import Notiflix from 'notiflix';
 
