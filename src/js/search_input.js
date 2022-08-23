@@ -1,6 +1,5 @@
 import CocktailAPI from './service/getCocktail';
 import cardTmpl from '../tmp/random-card.hbs';
-import createMarkup from './/service/create-markup';
 const throttle = require('lodash.throttle');
 
 refs = {
