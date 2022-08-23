@@ -173,9 +173,23 @@
   }
 }
 
-.cocktails__btn-icon {
-  margin-left: 8px;
-  fill: var(--button-text-color);
+.empty-heart,
+.full-heart {
+  margin-left: 5px;
+}
+
+.empty-heart {
+  display: block;
+}
+.full-heart {
+  display: none;
+}
+
+.activated .empty-heart {
+  display: none;
+}
+.activated .full-heart {
+  display: block;
 }
 
 .cocktails__btn--position {

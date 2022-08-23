@@ -8,6 +8,7 @@ import {
 export const btnLoad = document.querySelector('.load__more');
 const listOfLetters = document.querySelector('.hero__list');
 const cocktailList = document.querySelector('.cocktails__list');
+const optionsRef = document.querySelectorAll('.option');
 
 listOfLetters.addEventListener('click', onLetterClick);
 const cocktailApi = new CocktailAPI();
@@ -35,4 +36,5 @@ export async function renderByLetter(letter) {
   markupLetter = markup;
   const filterMarkup = markupFilter(markup);
   renderMarkup(cocktailList, filterMarkup);
+  renderMarkup(optionsRef, filterMarkup);
 }
