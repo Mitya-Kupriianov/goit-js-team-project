@@ -5,16 +5,13 @@ export function createMarkup(array) {
   return array.data.drinks.map(({ strDrink, strDrinkThumb, idDrink }) => {
     return `
        <li class="cocktails__item card-set-item ">
-
         <img
           src="${strDrinkThumb}"
           alt="${strDrink}"
         />
         <div class="cocktails__box">
-
           <h2 class="cocktails__second-title">${strDrink}</h2>
           <div class="cocktails__button-box">
-
             <button
               type="button"
               class="cocktails__btn"
@@ -23,9 +20,7 @@ export function createMarkup(array) {
               <span class="cocktails__button-text" id=${idDrink} >Learn more</span>
             </button>
             <button type="button" class="cocktails__btn dark--btn-back js-add-btn transparent" data-id=${idDrink}>
-
               <span class="cocktails__button-text">Add to</span>
-           
             </button>
           </div>
         </div>
@@ -42,16 +37,13 @@ export function createRandomMarkup(array) {
     const { strDrink, strDrinkThumb, idDrink } = item.data.drinks[0];
     return `
       <li class="cocktails__item card-set-item ">
-
         <img
           src="${strDrinkThumb}"
           alt="${strDrink}"
         />
         <div class="cocktails__box">
-
           <h2 class="cocktails__second-title">${strDrink}</h2>
           <div class="cocktails__button-box">
-
             <button
               type="button"
               class="cocktails__btn"
@@ -60,9 +52,7 @@ export function createRandomMarkup(array) {
               <span class="cocktails__button-text" id=${idDrink} >Learn more</span>
             </button>
             <button type="button" class="cocktails__btn dark--btn-back js-add-btn transparent" data-id=${idDrink}>
-
               <span class="cocktails__button-text">Add to</span>
-           
             </button>
           </div>
         </div>
