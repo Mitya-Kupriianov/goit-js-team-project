@@ -1,4 +1,3 @@
-
 import CocktailAPI from './getCocktail';
 import {
   setCocktailToLocalStorage,
@@ -15,9 +14,8 @@ const { addToFavBtn, imgRef, RemoveCocktailBtnRef } = refs;
 const cocktailList = document.querySelector('.cocktails__list');
 
 export function createMarkup(arr) {
-  return arr.data.drinks
-    .map(({ strDrink, strDrinkThumb, idDrink }) => {
-      return `
+  return arr.data.drinks.map(({ strDrink, strDrinkThumb, idDrink }) => {
+    return `
 
       <li class="cocktails__item card-set-item">
         <img
@@ -51,13 +49,6 @@ export function renderMarkup(element, markup) {
   element.innerHTML = markup;
 }
 
-export function createRandomMarkup(array) {
-  return array.map(item => {
-    const { strDrink, strDrinkThumb, idDrink } = item.data.drinks[0];
-    return `
-      <li class="cocktails__item card-set-item ">
-
-
 // Click on "Add to Favorites button"
 
 function onAddBtnClick(e) {
@@ -89,12 +80,10 @@ function onAddBtnClick(e) {
 // }
 
 export function createRandomMarkup(arr) {
-  return arr
-    .map(item => {
-      const { strDrink, strDrinkThumb, idDrink } = item.data.drinks[0];
-      return `
+  return arr.map(item => {
+    const { strDrink, strDrinkThumb, idDrink } = item.data.drinks[0];
+    return `
       <li class="cocktails__item card-set-item">
-
         <img
           src="${strDrinkThumb}"
           alt="${strDrink}"
