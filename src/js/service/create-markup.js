@@ -8,6 +8,8 @@ export function createMarkup(array) {
        <li class="cocktails__item card-set-item ">
 
 
+
+
 import CocktailAPI from './getCocktail';
 import {
   setCocktailToLocalStorage,
@@ -29,15 +31,14 @@ export function createMarkup(arr) {
 
       <li class="cocktails__item card-set-item">
 
+
         <img
           src="${strDrinkThumb}"
           alt="${strDrink}"
         />
         <div class="cocktails__box">
-
           <h2 class="cocktails__second-title">${strDrink}</h2>
           <div class="cocktails__button-box">
-
             <button
               type="button"
               class="cocktails__btn"
@@ -47,13 +48,15 @@ export function createMarkup(arr) {
               <span class="cocktails__button-text" id=${idDrink} >Learn more</span>
             </button>
             <button type="button" class="cocktails__btn dark--btn-back js-add-btn transparent" data-id=${idDrink}>
-
               <span class="cocktails__button-text">Add to</span>
+
+
 
            
 
               <img class="empty-heart" data-toggle="hidden-hearFt" src="${emptyHeart}" alt="" width="18" height="18"/>
               <img class="full-heart" data-toggle="empty-heart" src="${fullHeart}" alt="" width="18" height="18"/> 
+
 
             </button>
           </div>
@@ -92,16 +95,16 @@ export function createRandomMarkup(arr) {
   return arr.map(item => {
     const { strDrink, strDrinkThumb, idDrink } = item.data.drinks[0];
     return `
-      <li class="cocktails__item card-set-item">
+
+      <li class="cocktails__item card-set-item ">
+
         <img
           src="${strDrinkThumb}"
           alt="${strDrink}"
         />
         <div class="cocktails__box">
-
           <h2 class="cocktails__second-title">${strDrink}</h2>
           <div class="cocktails__button-box">
-
             <button
               type="button"
               class="cocktails__btn"
@@ -112,6 +115,7 @@ export function createRandomMarkup(arr) {
             </button>
 
 
+
               <span class="cocktails__button-text">Add to</span>
            
 
@@ -119,6 +123,7 @@ export function createRandomMarkup(arr) {
               <span class="cocktails__button-text">Add to</span>  
               <img class="empty-heart" data-toggle="hidden-hearFt" src="${emptyHeart}" alt="" width="18" height="18"/>
               <img class="full-heart" data-toggle="empty-heart" src="${fullHeart}" alt="" width="18" height="18"/> 
+
 
 
             </button>
