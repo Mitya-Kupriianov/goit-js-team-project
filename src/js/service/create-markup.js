@@ -71,14 +71,6 @@ function onAddBtnClick(e) {
   }
 }
 
-// function onRemoveBtnClick(e) {
-//   const btn = e.target.closest('.js-remove');
-//   console.log(btn);
-//   if (btn) {
-//     setCocktailToLocalStorage(btn.dataset.id);
-//   }
-// }
-
 export function createRandomMarkup(arr) {
   return arr.map(item => {
     const { strDrink, strDrinkThumb, idDrink } = item.data.drinks[0];
@@ -126,9 +118,9 @@ export function markupFilter(markup) {
 
 cocktailList.addEventListener('click', onAddBtnClick);
 
-/* <img class="img ${
-     isChecked ? 'full-heart' : 'empty-heart'
-     }" data-toggle="hidden-hearFt" src="${fullHeart}" alt="" width="18" height="18"/>
-     <img class="img ${
-     !isChecked ? 'empty-heart' : 'full-heart'
-     }" data-toggle="empty-heart" src="${emptyHeart} " alt="" width="18" height="18"/>*/
+// /* <img class="img ${
+//      isChecked ? 'full-heart' : 'empty-heart'
+//      }" data-toggle="hidden-hearFt" src="${fullHeart}" alt="" width="18" height="18"/>
+//      <img class="img ${
+//      !isChecked ? 'empty-heart' : 'full-heart'
+//      }" data-toggle="empty-heart" src="${emptyHeart} " alt="" width="18" height="18"/>*/

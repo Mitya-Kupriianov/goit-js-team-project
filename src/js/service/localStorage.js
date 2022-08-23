@@ -4,8 +4,6 @@ const { addToFavBtn } = refs;
 import CocktailAPI from './getCocktail';
 const favorite = new CocktailAPI();
 
-console.log(addToFavBtn);
-
 let cocktail = {
   // strDrink: '',
   // strDrinkThumb: '',
@@ -29,11 +27,5 @@ export function getCocktailStorageData(KEY) {
 }
 
 export function removeFromLocalStorage(idDrink) {
-  localStorage.removeItem(KEY);
-}
-
-export function onRemoveBtnClick(event) {
-  const idDrink = event.target.parentElement.id;
-  favorite.removeFavoriteDrinkById(idDrink);
-  removeFromLocalStorage(idDrink);
+  localStorage.removeItem(idDrink);
 }
