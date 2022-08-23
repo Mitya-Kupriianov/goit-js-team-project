@@ -1,10 +1,16 @@
-const refs = {
+
+
+
+export const refs = {
   cocktailsList: document.querySelector('.cocktails__list'),
   backdrop: document.querySelector('[data-modal]'),
   modalOpenBtn: document.querySelectorAll('[data-modal-cocktail-open]'),
   modalContainer: document.querySelector('.modal-coctails '),
+
   modalIngrContainer: document.querySelector('.modal-two-container'),
   ingrWrap: document.querySelector('.modal-coctail-components '),
+
+
 };
 
 console.log(refs);
@@ -12,14 +18,16 @@ console.log(refs);
 import CocktailAPI from './service/getCocktail';
 import { renderMarkup } from './service/create-markup';
 function createModalMarkup(response) {
-  console.log(response);
+
   return response.data.drinks
     .map(drink => {
       return `<div class="container">
     <div class="modal-coctails dark--modal-back" data-modal-open>
       <h2 class="modal-coctail-name dark--title">${drink.strDrink}</h2>
       <h3 class="modal-ingredients dark--title">ingredients</h3>
-      <p class="modal-per dark--text">Per cocktail</p>
+
+      <p class="modal-per dark--text">Per cocktail</p>     
+
         <ul class="modal-coctail-components dark--text">
         </ul>
       </a>
@@ -47,6 +55,7 @@ function createModalMarkup(response) {
     })
     .join('');
 }
+
 
 function createIngredientsMarkup(ingredients) {
   return ingredients.data.ingredients
@@ -97,6 +106,8 @@ id=${ingredient.idIngredient}
     .join('');
 }
 
+
+
 export async function onOpenModalClick(e) {
   if (e.target.className === 'cocktails__button-text') {
     try {
@@ -105,6 +116,7 @@ export async function onOpenModalClick(e) {
       cocktailAPI.id = e.target.id;
       const responseID = await cocktailAPI.getCocktailsId();
       const modalMarkup = createModalMarkup(responseID);
+
       renderMarkup(refs.modalContainer, modalMarkup);
       refs.backdrop.classList.remove('is-hidden-modal-coctails');
 
@@ -139,6 +151,13 @@ export async function onOpenModalClick(e) {
           })
           .join('');
       }
+
+      console.log(modalMarkup);
+      renderMarkup(refs.modalContainer, modalMarkup);
+      refs.backdrop.classList.remove('is-hidden-modal-coctails');
+
+      document.addEventListener('keydown', onCloseEsc);
+
     } catch (error) {
       console.log(error.message);
     }
@@ -147,6 +166,17 @@ export async function onOpenModalClick(e) {
 
 refs.cocktailsList.addEventListener('click', onOpenModalClick);
 
+
 function toggleModal() {
   refs.modalOpenBtn.classList.toggle('is-hidden');
+
+export function onCloseEsc(e) {
+  if (e.code === 'Escape') {
+    document.body.classList.remove('modal-open');
+    backdrop.classList.add('is-hidden');
+    // modalIngr.classList.add('is-hidden');
+    cocktailModalMain.classList.remove('is-hidden');
+    document.removeEventListener('keydown', onCloseEsc);
+  }
+
 }

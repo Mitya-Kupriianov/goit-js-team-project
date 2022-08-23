@@ -12,9 +12,9 @@
     refs.openModalIngrdients.forEach(function (btn) {
       btn.addEventListener('click', function (e) {
         refs.backdrop.classList.remove('is-hidden-modal-two');
+        refs.scaleModal.classList.add('modal-scale');
       });
     });
-
     function closeModal() {
       refs.backdrop.classList.add('is-hidden-modal-two');
       refs.scaleModal.classList.remove('modal-scale');
