@@ -1,6 +1,7 @@
 .cocktails {
   @include mq(desc) {
     padding-top: 180px;
+    padding-bottom: 60px;
   }
 }
 
@@ -175,4 +176,14 @@
 .cocktails__btn-icon {
   margin-left: 8px;
   fill: var(--button-text-color);
+}
+
+.cocktails__btn--position {
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 60px;
+}
+
+.btn_is-hidden {
+  display: none;
 }

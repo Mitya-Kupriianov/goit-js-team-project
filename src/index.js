@@ -30,3 +30,4 @@ import './js/service/localStorage';
 import './js/scroll';
 
 import './js/searchByLetter';
+import './js/pagination';

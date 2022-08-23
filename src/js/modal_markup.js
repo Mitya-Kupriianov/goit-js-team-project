@@ -1,4 +1,4 @@
-const refs = {
+export const refs = {
   cocktailsList: document.querySelector('.cocktails__list'),
   backdrop: document.querySelector('[data-modal]'),
   modalOpenBtn: document.querySelectorAll('[data-modal-cocktail-open]'),
