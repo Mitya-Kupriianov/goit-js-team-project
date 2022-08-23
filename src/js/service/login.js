@@ -19,5 +19,7 @@ export function toggleBtnContent(user) {
     statusUser = 'Log out';
   }
   refs.buttonLogin.textContent = statusUser;
+  refs.logInBtn.textContent = statusUser;
   refs.buttonLogin.dataset.id = statusUser;
+  refs.logInBtn.dataset.id = statusUser;
 }
