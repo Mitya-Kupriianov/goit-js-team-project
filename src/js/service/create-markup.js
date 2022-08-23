@@ -1,9 +1,10 @@
 import CocktailAPI from './getCocktail';
-// import '../../images/hearts/empty-heart.png';
-// import '../../images/hearts/full-heart.png';
 import { setCocktailToLocalStorage } from './localStorage';
+import { toToggleAddToBtn } from './render-markup';
+import emptyHeart from '../../images/hearts/empty-heart.png';
+import fullHeart from '../../images/hearts/full-heart.png';
+
 const favorite = new CocktailAPI();
-// import { onAddBtnClick } from './localStorage';
 
 import { refs } from './hero-refs';
 
@@ -59,11 +60,11 @@ export function addEvents() {
   });
 }
 
-// Перенести 63-64
+// Click on "Add to Favorites button"
 
 function onAddBtnClick(e) {
   const btn = e.target.closest('.js-add-btn');
-  console.log(btn);
+  console.dir(btn);
   if (btn) {
     setCocktailToLocalStorage(btn.dataset.id);
   }
@@ -79,11 +80,14 @@ function onAddBtnClick(e) {
 
 console.log('cocktailList :>> ', cocktailList);
 
-export function createRandomMarkup(arr) {
+export function createRandomMarkup(arr, arrIds) {
   return arr
     .map(item => {
       const { strDrink, strDrinkThumb, idDrink } = item.data.drinks[0];
-      // console.log(item.data.drinks[0]);
+      // const isChecked = arrIds.includes(idDrink);
+      // if (!isChecked) {
+      //   imgRef.classList.toggle('hidden-heart');
+      // }
       return `
       <li class="cocktails__item card-set-item">
         <img
@@ -103,9 +107,9 @@ export function createRandomMarkup(arr) {
               <span class="cocktails__button-text">Learn more</span>
             </button>
             <button type="button" class="cocktails__btn dark--btn-back js-add-btn transparent" data-id="${idDrink}">
-              <span class="cocktails__button-text">Add to</span>
- 
-
+              <span class="cocktails__button-text">Add to</span>  
+              <img class="empty-heart" data-toggle="hidden-hearFt" src="${emptyHeart}" alt="" width="18" height="18"/>
+              <img class="full-heart" data-toggle="empty-heart" src="${fullHeart}" alt="" width="18" height="18"/> 
             </button>
           </div>
         </div>
@@ -126,12 +130,18 @@ export function markupFilter(markup) {
   return markupFiltered.join('');
 }
 
-// Listener for remove button
+// Listeners
 
 cocktailList.addEventListener('click', onAddBtnClick);
 
-// console.log(refs);
-// RemoveCocktailBtnRef.addEventListener('click', event => {
-//   imgRef.classList.toggle('.hidden_heart');
-//   // event.stopPropagation();
-// });
+console.log(imgRef);
+// // console.log(refs);
+
+{
+  /* <img class="img ${
+     isChecked ? 'hidden-heart' : ''
+     }" data-toggle="hidden-hearFt" src="${fullHeart}" alt="" width="18" height="18"/>
+     <img class="img ${
+     !isChecked ? 'hidden-heart' : ''
+     }" data-toggle="empty-heart" src="${emptyHeart} " alt="" width="18" height="18"/>*/
+}
