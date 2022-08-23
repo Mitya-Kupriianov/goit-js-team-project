@@ -1,6 +1,8 @@
 import CocktailAPI from './getCocktail';
-import { setCocktailToLocalStorage } from './localStorage';
-import { toToggleAddToBtn } from './render-markup';
+import {
+  setCocktailToLocalStorage,
+  getCocktailStorageData,
+} from './localStorage';
 import emptyHeart from '../../images/hearts/empty-heart.png';
 import fullHeart from '../../images/hearts/full-heart.png';
 
@@ -63,9 +65,21 @@ export function addEvents() {
 
 function onAddBtnClick(e) {
   const btn = e.target.closest('.js-add-btn');
-  console.dir(btn);
+  // console.dir(btn);
   if (btn) {
-    setCocktailToLocalStorage(btn.dataset.id);
+    const data = getCocktailStorageData(favorite.KEY);
+    console.log(btn);
+    console.log(data);
+    if (!data) {
+      btn.classList.add('activated');
+      setCocktailToLocalStorage(btn.dataset.id);
+    }
+    if (data.includes(btn.dataset.id)) {
+      return alert('This cocktail is already included!');
+    } else {
+      btn.classList.add('activated');
+      setCocktailToLocalStorage(btn.dataset.id);
+    }
   }
 }
 
@@ -77,16 +91,10 @@ function onAddBtnClick(e) {
 //   }
 // }
 
-console.log('cocktailList :>> ', cocktailList);
-
-export function createRandomMarkup(arr, arrIds) {
+export function createRandomMarkup(arr) {
   return arr
     .map(item => {
       const { strDrink, strDrinkThumb, idDrink } = item.data.drinks[0];
-      // const isChecked = arrIds.includes(idDrink);
-      // if (arrIds.includes(idDrink)) {
-      //   // alert('This cocktail is already in your list');
-      // }
       return `
       <li class="cocktails__item card-set-item">
         <img
@@ -133,14 +141,9 @@ export function markupFilter(markup) {
 
 cocktailList.addEventListener('click', onAddBtnClick);
 
-console.log(imgRef);
-// // console.log(refs);
-
-{
-  /* <img class="img ${
+/* <img class="img ${
      isChecked ? 'full-heart' : 'empty-heart'
      }" data-toggle="hidden-hearFt" src="${fullHeart}" alt="" width="18" height="18"/>
      <img class="img ${
      !isChecked ? 'empty-heart' : 'full-heart'
      }" data-toggle="empty-heart" src="${emptyHeart} " alt="" width="18" height="18"/>*/
-}
