@@ -31,4 +31,5 @@ import './js/service/localStorage';
 
 
 import './js/searchByLetter';
+import './js/pagination';
 import './js/preloader'

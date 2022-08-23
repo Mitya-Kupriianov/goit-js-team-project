@@ -1,6 +1,7 @@
 .cocktails {
   @include mq(desc) {
     padding-top: 180px;
+    padding-bottom: 60px;
   }
 }
 
@@ -189,4 +190,14 @@
 }
 .activated .full-heart {
   display: block;
+}
+
+.cocktails__btn--position {
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 60px;
+}
+
+.btn_is-hidden {
+  display: none;
 }
