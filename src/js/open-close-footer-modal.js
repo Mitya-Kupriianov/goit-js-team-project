@@ -22,26 +22,9 @@ document.addEventListener('keydown', function closeByEsc(e) {
   }
 });
 
-// function closeBySec(e, element) {
-//   if (e.key === 'Escape') {
-//     element.classList.add('is-hidden');
-//   }
-// }
-
-// closeBySec('keydown', refs.modal);
-
-// When the user clicks anywhere outside of the modal, close it
-
 window.addEventListener('click', event => {
   if (event.target === refs.modal) {
     refs.modal.classList.toggle('is-hidden');
     window.removeEventListener();
   }
 });
-
-// window.onclick = function (event) {
-//   console.log(event.target);
-//   if (event.target === refs.modal) {
-//     refs.modal.style.display = 'none';
-//   }
-// };

@@ -3,6 +3,9 @@ export const refs = {
   backdrop: document.querySelector('[data-modal]'),
   modalOpenBtn: document.querySelectorAll('[data-modal-cocktail-open]'),
   modalContainer: document.querySelector('.modal-coctails '),
+
+  modalIngrContainer: document.querySelector('.modal-two-container'),
+  ingrWrap: document.querySelector('.modal-coctail-components '),
 };
 
 console.log(refs);
@@ -16,7 +19,9 @@ function createModalMarkup(response) {
     <div class="modal-coctails dark--modal-back" data-modal-open data-modal-scale>
       <h2 class="modal-coctail-name dark--title">${drink.strDrink}</h2>
       <h3 class="modal-ingredients dark--title">ingredients</h3>
+
       <p class="modal-per dark--text">Per cocktail</p>     
+
         <ul class="modal-coctail-components dark--text">
         </ul>
       <img src="${drink.strDrinkThumb}" alt="cocktail" class="modal-img" />
@@ -44,11 +49,55 @@ function createModalMarkup(response) {
     .join('');
 }
 
-// <li class="modal-coctail-component dark--text" data-modal-open> ice</li>
-// <li class="modal-coctail-component dark--text" data-modal-open> 1 ounce gin</li>
-// <li class="modal-coctail-component dark--text" data-modal-open> 1 ounce Campari</li>
-// <li class="modal-coctail-component dark--text" data-modal-open> 1 ounce sweet vermouth</li>
-// <li class="modal-coctail-component dark--text" data-modal-open> Garnish: orange peel</li>
+function createIngredientsMarkup(ingredients) {
+  return ingredients.data.ingredients
+    .map(ingredient => {
+      return `<div modal-two-container dark--modal-back"><div class="ingr-modal-title-wrapper">
+  <h3 class="modal-two-name dark--title">${ingredient.strIngredient}</h3>
+  <h4 class="modal-two-span dark--text">
+    ${ingredient.strType === null ? 'Sorry, not specified' : ingredient.strType}
+  </h4>
+</div>
+ <button type="button" class="modal-ingredients-close-btn" data-modal-close-ingr>
+     <svg class="icon-modal-ingredients" height="32" width="32">
+    <use href="${iconsModal}#icon-close-modal-cocktail"></use>
+  </svg>
+  </button>
+</div>
+<div class="modal-ingredients-desc">
+
+<p class="ingredients-modal-text">
+  ${strDescription === null ? 'Sorry, not specified' : strDescription}
+</p>
+<ul class="ingredients-modal-list">
+  <li class="modal-two-ingridients dark--text"">
+    ✶ Type: ${
+      ingredient.strType === null ? 'Sorry, not specified' : ingredient.strType
+    }
+  </li>
+  <li class="i</ul>
+">
+    ✶ Country of origin: Sorry, not specified
+  </li>
+  <li class="modal-two-ingridients dark--text">✶ Alcohol : ${
+    ingredient.strAlcohol
+  }</li>
+  <li class="modal-two-ingridients dark--text>
+    ✶ Flavour: Sorry, not specified
+  </li>
+</ul>
+<button
+id=${ingredient.idIngredient}
+  type="button"
+  class="ingredients-modal-btn"
+
+>
+  Add to favorite
+</button></div>`;
+    })
+    .join('');
+}
+
 
 export async function onOpenModalClick(e) {
   if (e.target.className === 'cocktails__button-text') {
@@ -58,6 +107,42 @@ export async function onOpenModalClick(e) {
       cocktailAPI.id = e.target.id;
       const responseID = await cocktailAPI.getCocktailsId();
       const modalMarkup = createModalMarkup(responseID);
+
+      renderMarkup(refs.modalContainer, modalMarkup);
+      refs.backdrop.classList.remove('is-hidden-modal-coctails');
+
+      const markupIngredientsList =
+        createMarkupCocktailForModalListIngredients(responseID);
+      cocktailModalIngredientsList.innerHTML = '';
+      cocktailModalIngredientsList.innerHTML = markupIngredientsList;
+      cocktailModalIngredientsList.addEventListener('click', onIngredientClick);
+      const modalCloseBtn = document.querySelector('[data-modal-close]');
+      modalCloseBtn.addEventListener('click', toggleModal);
+      const addToFavouriteModalCocktail = document.querySelector(
+        '.cocktails-modal-btn'
+      );
+      addToFavouriteModalCocktail.addEventListener(
+        'click',
+        addToFavouriteModal
+      );
+
+      function createMarkupCocktailForModalListIngredients(res) {
+        const drink = res.data.drinks[0];
+        console.log(drink);
+        const ingredients = [];
+
+        for (let i = 1; i <= 15; i += 1) {
+          let ingredient = drink['strIngredient' + i];
+          if (!ingredient) break;
+          ingredients.push(ingredient);
+        }
+        return ingredients
+          .map(ingredient => {
+            return /*html*/ `<li><button data-btn_ingr="ingredient" data-ingredient_name="${ingredient}" class="cocktail-ingredient-btn">${ingredient}</button></li>`;
+          })
+          .join('');
+      }
+
       console.log(modalMarkup);
       renderMarkup(refs.modalContainer, modalMarkup);
       refs.backdrop.classList.remove('is-hidden-modal-coctails');
@@ -70,6 +155,10 @@ export async function onOpenModalClick(e) {
 }
 
 refs.cocktailsList.addEventListener('click', onOpenModalClick);
+
+function toggleModal() {
+  refs.modalOpenBtn.classList.toggle('is-hidden');
+}
 
 export function onCloseEsc(e) {
   if (e.code === 'Escape') {

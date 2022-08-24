@@ -7,23 +7,18 @@ import emptyHeart from '../../images/hearts/empty-heart.png';
 import fullHeart from '../../images/hearts/full-heart.png';
 
 const favorite = new CocktailAPI();
-
 import { refs } from './hero-refs';
-
 const { addToFavBtn, imgRef, RemoveCocktailBtnRef } = refs;
 const cocktailList = document.querySelector('.cocktails__list');
-
 export function createMarkup(arr) {
   return arr.data.drinks.map(({ strDrink, strDrinkThumb, idDrink }) => {
     return `
-
       <li class="cocktails__item card-set-item">
         <img
           src="${strDrinkThumb}"
           alt="${strDrink}"
         />
         <div class="cocktails__box">
-
           <h2 class="cocktails__second-title dark--title">${strDrink}</h2>
           <div class="cocktails__button-box" id=${idDrink}>
             <button
@@ -44,13 +39,10 @@ export function createMarkup(arr) {
       </li>`;
   });
 }
-
 export function renderMarkup(element, markup) {
   element.innerHTML = markup;
 }
-
 // Click on "Add to Favorites button"
-
 function onAddBtnClick(e) {
   const btn = e.target.closest('.js-add-btn');
   // console.dir(btn);
@@ -81,10 +73,8 @@ export function createRandomMarkup(arr) {
           alt="${strDrink}"
         />
         <div class="cocktails__box">
-
           <h2 class="cocktails__second-title">${strDrink}</h2>
           <div class="cocktails__button-box">
-
             <button
               type="button"
               class="cocktails__btn"
@@ -93,19 +83,16 @@ export function createRandomMarkup(arr) {
             >
               <span class="cocktails__button-text" id=${idDrink} >Learn more</span>
             </button>
-
             <button type="button" class="cocktails__btn dark--btn-back js-add-btn transparent" data-id="${idDrink}">
               <span class="cocktails__button-text">Add to</span>  
               <img class="empty-heart" data-toggle="hidden-hearFt" src="${emptyHeart}" alt="" width="18" height="18"/>
               <img class="full-heart" data-toggle="empty-heart" src="${fullHeart}" alt="" width="18" height="18"/> 
-
             </button>
           </div>
         </div>
       </li>`;
   });
 }
-
 export function markupFilter(markup) {
   if (window.screen.width < 768) {
     return markup.filter((_, index) => index < 3).join('');
@@ -113,14 +100,10 @@ export function markupFilter(markup) {
     return markup.filter((_, index) => index < 6).join('');
   } else return markup.filter((_, index) => index < 9).join('');
 }
-
 // Listeners
 
 cocktailList.addEventListener('click', onAddBtnClick);
 
-// /* <img class="img ${
-//      isChecked ? 'full-heart' : 'empty-heart'
-//      }" data-toggle="hidden-hearFt" src="${fullHeart}" alt="" width="18" height="18"/>
-//      <img class="img ${
-//      !isChecked ? 'empty-heart' : 'full-heart'
-//      }" data-toggle="empty-heart" src="${emptyHeart} " alt="" width="18" height="18"/>*/
+export function noResultsMarkup() {
+  return `<img class="no-result" srcset = "${noResults}", srcset =  "${noResults2x}" src="${noResults2x}" alt="No Results"></img>`;
+}
