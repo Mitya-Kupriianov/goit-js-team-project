@@ -13,23 +13,22 @@ function createModalMarkup(response) {
   return response.data.drinks
     .map(drink => {
       return `<div class="container">
-    <div class="modal-coctails dark--modal-back" data-modal-open>
+    <div class="modal-coctails dark--modal-back" data-modal-open data-modal-scale>
       <h2 class="modal-coctail-name dark--title">${drink.strDrink}</h2>
       <h3 class="modal-ingredients dark--title">ingredients</h3>
       <p class="modal-per dark--text">Per cocktail</p>     
         <ul class="modal-coctail-components dark--text">
         </ul>
-      </a>
       <img src="${drink.strDrinkThumb}" alt="cocktail" class="modal-img" />
       <h3 class="modal-Instractions dark--title">Instractions:</h3>
       <p class="modal-text dark--text">
         ${drink.strInstructions}
       </p>
-      <button class="modal-button" data-modal-a>Add to favorite</button>
+       <button class="modal-button" data-modal-a>Add to favorite</button>
       <button class="modal-button hidden_remove" data-modal-b>
         Remove from favorite
       </button>
-      <button
+           <button
         type="button"
         class="modal-menu__close"
         aria-label="Mobile menu closed"
@@ -44,6 +43,12 @@ function createModalMarkup(response) {
     })
     .join('');
 }
+
+// <li class="modal-coctail-component dark--text" data-modal-open> ice</li>
+// <li class="modal-coctail-component dark--text" data-modal-open> 1 ounce gin</li>
+// <li class="modal-coctail-component dark--text" data-modal-open> 1 ounce Campari</li>
+// <li class="modal-coctail-component dark--text" data-modal-open> 1 ounce sweet vermouth</li>
+// <li class="modal-coctail-component dark--text" data-modal-open> Garnish: orange peel</li>
 
 export async function onOpenModalClick(e) {
   if (e.target.className === 'cocktails__button-text') {
