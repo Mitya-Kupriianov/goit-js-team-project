@@ -1,4 +1,3 @@
-
 import * as noResults from '../../images/notice/notice.png';
 import * as noResults2x from '../../images/notice/notice@2x.png';
 
@@ -38,7 +37,7 @@ export function createMarkup(array) {
           </div>
         </div>
       </li>`;
-     });
+  });
 }
 
 const favorite = new CocktailAPI();
@@ -161,25 +160,15 @@ export function markupFilter(markup) {
     return markup.filter((_, index) => index < 3).join('');
   } else if (window.screen.width >= 768 && window.screen.width < 1280) {
     return markup.filter((_, index) => index < 6).join('');
-
   }
   return markup.filter((_, index) => index < 9).join('');
 }
+return markup.filter((_, index) => index < 9).join('');
 
 export function noResultsMarkup() {
   return `<img class="no-result" srcset = "${noResults}", srcset =  "${noResults2x}" src="${noResults2x}" alt="No Results"></img>`;
-
-  } else return markup.filter((_, index) => index < 9).join('');
-
 }
 
 // Listeners
 
 cocktailList.addEventListener('click', onAddBtnClick);
-
-// /* <img class="img ${
-//      isChecked ? 'full-heart' : 'empty-heart'
-//      }" data-toggle="hidden-hearFt" src="${fullHeart}" alt="" width="18" height="18"/>
-//      <img class="img ${
-//      !isChecked ? 'empty-heart' : 'full-heart'
-//      }" data-toggle="empty-heart" src="${emptyHeart} " alt="" width="18" height="18"/>*/
