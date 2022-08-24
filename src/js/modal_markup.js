@@ -1,6 +1,3 @@
-
-
-
 export const refs = {
   cocktailsList: document.querySelector('.cocktails__list'),
   backdrop: document.querySelector('[data-modal]'),
@@ -9,8 +6,6 @@ export const refs = {
 
   modalIngrContainer: document.querySelector('.modal-two-container'),
   ingrWrap: document.querySelector('.modal-coctail-components '),
-
-
 };
 
 console.log(refs);
@@ -18,7 +13,6 @@ console.log(refs);
 import CocktailAPI from './service/getCocktail';
 import { renderMarkup } from './service/create-markup';
 function createModalMarkup(response) {
-
   return response.data.drinks
     .map(drink => {
       return `<div class="container">
@@ -55,7 +49,6 @@ function createModalMarkup(response) {
     })
     .join('');
 }
-
 
 function createIngredientsMarkup(ingredients) {
   return ingredients.data.ingredients
@@ -106,8 +99,6 @@ id=${ingredient.idIngredient}
     .join('');
 }
 
-
-
 export async function onOpenModalClick(e) {
   if (e.target.className === 'cocktails__button-text') {
     try {
@@ -157,7 +148,6 @@ export async function onOpenModalClick(e) {
       refs.backdrop.classList.remove('is-hidden-modal-coctails');
 
       document.addEventListener('keydown', onCloseEsc);
-
     } catch (error) {
       console.log(error.message);
     }
@@ -166,9 +156,9 @@ export async function onOpenModalClick(e) {
 
 refs.cocktailsList.addEventListener('click', onOpenModalClick);
 
-
 function toggleModal() {
   refs.modalOpenBtn.classList.toggle('is-hidden');
+}
 
 export function onCloseEsc(e) {
   if (e.code === 'Escape') {
@@ -178,5 +168,4 @@ export function onCloseEsc(e) {
     cocktailModalMain.classList.remove('is-hidden');
     document.removeEventListener('keydown', onCloseEsc);
   }
-
 }

@@ -18,7 +18,6 @@ const mobileListOfLetter = document.querySelector('.hero__select');
 export const btnLoad = document.querySelector('.load__more');
 const optionsRef = document.querySelectorAll('.option');
 
-
 listOfLetters.addEventListener('click', onLetterClick);
 mobileListOfLetter.addEventListener('click', onLetterClick);
 const cocktailApi = new CocktailAPI();
@@ -41,7 +40,6 @@ function showLoadMoreBtn() {
 export let markupLetter = '';
 
 export async function renderByLetter(letter) {
-
   try {
     cocktailApi.letter = letter;
     const response = await cocktailApi.getCocktailByLetter();
@@ -53,3 +51,4 @@ export async function renderByLetter(letter) {
     title.innerHTML = "Sorry, we didn't find any cocktail for you";
     return (cocktailList.innerHTML = noResultsMarkup());
   }
+}
