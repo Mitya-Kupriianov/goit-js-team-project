@@ -8,7 +8,7 @@ export const refs = {
   ingrWrap: document.querySelector('.modal-coctail-components '),
 };
 
-console.log(refs);
+// console.log(12121212);
 
 import CocktailAPI from './service/getCocktail';
 import { renderMarkup } from './service/create-markup';
@@ -18,7 +18,7 @@ function createModalMarkup(response) {
       return `<div class="container">
     <div class="modal-coctails dark--modal-back" data-modal-open>
       <h2 class="modal-coctail-name dark--title">${drink.strDrink}</h2>
-      <h3 class="modal-ingredients dark--title">ingredients</h3>
+      <h3 class="modal-ingredients dark--title">Ingredients</h3>
 
       <p class="modal-per dark--text">Per cocktail</p>     
 
@@ -26,7 +26,7 @@ function createModalMarkup(response) {
         </ul>
       </a>
       <img src="${drink.strDrinkThumb}" alt="cocktail" class="modal-img" />
-      <h3 class="modal-Instractions dark--title">Instractions:</h3>
+      <h3 class="modal-Instractions dark--title">Instructions:</h3>
       <p class="modal-text dark--text">
         ${drink.strInstructions}
       </p>
@@ -106,6 +106,7 @@ export async function onOpenModalClick(e) {
 
       cocktailAPI.id = e.target.id;
       const responseID = await cocktailAPI.getCocktailsId();
+      // console.log(responseID);
       const modalMarkup = createModalMarkup(responseID);
 
       renderMarkup(refs.modalContainer, modalMarkup);
@@ -113,7 +114,7 @@ export async function onOpenModalClick(e) {
 
       const markupIngredientsList =
         createMarkupCocktailForModalListIngredients(responseID);
-      cocktailModalIngredientsList.innerHTML = '';
+      // cocktailModalIngredientsList.innerHTML = '';
       cocktailModalIngredientsList.innerHTML = markupIngredientsList;
       cocktailModalIngredientsList.addEventListener('click', onIngredientClick);
       const modalCloseBtn = document.querySelector('[data-modal-close]');
@@ -135,12 +136,14 @@ export async function onOpenModalClick(e) {
           let ingredient = drink['strIngredient' + i];
           if (!ingredient) break;
           ingredients.push(ingredient);
+          // console.log(ingredients);
         }
         return ingredients
           .map(ingredient => {
             return /*html*/ `<li><button data-btn_ingr="ingredient" data-ingredient_name="${ingredient}" class="cocktail-ingredient-btn">${ingredient}</button></li>`;
           })
           .join('');
+        createIngredientsMarkup(ingredients);
       }
 
       console.log(modalMarkup);

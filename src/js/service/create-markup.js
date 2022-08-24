@@ -25,11 +25,11 @@ export function createMarkup(arr) {
               type="button"
               class="cocktails__btn"
               data-modal-cocktail-open
-               data-id=${idDrink}
+               
             >
               <span class="cocktails__button-text">Learn more</span>
             </button>
-            <button type="button" class="cocktails__btn dark--btn-back js-add-btn transparent">
+            <button type="button" class="cocktails__btn dark--btn-back js-add-btn transparent" data-id=${idDrink}>
               <span class="cocktails__button-text">Add to</span>
               <img class="empty-heart" data-toggle="hidden-hearFt" src="${emptyHeart}" alt="" width="18" height="18"/>
               <img class="full-heart" data-toggle="empty-heart" src="${fullHeart}" alt="" width="18" height="18"/> 
@@ -42,13 +42,16 @@ export function createMarkup(arr) {
 export function renderMarkup(element, markup) {
   element.innerHTML = markup;
 }
-// Click on "Add to Favorites button"
+
+
+//              -------Click on "Add to Favorites button"-------
+
 function onAddBtnClick(e) {
   const btn = e.target.closest('.js-add-btn');
-  // console.dir(btn);
+  console.log(btn.dataset.id);
   if (btn) {
     const data = getCocktailStorageData(favorite.KEY);
-    console.log(btn);
+    console.dir(btn);
     console.log(data);
     if (!data) {
       btn.classList.add('activated');
