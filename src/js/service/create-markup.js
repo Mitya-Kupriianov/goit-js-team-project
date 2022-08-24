@@ -103,3 +103,7 @@ export function markupFilter(markup) {
 // Listeners
 
 cocktailList.addEventListener('click', onAddBtnClick);
+
+export function noResultsMarkup() {
+  return `<img class="no-result" srcset = "${noResults}", srcset =  "${noResults2x}" src="${noResults2x}" alt="No Results"></img>`;
+}
