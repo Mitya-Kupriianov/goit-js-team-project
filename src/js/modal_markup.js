@@ -3,12 +3,10 @@ import { renderMarkup } from './service/create-markup';
 
 export const refs = {
   cocktailsList: document.querySelector('.cocktails__list'),
-  backdrop: document.querySelector('[data-modal]'),
   modalOpenBtn: document.querySelectorAll('[data-modal-cocktail-open]'),
   modalContainer: document.querySelector('.modal-coctails'),
 
   modalIngrContainer: document.querySelector('.modal-two-container'),
-  ingrWrap: document.querySelector('.modal-coctail-components'),
 };
 
 // console.log(12121212);
@@ -106,22 +104,20 @@ export async function onOpenModalClick(e) {
   if (e.target.className === 'cocktails__button-text') {
     try {
       cocktailAPI.id = e.target.id;
-      // console.log(cocktailAPI.id);
       const responseID = await cocktailAPI.getCocktailsId();
-      console.log(responseID);
       const modalMarkup = createModalMarkup(responseID);
-      console.log(modalMarkup);
-
       renderMarkup(refs.modalContainer, modalMarkup);
-      refs.backdrop.classList.remove('is-hidden-modal-coctails');
+
+      const backdrop = document.querySelector('[data-modal]');
+      backdrop.classList.remove('is-hidden-modal-coctails');
 
       const markupIngredientsList =
         await createMarkupCocktailForModalListIngredients(responseID);
-      // ЭТО ИНГРИДИЕНТЫ РАЗМЕТКА
-      console.log(markupIngredientsList);
-      // cocktailModalIngredientsList.innerHTML = '';
-      refs.ingrWrap.innerHTML = markupIngredientsList;
-      // refs.ingrWrap.addEventListener('click', onIngredientClick);
+      const ingrWrap = document.querySelector('.modal-coctail-components');
+      renderMarkup(ingrWrap, markupIngredientsList);
+
+      // ----------Нету этой функции!!!----------
+      // ingrWrap.addEventListener('click', onIngredientClick);
       const modalCloseBtn = document.querySelector('[data-modal-close]');
       modalCloseBtn.addEventListener('click', toggleModal);
       const addToFavouriteModalCocktail = document.querySelector(
@@ -132,11 +128,10 @@ export async function onOpenModalClick(e) {
         addToFavouriteModal
       );
 
-      renderMarkup(refs.ingrWrap, markupIngredientsList);
       // console.log(renderMarkup);
-      refs.backdrop.classList.remove('is-hidden-modal-coctails');
+      backdrop.classList.remove('is-hidden-modal-coctails');
 
-      // document.addEventListener('keydown', onCloseEsc);
+      document.addEventListener('keydown', onCloseEsc);
     } catch (error) {
       console.log(error.message);
     }
