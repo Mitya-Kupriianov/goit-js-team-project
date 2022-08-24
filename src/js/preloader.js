@@ -11,7 +11,7 @@ const fadeEffect = () => {
       clearInterval(fadeEffect);
       preloader.remove();
     }
-  }, 300);
+  }, 85);
 };
 
 window.addEventListener('load', fadeEffect);
