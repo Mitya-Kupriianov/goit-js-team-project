@@ -4,6 +4,7 @@ import {
 } from '../js/service/localStorage';
 import CocktailAPI from './service/getCocktail';
 
+console.log(1111);
 const favorite = new CocktailAPI();
 const refs = {
   favoriteListRef: document.querySelector('.favorite__list-card'),
