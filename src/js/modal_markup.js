@@ -128,10 +128,9 @@ export async function onOpenModalClick(e) {
         addToFavouriteModal
       );
 
-      // console.log(renderMarkup);
       backdrop.classList.remove('is-hidden-modal-coctails');
 
-      document.addEventListener('keydown', onCloseEsc);
+      // document.addEventListener('keydown', onCloseEsc);
     } catch (error) {
       console.log(error.message);
     }
@@ -154,7 +153,6 @@ function createMarkupCocktailForModalListIngredients(res) {
       return /*html*/ `<li data-ingredient_name="${ingredient}" class="cocktail-ingredient-btn">${ingredient}</li>`;
     })
     .join('');
-  // createIngredientsMarkup(ingredients);
 }
 
 refs.cocktailsList.addEventListener('click', onOpenModalClick);
@@ -163,12 +161,13 @@ function toggleModal() {
   refs.modalOpenBtn.classList.toggle('is-hidden');
 }
 
-export function onCloseEsc(e) {
-  if (e.code === 'Escape') {
-    document.body.classList.remove('modal-open');
-    backdrop.classList.add('is-hidden');
-    // modalIngr.classList.add('is-hidden');
-    cocktailModalMain.classList.remove('is-hidden');
-    document.removeEventListener('keydown', onCloseEsc);
-  }
-}
+// export function onCloseEsc(e) {
+//   console.dir(e);
+//   if (e.code === 'Escape') {
+//     document.body.classList.remove('modal-open');
+//     backdrop.classList.add('is-hidden');
+//     // modalIngr.classList.add('is-hidden');
+//     cocktailModalMain.classList.remove('is-hidden');
+//     document.removeEventListener('keydown', onCloseEsc);
+//   }
+// }
