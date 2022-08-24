@@ -1,17 +1,20 @@
+import CocktailAPI from './service/getCocktail';
+import { renderMarkup } from './service/create-markup';
+
 export const refs = {
   cocktailsList: document.querySelector('.cocktails__list'),
   backdrop: document.querySelector('[data-modal]'),
   modalOpenBtn: document.querySelectorAll('[data-modal-cocktail-open]'),
-  modalContainer: document.querySelector('.modal-coctails '),
+  modalContainer: document.querySelector('.modal-coctails'),
 
   modalIngrContainer: document.querySelector('.modal-two-container'),
-  ingrWrap: document.querySelector('.modal-coctail-components '),
+  ingrWrap: document.querySelector('.modal-coctail-components'),
 };
 
 // console.log(12121212);
 
-import CocktailAPI from './service/getCocktail';
-import { renderMarkup } from './service/create-markup';
+const cocktailAPI = new CocktailAPI();
+
 function createModalMarkup(response) {
   return response.data.drinks
     .map(drink => {
@@ -71,13 +74,13 @@ function createIngredientsMarkup(ingredients) {
   ${strDescription === null ? 'Sorry, not specified' : strDescription}
 </p>
 <ul class="ingredients-modal-list">
+
   <li class="modal-two-ingridients dark--text"">
     ✶ Type: ${
       ingredient.strType === null ? 'Sorry, not specified' : ingredient.strType
     }
   </li>
-  <li class="i</ul>
-">
+  <li class="i">
     ✶ Country of origin: Sorry, not specified
   </li>
   <li class="modal-two-ingridients dark--text">✶ Alcohol : ${
@@ -102,21 +105,23 @@ id=${ingredient.idIngredient}
 export async function onOpenModalClick(e) {
   if (e.target.className === 'cocktails__button-text') {
     try {
-      const cocktailAPI = new CocktailAPI();
-
       cocktailAPI.id = e.target.id;
+      // console.log(cocktailAPI.id);
       const responseID = await cocktailAPI.getCocktailsId();
-      // console.log(responseID);
+      console.log(responseID);
       const modalMarkup = createModalMarkup(responseID);
+      console.log(modalMarkup);
 
       renderMarkup(refs.modalContainer, modalMarkup);
       refs.backdrop.classList.remove('is-hidden-modal-coctails');
 
       const markupIngredientsList =
-        createMarkupCocktailForModalListIngredients(responseID);
+        await createMarkupCocktailForModalListIngredients(responseID);
+      // ЭТО ИНГРИДИЕНТЫ РАЗМЕТКА
+      console.log(markupIngredientsList);
       // cocktailModalIngredientsList.innerHTML = '';
-      cocktailModalIngredientsList.innerHTML = markupIngredientsList;
-      cocktailModalIngredientsList.addEventListener('click', onIngredientClick);
+      refs.ingrWrap.innerHTML = markupIngredientsList;
+      // refs.ingrWrap.addEventListener('click', onIngredientClick);
       const modalCloseBtn = document.querySelector('[data-modal-close]');
       modalCloseBtn.addEventListener('click', toggleModal);
       const addToFavouriteModalCocktail = document.querySelector(
@@ -127,34 +132,34 @@ export async function onOpenModalClick(e) {
         addToFavouriteModal
       );
 
-      function createMarkupCocktailForModalListIngredients(res) {
-        const drink = res.data.drinks[0];
-        console.log(drink);
-        const ingredients = [];
-
-        for (let i = 1; i <= 15; i += 1) {
-          let ingredient = drink['strIngredient' + i];
-          if (!ingredient) break;
-          ingredients.push(ingredient);
-          // console.log(ingredients);
-        }
-        return ingredients
-          .map(ingredient => {
-            return /*html*/ `<li><button data-btn_ingr="ingredient" data-ingredient_name="${ingredient}" class="cocktail-ingredient-btn">${ingredient}</button></li>`;
-          })
-          .join('');
-        createIngredientsMarkup(ingredients);
-      }
-
-      console.log(modalMarkup);
-      renderMarkup(refs.modalContainer, modalMarkup);
+      renderMarkup(refs.ingrWrap, markupIngredientsList);
+      // console.log(renderMarkup);
       refs.backdrop.classList.remove('is-hidden-modal-coctails');
 
-      document.addEventListener('keydown', onCloseEsc);
+      // document.addEventListener('keydown', onCloseEsc);
     } catch (error) {
       console.log(error.message);
     }
   }
+}
+
+function createMarkupCocktailForModalListIngredients(res) {
+  const drink = res.data.drinks[0];
+  console.log(drink);
+  const ingredients = [];
+
+  for (let i = 1; i <= 15; i += 1) {
+    let ingredient = drink['strIngredient' + i];
+    if (!ingredient) break;
+    ingredients.push(ingredient);
+    console.log(ingredients);
+  }
+  return ingredients
+    .map(ingredient => {
+      return /*html*/ `<li data-ingredient_name="${ingredient}" class="cocktail-ingredient-btn">${ingredient}</li>`;
+    })
+    .join('');
+  // createIngredientsMarkup(ingredients);
 }
 
 refs.cocktailsList.addEventListener('click', onOpenModalClick);
