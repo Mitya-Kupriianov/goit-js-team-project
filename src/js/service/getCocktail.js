@@ -39,9 +39,9 @@ export default class CocktailAPI {
 
   // todo ID //
 
-  async getCocktailsId() {
+  async getCocktailsId(id) {
     try {
-      return await axios(`${BASE_URL}lookup.php?i=${this.id}`);
+      return await axios(`${BASE_URL}lookup.php?i=${id || this.id}`);
     } catch (error) {
       throw new Error(error.message);
     }

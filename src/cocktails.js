@@ -16,3 +16,4 @@ import './js/service/getCocktail';
 import './js/refs';
 import './js/service/localStorage';
 import './js/favorite-cocktails';
+import './js/service/create-markup';
