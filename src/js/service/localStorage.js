@@ -28,13 +28,10 @@ export function getCocktailStorageData(KEY) {
 }
 
 export function removeFromLocalStorage(idDrink) {
-  // let data = getCocktailStorageData(favorite.KEY);
-  // let index = data.indexOf(idDrink);
-  // if (data.includes(idDrink)) {
-  //   data.splice(index, 1);
-  // }
-  
-  // ......Или.....
-  // data = data.includes(idDrink) ? data.splice(index, 1) : data;
-  localStorage.removeItem(idDrink);
+  let data = getCocktailStorageData(favorite.KEY);
+  let index = data.indexOf(idDrink);
+  if (data.includes(idDrink)) {
+    data.splice(index, 1);
+    localStorage.setItem('cocktails', JSON.stringify(data));
+  }
 }
