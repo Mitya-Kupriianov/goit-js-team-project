@@ -2,9 +2,11 @@ import CocktailAPI from './getCocktail';
 import {
   setCocktailToLocalStorage,
   getCocktailStorageData,
+  removeFromLocalStorage,
 } from './localStorage';
 import emptyHeart from '../../images/hearts/empty-heart.png';
 import fullHeart from '../../images/hearts/full-heart.png';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const favorite = new CocktailAPI();
 
@@ -28,7 +30,9 @@ export function createMarkup(arr) {
             >
               <span class="cocktails__button-text" id=${idDrink} >Learn more</span>
             </button>
-            <button type="button" class="cocktails__btn dark--btn-back js-add-btn transparent" data-id="${idDrink}">
+            <button type="button" class="cocktails__btn dark--btn-back js-add-btn transparent ${shouldBeActivated(
+              idDrink
+            )}" data-id="${idDrink}">
               <span class="cocktails__button-text">Add to</span>  
               <img class="empty-heart" data-toggle="hidden-hearFt" src="${emptyHeart}" alt="" width="18" height="18"/>
               <img class="full-heart" data-toggle="empty-heart" src="${fullHeart}" alt="" width="18" height="18"/> 
@@ -46,19 +50,23 @@ export function renderMarkup(element, markup) {
 
 function onAddBtnClick(e) {
   const btn = e.target.closest('.js-add-btn');
+  const data = getCocktailStorageData(favorite.KEY);
+  const id = btn.dataset.id;
+  // console.log('data', data);
   if (btn) {
-    const data = getCocktailStorageData(favorite.KEY);
-    console.dir(btn);
-    console.log(data);
+    // console.dir('btn', btn);
     if (!data) {
       btn.classList.add('activated');
-      setCocktailToLocalStorage(btn.dataset.id);
+      setCocktailToLocalStorage(id);
     }
-    if (data.includes(btn.dataset.id)) {
-      return alert('This cocktail is already included!');
+    if (data.includes(id)) {
+      Notify.failure('Cocktail was deleted from favourites!');
+      removeFromLocalStorage(id);
+      btn.classList.remove('activated');
     } else {
+      Notify.success('Cocktail was added to favourites, Congrats!');
       btn.classList.add('activated');
-      setCocktailToLocalStorage(btn.dataset.id);
+      setCocktailToLocalStorage(id);
     }
   }
 }
@@ -83,8 +91,10 @@ export function createRandomMarkup(arr) {
             >
               <span class="cocktails__button-text" id=${idDrink} >Learn more</span>
             </button>
-            <button type="button" class="cocktails__btn dark--btn-back js-add-btn transparent" data-id="${idDrink}">
-              <span class="cocktails__button-text">Add to</span>  
+            <button type="button" class="cocktails__btn dark--btn-back js-add-btn transparent ${shouldBeActivated(
+              idDrink
+            )}" data-id="${idDrink}">
+
               <img class="empty-heart" data-toggle="hidden-hearFt" src="${emptyHeart}" alt="" width="18" height="18"/>
               <img class="full-heart" data-toggle="empty-heart" src="${fullHeart}" alt="" width="18" height="18"/> 
             </button>
@@ -108,4 +118,12 @@ cocktailList.addEventListener('click', onAddBtnClick);
 
 export function noResultsMarkup() {
   return `<img class="no-result" srcset = "${noResults}", srcset =  "${noResults2x}" src="${noResults2x}" alt="No Results"></img>`;
+}
+function shouldBeActivated(id) {
+  const data = getCocktailStorageData(favorite.KEY);
+  if (data) {
+    return localStorage.getItem('cocktails').includes(id) ? 'activated' : '';
+  } else {
+    return;
+  }
 }

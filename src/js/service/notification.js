@@ -1,7 +1,7 @@
 import Notiflix from 'notiflix';
 import 'notiflix/dist/notiflix-3.2.5.min.css';
 
-export function onError() {
+export function onError(){
   return Notiflix.Notify.failure('Oops... something went wrong!');
 }
 
