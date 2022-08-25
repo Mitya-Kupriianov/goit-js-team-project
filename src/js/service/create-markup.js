@@ -2,6 +2,7 @@ import CocktailAPI from './getCocktail';
 import {
   setCocktailToLocalStorage,
   getCocktailStorageData,
+  removeFromLocalStorage,
 } from './localStorage';
 import emptyHeart from '../../images/hearts/empty-heart.png';
 import fullHeart from '../../images/hearts/full-heart.png';
@@ -46,19 +47,22 @@ export function renderMarkup(element, markup) {
 
 function onAddBtnClick(e) {
   const btn = e.target.closest('.js-add-btn');
+  const data = getCocktailStorageData(favorite.KEY);
+  const id = btn.dataset.id;
+  console.log('data', data);
   if (btn) {
-    const data = getCocktailStorageData(favorite.KEY);
-    console.dir(btn);
-    console.log(data);
+    console.dir('btn', btn);
     if (!data) {
       btn.classList.add('activated');
-      setCocktailToLocalStorage(btn.dataset.id);
+      setCocktailToLocalStorage(id);
     }
-    if (data.includes(btn.dataset.id)) {
+    if (data.includes(id)) {
+      // Notify "Cocktail was deleted from favourites"
       return alert('This cocktail is already included!');
+      // removeFromLocalStorage(id);
     } else {
       btn.classList.add('activated');
-      setCocktailToLocalStorage(btn.dataset.id);
+      setCocktailToLocalStorage(id);
     }
   }
 }
@@ -84,7 +88,7 @@ export function createRandomMarkup(arr) {
               <span class="cocktails__button-text" id=${idDrink} >Learn more</span>
             </button>
             <button type="button" class="cocktails__btn dark--btn-back js-add-btn transparent" data-id="${idDrink}">
-              <span class="cocktails__button-text">Add to</span>  
+
               <img class="empty-heart" data-toggle="hidden-hearFt" src="${emptyHeart}" alt="" width="18" height="18"/>
               <img class="full-heart" data-toggle="empty-heart" src="${fullHeart}" alt="" width="18" height="18"/> 
             </button>

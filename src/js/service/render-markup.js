@@ -15,6 +15,8 @@ export async function createAndRenderRandomMarkup() {
   const array = await cocktailAPI.getRandomCocktail();
 
   const markup = createRandomMarkup(array);
+  // const data = getCocktailStorageData(cocktailAPI.KEY);
+  
   const filteredMarkup = markupFilter(markup);
   renderMarkup(cocktailList, filteredMarkup);
 }

@@ -2,6 +2,7 @@ import { refs } from './hero-refs';
 const { addToFavBtn } = refs;
 
 import CocktailAPI from './getCocktail';
+import { includes } from 'lodash';
 const favorite = new CocktailAPI();
 
 let cocktail = {
@@ -27,5 +28,13 @@ export function getCocktailStorageData(KEY) {
 }
 
 export function removeFromLocalStorage(idDrink) {
+  // let data = getCocktailStorageData(favorite.KEY);
+  // let index = data.indexOf(idDrink);
+  // if (data.includes(idDrink)) {
+  //   data.splice(index, 1);
+  // }
+  
+  // ......Или.....
+  // data = data.includes(idDrink) ? data.splice(index, 1) : data;
   localStorage.removeItem(idDrink);
 }
