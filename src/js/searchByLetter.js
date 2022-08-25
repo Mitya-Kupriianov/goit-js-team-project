@@ -44,6 +44,7 @@ export async function renderByLetter(letter) {
     cocktailApi.letter = letter;
     const response = await cocktailApi.getCocktailByLetter();
     const markup = createMarkup(response);
+    markupLetter = markup;
     const filterMarkup = markupFilter(markup);
     renderMarkup(cocktailList, filterMarkup);
   } catch (error) {
