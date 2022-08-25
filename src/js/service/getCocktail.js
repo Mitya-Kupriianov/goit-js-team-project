@@ -19,7 +19,7 @@ export default class CocktailAPI {
 
   // todo byName //
 
-  async getCocktailByName(query) {
+  async getCocktailByName() {
     try {
       return await axios(`${BASE_URL}search.php?s=${this.searchQuery}`);
     } catch (error) {
