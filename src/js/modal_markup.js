@@ -8,8 +8,6 @@ export const refs = {
   modalIngrContainer: document.querySelector('.backdrop-modal-components'),
 };
 
- 
-
 // console.log(12121212);
 
 const cocktailAPI = new CocktailAPI();
@@ -17,7 +15,7 @@ const cocktailAPI = new CocktailAPI();
 function createModalMarkup(response) {
   return response.data.drinks
     .map(drink => {
-      return `<div class="container">
+      return `
     <div class="modal-coctails dark--modal-back" data-modal-open data-modal-scale>
       <h2 class="modal-coctail-name dark--title">${drink.strDrink}</h2>
       <h3 class="modal-ingredients dark--title">Ingredients</h3>
@@ -35,18 +33,7 @@ function createModalMarkup(response) {
       <button class="modal-button hidden_remove" data-modal-b>
         Remove from favorite
       </button>
-           <button
-        type="button"
-        class="modal-menu__close"
-        aria-label="Mobile menu closed"
-        data-modal-close
-      >
-        <svg class="btn-menu__icon dark--fill" width="32px" height="32px">
-          <use href="./images/icon_close.png"></use>
-        </svg>
-      </button>
-    </div>
-  </div>`;
+    </div>`;
     })
     .join('');
 }
@@ -100,7 +87,6 @@ id=${ingredient.idIngredient}
     .join('');
 }
 
-
 export async function onOpenModalClick(e) {
   if (e.target.className === 'cocktails__button-text') {
     try {
@@ -124,9 +110,9 @@ export async function onOpenModalClick(e) {
           backdrop: document.querySelector('[data-modal]'),
           closeBtn: document.querySelector('[data-modal-close]'),
         };
-      
+
         refs.closeBtn.addEventListener('click', closeModal);
-      
+
         function closeModal() {
           refs.backdrop.classList.add('is-hidden-modal-coctails');
         }
@@ -161,7 +147,6 @@ refs.cocktailsList.addEventListener('click', onOpenModalClick);
 function toggleModal() {
   refs.modalOpenBtn.classList.toggle('is-hidden');
 }
-
 
 // export function onCloseEsc(e) {
 //   console.dir(e);
