@@ -7,8 +7,7 @@ import emptyHeart from '../../images/hearts/empty-heart.png';
 import fullHeart from '../../images/hearts/full-heart.png';
 
 const favorite = new CocktailAPI();
-import { refs } from './hero-refs';
-const { addToFavBtn, imgRef, RemoveCocktailBtnRef } = refs;
+
 const cocktailList = document.querySelector('.cocktails__list');
 export function createMarkup(arr) {
   return arr.data.drinks.map(({ strDrink, strDrinkThumb, idDrink }) => {
@@ -19,18 +18,18 @@ export function createMarkup(arr) {
           alt="${strDrink}"
         />
         <div class="cocktails__box">
-          <h2 class="cocktails__second-title dark--title">${strDrink}</h2>
-          <div class="cocktails__button-box" id=${idDrink}>
+          <h2 class="cocktails__second-title">${strDrink}</h2>
+          <div class="cocktails__button-box">
             <button
               type="button"
               class="cocktails__btn"
               data-modal-cocktail-open
-               
+               data-id=${idDrink}
             >
-              <span class="cocktails__button-text">Learn more</span>
+              <span class="cocktails__button-text" id=${idDrink} >Learn more</span>
             </button>
-            <button type="button" class="cocktails__btn dark--btn-back js-add-btn transparent" data-id=${idDrink}>
-              <span class="cocktails__button-text">Add to</span>
+            <button type="button" class="cocktails__btn dark--btn-back js-add-btn transparent" data-id="${idDrink}">
+              <span class="cocktails__button-text">Add to</span>  
               <img class="empty-heart" data-toggle="hidden-hearFt" src="${emptyHeart}" alt="" width="18" height="18"/>
               <img class="full-heart" data-toggle="empty-heart" src="${fullHeart}" alt="" width="18" height="18"/> 
             </button>
@@ -47,7 +46,6 @@ export function renderMarkup(element, markup) {
 
 function onAddBtnClick(e) {
   const btn = e.target.closest('.js-add-btn');
-  console.log(btn.dataset.id);
   if (btn) {
     const data = getCocktailStorageData(favorite.KEY);
     console.dir(btn);
@@ -95,6 +93,7 @@ export function createRandomMarkup(arr) {
       </li>`;
   });
 }
+
 export function markupFilter(markup) {
   if (window.screen.width < 768) {
     return markup.filter((_, index) => index < 3).join('');
@@ -102,7 +101,8 @@ export function markupFilter(markup) {
     return markup.filter((_, index) => index < 6).join('');
   } else return markup.filter((_, index) => index < 9).join('');
 }
-// Listeners
+
+//                  --------Listeners--------
 
 cocktailList.addEventListener('click', onAddBtnClick);
 

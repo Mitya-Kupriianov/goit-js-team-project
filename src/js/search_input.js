@@ -1,35 +1,29 @@
 import CocktailAPI from './service/getCocktail';
-import cardTmpl from '../tmp/random-card.hbs';
-
-import createMarkup from './/service/create-markup';
+// import cardTmpl from '../tmp/random-card.hbs';
 import {
   createMarkup,
   renderMarkup,
   markupFilter,
-} from './/service/create-markup';
-
-
-const throttle = require('lodash.throttle');
+} from './service/create-markup';
 import Notiflix from 'notiflix';
 
-refs = {
+const throttle = require('lodash.throttle');
+
+const refs = {
   searchForm: document.querySelector('.search__input'),
   loadMoreBtn: document.querySelector('.load__more'),
-  cocktailsList: document.querySelector('.cocktails__list'),
 };
 
 const cocktailAPI = new CocktailAPI();
 
-refs.searchForm.addEventListener('input', throttle(onSearch, 700));
-refs.loadMoreBtn.addEventListener('click', loadMore);
-
 async function onSearch(e) {
+  const cocktailsList = document.querySelector('.cocktails__list');
   try {
     e.preventDefault();
 
     cocktailAPI.query = e.target.value.trim('');
     console.log(cocktailAPI.query);
-    
+
     if (cocktailAPI.query === '') {
       return Notiflix.Notify.failure('Please, enter the name of cocktail');
     }
@@ -37,7 +31,7 @@ async function onSearch(e) {
     const responseSearch = await cocktailAPI.getCocktailByName();
     const markup = createMarkup(responseSearch);
     const filteredMarkup = markupFilter(markup);
-    renderMarkup(refs.cocktailsList, filteredMarkup);
+    renderMarkup(cocktailsList, filteredMarkup);
   } catch (error) {
     console.log(error.text);
   }
@@ -46,3 +40,8 @@ async function onSearch(e) {
 function loadMore() {
   cocktailAPI.getCocktailByName();
 }
+
+// ---------Listeners---------
+
+refs.searchForm.addEventListener('input', throttle(onSearch, 700));
+refs.loadMoreBtn.addEventListener('click', loadMore);
