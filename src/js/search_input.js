@@ -7,8 +7,8 @@ import {
 } from './service/create-markup';
 import Notiflix from 'notiflix';
 
+//              ----------Refs----------
 const throttle = require('lodash.throttle');
-
 const refs = {
   searchForm: document.querySelector('.search__input'),
   loadMoreBtn: document.querySelector('.load__more'),
@@ -16,6 +16,7 @@ const refs = {
 
 const cocktailAPI = new CocktailAPI();
 
+//              -------Input Search-------
 async function onSearch(e) {
   const cocktailsList = document.querySelector('.cocktails__list');
   try {
@@ -36,12 +37,11 @@ async function onSearch(e) {
     console.log(error.text);
   }
 }
-
+//              -------To load more cocktails-------
 function loadMore() {
   cocktailAPI.getCocktailByName();
 }
 
-// ---------Listeners---------
-
+//              ---------Listeners---------
 refs.searchForm.addEventListener('input', throttle(onSearch, 700));
 refs.loadMoreBtn.addEventListener('click', loadMore);
