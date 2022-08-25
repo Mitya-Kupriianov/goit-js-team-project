@@ -3,11 +3,12 @@ import { renderMarkup } from './service/create-markup';
 
 export const refs = {
   cocktailsList: document.querySelector('.cocktails__list'),
-  modalOpenBtn: document.querySelectorAll('[data-modal-cocktail-open]'),
+  backdropT: document.querySelectorAll('[data-modal-2]'),
   modalContainer: document.querySelector('.modal-coctails'),
-
-  modalIngrContainer: document.querySelector('.modal-two-container'),
+  modalIngrContainer: document.querySelector('.backdrop-modal-components'),
 };
+
+ 
 
 // console.log(12121212);
 
@@ -41,7 +42,7 @@ function createModalMarkup(response) {
         data-modal-close
       >
         <svg class="btn-menu__icon dark--fill" width="32px" height="32px">
-          <use href="./images/icon.svg#icon-close"></use>
+          <use href="./images/icon_close.png"></use>
         </svg>
       </button>
     </div>
@@ -91,7 +92,7 @@ function createIngredientsMarkup(ingredients) {
 id=${ingredient.idIngredient}
   type="button"
   class="ingredients-modal-btn"
-
+  data-modal-c
 >
   Add to favorite
 </button></div>`;
@@ -118,18 +119,18 @@ export async function onOpenModalClick(e) {
 
       // ----------Нету этой функции!!!----------
       // ingrWrap.addEventListener('click', onIngredientClick);
-      const modalCloseBtn = document.querySelector('[data-modal-close]');
-      modalCloseBtn.addEventListener('click', toggleModal);
-      const addToFavouriteModalCocktail = document.querySelector(
-        '.cocktails-modal-btn'
-      );
-      addToFavouriteModalCocktail.addEventListener(
-        'click',
-        addToFavouriteModal
-      );
-
-      backdrop.classList.remove('is-hidden-modal-coctails');
-
+      (() => {
+        const refs = {
+          backdrop: document.querySelector('[data-modal]'),
+          closeBtn: document.querySelector('[data-modal-close]'),
+        };
+      
+        refs.closeBtn.addEventListener('click', closeModal);
+      
+        function closeModal() {
+          refs.backdrop.classList.add('is-hidden-modal-coctails');
+        }
+      })();
       // document.addEventListener('keydown', onCloseEsc);
     } catch (error) {
       console.log(error.message);
@@ -150,7 +151,7 @@ function createMarkupCocktailForModalListIngredients(res) {
   }
   return ingredients
     .map(ingredient => {
-      return /*html*/ `<li data-ingredient_name="${ingredient}" class="cocktail-ingredient-btn">${ingredient}</li>`;
+      return /*html*/ `<li "${ingredient}" class="modal-coctail-component" data-modal-open>${ingredient}</li>`;
     })
     .join('');
 }
@@ -160,6 +161,7 @@ refs.cocktailsList.addEventListener('click', onOpenModalClick);
 function toggleModal() {
   refs.modalOpenBtn.classList.toggle('is-hidden');
 }
+
 
 // export function onCloseEsc(e) {
 //   console.dir(e);
