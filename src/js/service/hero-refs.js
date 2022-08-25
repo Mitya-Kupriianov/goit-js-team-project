@@ -7,9 +7,7 @@ export const refs = {
   addToFavBtn: document.querySelectorAll('.js-add-btn'),
   logInBtn: document.querySelector('.js-burger-btn-login'),
 
-
   // removeCocktail: document.querySelector('.js-remove'),
   imgRef: document.querySelectorAll('.img'),
   // RemoveCocktailBtnRef: document.querySelector('.transparent'),
-
 };

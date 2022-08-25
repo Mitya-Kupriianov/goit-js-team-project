@@ -43,7 +43,6 @@ export function renderMarkup(element, markup) {
   element.innerHTML = markup;
 }
 
-
 //              -------Click on "Add to Favorites button"-------
 
 function onAddBtnClick(e) {
