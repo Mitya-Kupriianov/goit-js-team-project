@@ -100,3 +100,12 @@
 
   cursor: pointer;
 }
+
+.wraper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.cocktails-content {
+  flex: 1;
+}
