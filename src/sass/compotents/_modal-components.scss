@@ -10,8 +10,8 @@
   transition: 700ms;
 }
 .backdrop-modal-components::after {
-content: '';
-pointer-events: none;
+  content: '';
+  pointer-events: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -19,14 +19,26 @@ pointer-events: none;
   bottom: 0;
   z-index: 5;
 }
-.is-hidden-modal-two {
+
+.ingr-modal-title-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 35px;
+}
+
+.is-hidden-inner-modal {
   opacity: 0;
   pointer-events: none;
   transition: 700ms;
 }
 
-.modal-two-container {
+.ingredientmodal-wrap {
+  margin-bottom: 35px;
+}
+
+.inner-modal-container {
   @include mq(mob) {
+    padding: 20px;
     z-index: 19;
     position: absolute;
     width: 320px;
@@ -36,6 +48,7 @@ pointer-events: none;
     overflow: auto;
   }
   @include mq(tab) {
+    margin-bottom: 20px;
     width: 822px;
     height: 598px;
     top: 400px;
@@ -49,128 +62,82 @@ pointer-events: none;
   overflow: auto;
   transition: 700ms;
 }
-.modal-two-header {
-  position: absolute;
-  width: 181px;
-  height: 37px;
-  left: 28px;
-  top: 40px;
+// .modal-two-header {
+//   position: absolute;
+//   width: 181px;
+//   height: 37px;
+//   left: 28px;
+//   top: 40px;
+//   font-family: var(--text-roboto);
+//   font-style: normal;
+//   font-weight: 900;
+//   font-size: 32px;
+//   line-height: 38px;
+//   color: var(--title-secondary-light-theme);
+// }
+.inner-modal-name {
+  @include fonts($fs: 32px, $fw: 900, $lh: 1.19, $ls: 0.02em);
+
+  font-family: 'Roboto';
+  font-style: normal;
   font-family: var(--text-roboto);
-  font-style: normal;
-  font-weight: 900;
-  font-size: 32px;
-  line-height: 38px;
+
   color: var(--title-secondary-light-theme);
 }
-.modal-two-name {
-  position: absolute;
-  width: 66px;
-  height: 24px;
-  left: 28px;
-  top: 105px;
-  font-family: var(--title-poppins);
-  font-style: normal;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 24px;
-  text-transform: uppercase;
-  color: var(--title-secondary-light-theme);
-}
-.modal-two-container::after {
-  content: '';
-  position: absolute;
-  width: 320px;
-  @include mq(tab) {
-    width: 820px;
-  }
-  height: 0px;
-  left: 0px;
-  top: 169px;
-  border: 1px solid #fd5103;
-}
-.modal-two-text {
-  @include mq(mob) {
-    position: absolute;
-    width: 275px;
-    height: 168px;
-    left: 26px;
-    top: 200px;
-  }
-  @include mq(tab) {
-    position: absolute;
-    width: 554px;
-    height: 112px;
-    left: 28px;
-    top: 197px;
-    font-size: 14px;
-    line-height: 1.7;
-  }
-  @include mq(desc) {
-    position: absolute;
-    width: 654px;
-    height: 112px;
-    left: 28px;
-    top: 197px;
-    font-size: 16px;
-    line-height: 1.7;
-  }
+
+.inner-modal-text {
+  @include fonts($fs: 16px, $fw: 400, $lh: 1.75, $ls: 0.02em);
+
+  overflow-y: scroll;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 28px;
+
   font-family: var(--title-poppins);
   font-style: normal;
   font-weight: 400;
 
   color: var(--background-dark);
 }
-.modal-two-span {
+.inner-modal-passage {
+  margin-bottom: 20px;
+  text-transform: uppercase;
   font-family: var(--title-poppins);
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
   line-height: 28px;
   color: var(--background-dark);
+
+  // border-bottom: 1px solid #fd5103;
 }
-.modal-two-ingridients {
-  @include mq(mob) {
-    position: absolute;
-    width: 266px;
-    height: 104px;
-    left: 28px;
-    top: 500px;
-    font-size: 16px;
-    line-height: 1.6;
-  }
-  @include mq(tab) {
-    position: absolute;
-    width: 266px;
-    height: 104px;
-    left: 28px;
-    top: 337px;
-    font-size: 14px;
-    line-height: 1.6;
-  }
-  @include mq(desc) {
-    position: absolute;
-    width: 266px;
-    height: 104px;
-    left: 28px;
-    top: 337px;
-    font-size: 16px;
-    line-height: 1.6;
-  }
-  list-style-type: none;
+
+.border {
+  margin: 0 -20px;
+
+  border-bottom: 1px solid #fd5103;
+}
+
+.modal-ingredients-close-btn {
+  display: none;
+}
+
+.inner-modal-ingredients {
+  @include fonts($fs: 16px, $fw: 400, $lh: 1.62, $ls: 0.02em);
   font-family: var(--title-poppins);
-  font-style: normal;
-  font-weight: 400;
+
+  width: 100%;
+  height: 100%;
+
+  list-style-type: none;
   color: var(--title-secondary-light-theme);
 }
+
 .modal-button {
   @include mq(mob) {
     @include fonts($fs: 20px, $fw: 400, $lh: 1.2, $ls: 0.02em);
     font-family: var(--text-roboto);
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-
-    position: absolute;
-    bottom: 28px;
-    right: 28px;
 
     padding: 12px 22px;
     min-width: 185px;
@@ -192,9 +159,16 @@ pointer-events: none;
   }
 }
 
-.hidden-components-modal{
+.hidden-components-modal {
   display: none;
 }
 .modal-scale {
   display: none;
+}
+
+.ingredients-modal-btn {
+  position: absolute;
+  bottom: 28px;
+  right: 28px;
+  margin-left: auto;
 }

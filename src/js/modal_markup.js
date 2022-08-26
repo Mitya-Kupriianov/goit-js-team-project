@@ -1,13 +1,16 @@
 import CocktailAPI from './service/getCocktail';
 import { renderMarkup } from './service/create-markup';
+import emptyHeart from '../images/hearts/empty-heart.png';
+import fullHeart from '../images/hearts/full-heart.png';
+import { shouldBeActivated } from '../js/service/create-markup';
 
 export const refs = {
   cocktailsList: document.querySelector('.cocktails__list'),
-  backdropT: document.querySelectorAll('[data-modal-2]'),
+  backdropT: document.querySelectorAll('[data-inner-modal]'),
   modalContainer: document.querySelector('.modal-coctails'),
   modalIngrContainer: document.querySelector('.backdrop-modal-components'),
-  backdrop: document.querySelector('[data-modal-2]'),
-  closeBtn: document.querySelector('[data-modal-close-2]'),
+  backdrop: document.querySelector('[data-inner-modal]'),
+  closeBtn: document.querySelector('[data-inner-modal-close]'),
   openModalIngrdients: document.querySelectorAll('[data-modal-open]'),
   scaleModal: document.querySelector('[data-modal-scale]'),
 };
@@ -38,20 +41,35 @@ function createModalMarkup(response) {
     .join('');
 }
 
+function toIdentifyStrType(ingredient) {
+  return ingredient.strType === null
+    ? 'Type is not mentioned :('
+    : ingredient.strType;
+}
+
+function toMakeDescriptionText(ingredient) {
+  return ingredient.Description === null
+    ? 'Sorry, description is not specified :('
+    : ingredient.strDescription;
+}
+
 function createIngredientsMarkup(ingredients) {
+  console.log(ingredients);
   return ingredients.data.ingredients
     .map(ingredient => {
-      return `<div class="ingredient__modal-wrap">
-  <img class="ingredient__modal-pic" src='https://www.thecocktaildb.com/images/ingredients/${
+
+      return `<div class="ingredient-modal-wrap">
+  <img class="ingredient-modal-pic" src='https://www.thecocktaildb.com/images/ingredients/${
     ingredient.strIngredient
   }-Small.png'
-  alt=${
-    ingredient.strIngredient
-  }><div modal-two-container dark--modal-back"><div class="ingr-modal-title-wrapper">
-  <h3 class="modal-two-name dark--title">${ingredient.strIngredient}</h3>
-  <h4 class="modal-two-span dark--text">
-    ${ingredient.strType === null ? 'Sorry, not specified' : ingredient.strType}
+  alt=${ingredient.strIngredient}></div>
+      <div inner-modal-container dark--modal-back"><div class="ingr-modal-title-wrapper">
+  <h3 class="inner-modal-name dark--title">${toIdentifyStrType(ingredient)}</h3>
+  <h4 class="inner-modal-passage dark--text">
+    ${ingredient.strIngredient}
+
   </h4>
+  <div class="border"></div>
 </div>
  <button type="button" class="modal-ingredients-close-btn" data-modal-close-ingr>
      <svg class="icon-modal-ingredients" height="32" width="32">
@@ -61,38 +79,33 @@ function createIngredientsMarkup(ingredients) {
 </div>
 <div class="modal-ingredients-desc">
 
-<p class="ingredients-modal-text">
-  ${
-    ingredient.Description === null
-      ? 'Sorry, not specified'
-      : ingredient.strDescription
-  }
+<p class="inner-modal-text">
+  ${toMakeDescriptionText(ingredient)}
 </p>
 <ul class="ingredients-modal-list">
 
-  <li class="modal-two-ingridients dark--text"">
-    ✶ Type: ${
-      ingredient.strType === null ? 'Sorry, not specified' : ingredient.strType
-    }
+  <li class="inner-modal-ingredients dark--text"">
+    ✶ Type: ${toIdentifyStrType(ingredient)}
   </li>
-  <li class="i">
+  <li class="inner-modal-ingredients dark--text">
     ✶ Country of origin: Sorry, not specified
   </li>
-  <li class="modal-two-ingridients dark--text">✶ Alcohol : ${
+  <li class="inner-modal-ingredients dark--text">✶ Alcohol : ${
     ingredient.strAlcohol
   }</li>
-  <li class="modal-two-ingridients dark--text>
-    ✶ Flavour: Sorry, not specified
-  </li>
+
 </ul>
-<button
-id=${ingredient.idIngredient}
-  type="button"
-  class="ingredients-modal-btn"
-  data-modal-c
->
-  Add to favorite
-</button></div>`;
+<button id=${
+        ingredient.idIngredient
+      } type="button" data-modal-c class="ingredients-modal-btn cocktails__btn dark--btn-back transparent ${shouldBeActivated(
+        ingredient.idIngredient,
+        'ingredients'
+      )}">
+              <span class="cocktails__button-text">Add to</span>  
+              <img class="empty-heart" data-toggle="hidden-hearFt" src="${emptyHeart}" alt="" width="18" height="18"/>
+              <img class="full-heart" data-toggle="empty-heart" src="${fullHeart}" alt="" width="18" height="18"/> 
+            </button>
+</div>`;
     })
     .join('');
 }
@@ -157,11 +170,13 @@ async function onIngredientClick(e) {
     const responseIngredient = await cocktailAPI.getCocktailByIngredient(
       ingredient
     );
-    const ingredientsContainer = document.querySelector('.modal-two-container');
+    const ingredientsContainer = document.querySelector(
+      '.inner-modal-container'
+    );
     const markup = createIngredientsMarkup(responseIngredient);
     renderMarkup(ingredientsContainer, markup);
-    const backdrop = document.querySelector('[data-modal-2]');
-    backdrop.classList.remove('is-hidden-modal-two');
+    const backdrop = document.querySelector('[data-inner-modal]');
+    backdrop.classList.remove('is-hidden-inner-modal');
   } catch (error) {
     throw new Error(error.message);
   }
