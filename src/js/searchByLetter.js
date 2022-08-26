@@ -44,18 +44,14 @@ export async function renderByLetter(letter) {
   const response = cocktailApi.getCocktailByLetter();
   drinks.push(response);
 
-  Promise.all(drinks).then(
-    function (drinks) {
-      const markup = createListMarkup(drinks[0].data);
+  Promise.all(drinks).then(function (drinks) {
+    const markup = createListMarkup(drinks[0].data);
 
-      markupLetter = markup;
-      const filterMarkup = markupFilter(markupLetter);
-      renderMarkup(cocktailList, filterMarkup);
-    }
-    //  .catch (error) {
-    //   onError();
-    //   title.innerHTML = "Sorry, we didn't find any cocktail for you";
-    //   return (cocktailList.innerHTML = noResultsMarkup());
-    // }
-  );
+    markupLetter = markup;
+    const filterMarkup = markupFilter(markupLetter);
+    renderMarkup(cocktailList, filterMarkup);
+    onError();
+    title.innerHTML = "Sorry, we didn't find any cocktail for you";
+    return (cocktailList.innerHTML = noResultsMarkup());
+  });
 }

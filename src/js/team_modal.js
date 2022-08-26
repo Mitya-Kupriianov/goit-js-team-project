@@ -23,7 +23,8 @@ const teamData = [
   {
     photo: 'https://www.volynnews.com/files/news/2022/02-27/332734/45.jpg',
     name: 'Шилов Вадим',
-    role: 'https://github.com/VadymShylov',
+    role: 'Developer',
+    git: 'https://github.com/VadymShylov',
   },
 
   {
@@ -37,7 +38,8 @@ const teamData = [
   {
     photo: 'https://gagadget.com/media/post_big/AnonymousUkraine.jpeg',
     name: 'Григорій Шмойлов',
-    role: 'https://github.com/Gregory0401',
+    git: 'https://github.com/Gregory0401',
+    role: 'Developer',
   },
   {
     photo:

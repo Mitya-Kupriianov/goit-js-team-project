@@ -18,7 +18,6 @@ function createModalMarkup(response) {
   return response.data.drinks
     .map(drink => {
       return `
-    <div class="modal-coctails dark--modal-back" data-modal-open data-modal-scale>
       <h2 class="modal-coctail-name dark--title">${drink.strDrink}</h2>
       <h3 class="modal-ingredients dark--title">Ingredients</h3>
 
@@ -34,8 +33,7 @@ function createModalMarkup(response) {
        <button class="modal-button" data-modal-a>Add to favorite</button>
       <button class="modal-button hidden_remove" data-modal-b>
         Remove from favorite
-      </button>
-    </div>`;
+      </button>`;
     })
     .join('');
 }
@@ -43,7 +41,13 @@ function createModalMarkup(response) {
 function createIngredientsMarkup(ingredients) {
   return ingredients.data.ingredients
     .map(ingredient => {
-      return `<div modal-two-container dark--modal-back"><div class="ingr-modal-title-wrapper">
+      return `<div class="ingredient__modal-wrap">
+  <img class="ingredient__modal-pic" src='https://www.thecocktaildb.com/images/ingredients/${
+    ingredient.strIngredient
+  }-Small.png'
+  alt=${
+    ingredient.strIngredient
+  }><div modal-two-container dark--modal-back"><div class="ingr-modal-title-wrapper">
   <h3 class="modal-two-name dark--title">${ingredient.strIngredient}</h3>
   <h4 class="modal-two-span dark--text">
     ${ingredient.strType === null ? 'Sorry, not specified' : ingredient.strType}
