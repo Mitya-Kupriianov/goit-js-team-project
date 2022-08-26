@@ -1,4 +1,4 @@
-import { createMarkup, renderMarkup } from './service/create-markup';
+import { createRandomMarkup, renderMarkup } from './service/create-markup';
 import { getCocktailStorageData } from '../js/service/localStorage';
 import CocktailAPI from './service/getCocktail';
 import { refs } from './modal_markup';
@@ -9,6 +9,7 @@ const favorite = new CocktailAPI();
 
 export function onFavoriteCocktailsLoad() {
   const data = getCocktailStorageData(favorite.KEY);
+  // console.log(data);
   if (!data) {
     favoriteList.innerHTML = "Sorry, we didn't find any cocktail for you";
   }
@@ -17,7 +18,7 @@ export function onFavoriteCocktailsLoad() {
 
 function render(data) {
   console.log(data);
-  const markup = createMarkup(data);
+  const markup = createRandomMarkup(data);
   console.log(markup);
   renderMarkup(favoriteList, markup);
 }
@@ -27,8 +28,8 @@ async function toCountAndRenderIngr(data) {
   console.log(data);
   data.forEach(id => {
     const response = favorite.getCocktailsId(id);
-
     drinks.push(response);
+    // console.log(drinks);
   });
   Promise.all(drinks).then(render);
 }

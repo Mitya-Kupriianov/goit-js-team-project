@@ -47,6 +47,7 @@ export async function renderByLetter(letter) {
 
   Promise.all(drinks).then(
     function (drinks) {
+      // console.log(drinks);
       const markup = createListMarkup(drinks[0].data);
 
       markupLetter = markup;

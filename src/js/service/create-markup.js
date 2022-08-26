@@ -25,7 +25,6 @@ function onAddBtnClick(e) {
       btn.classList.add('activated');
 
       setCocktailToLocalStorage(id, 'cocktails');
-
     }
     if (data.includes(id)) {
       Notiflix.Notify.failure('Cocktail was deleted from favourites!');
@@ -81,45 +80,43 @@ export function createMarkup({ strDrink, strDrinkThumb, idDrink }) {
 // }
 
 export function createListMarkup(data) {
-  return data.drinks.map(item => createCard(item));
+  return data.drinks.map(item => createMarkup(item));
 }
 
 export function createRandomMarkup(arr) {
   console.log(arr);
-  return arr.map(item => createCard(item.data.drinks[0]));
+  return arr.map(item => createMarkup(item.data.drinks[0]));
 }
 
-function createCard({ strDrink, strDrinkThumb, idDrink }) {
-  return `
-  <li class="cocktails__item card-set-item">
-    <img
-      src="${strDrinkThumb}"
-      alt="${strDrink}"
-    />
-    <div class="cocktails__box">
-      <h2 class="cocktails__second-title">${strDrink}</h2>
-      <div class="cocktails__button-box">
-        <button
-          type="button"
-          class="cocktails__btn"
-          data-modal-cocktail-open
-           data-id=${idDrink}
-        >
-          <span class="cocktails__button-text" id=${idDrink} >Learn more</span>
-        </button>
-        <button type="button" class="cocktails__btn dark--btn-back js-add-btn transparent ${shouldBeActivated(
-          idDrink
-        )}" data-id="${idDrink}">
-          <span class="cocktails__button-text">Add to</span>  
-          <img class="empty-heart" data-toggle="hidden-hearFt" src="${emptyHeart}" alt="" width="18" height="18"/>
-          <img class="full-heart" data-toggle="empty-heart" src="${fullHeart}" alt="" width="18" height="18"/> 
-        </button>
-      </div>
-    </div>
-  </li>`;
-}
-
-//              -------Filter for screens (Adaptive)-------
+// function createCard({ strDrink, strDrinkThumb, idDrink }) {
+//   return `
+//   <li class="cocktails__item card-set-item">
+//     <img
+//       src="${strDrinkThumb}"
+//       alt="${strDrink}"
+//     />
+//     <div class="cocktails__box">
+//       <h2 class="cocktails__second-title">${strDrink}</h2>
+//       <div class="cocktails__button-box">
+//         <button
+//           type="button"
+//           class="cocktails__btn"
+//           data-modal-cocktail-open
+//            data-id=${idDrink}
+//         >
+//           <span class="cocktails__button-text" id=${idDrink} >Learn more</span>
+//         </button>
+//         <button type="button" class="cocktails__btn dark--btn-back js-add-btn transparent ${shouldBeActivated(
+//           idDrink
+//         )}" data-id="${idDrink}">
+//           <span class="cocktails__button-text">Add to</span>
+//           <img class="empty-heart" data-toggle="hidden-hearFt" src="${emptyHeart}" alt="" width="18" height="18"/>
+//           <img class="full-heart" data-toggle="empty-heart" src="${fullHeart}" alt="" width="18" height="18"/>
+//         </button>
+//       </div>
+//     </div>
+//   </li>`;
+// }
 
 //              -------Filter for screens (Adaptive)-------
 
@@ -132,7 +129,6 @@ export function markupFilter(markup) {
 }
 
 //              -------Render markup-------
-
 
 export function renderMarkup(element, markup) {
   element.innerHTML = markup;
@@ -155,6 +151,4 @@ function shouldBeActivated(id) {
 
 //                  --------Listeners--------
 
-
 cocktailList.addEventListener('click', onAddBtnClick);
-
