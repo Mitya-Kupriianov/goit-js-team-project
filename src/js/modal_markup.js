@@ -6,9 +6,11 @@ export const refs = {
   backdropT: document.querySelectorAll('[data-modal-2]'),
   modalContainer: document.querySelector('.modal-coctails'),
   modalIngrContainer: document.querySelector('.backdrop-modal-components'),
+  backdrop: document.querySelector('[data-modal-2]'),
+  closeBtn: document.querySelector('[data-modal-close-2]'),
+  openModalIngrdients: document.querySelectorAll('[data-modal-open]'),
+  scaleModal: document.querySelector('[data-modal-scale]'),
 };
-
-// console.log(12121212);
 
 const cocktailAPI = new CocktailAPI();
 
@@ -39,7 +41,6 @@ function createModalMarkup(response) {
 }
 
 function createIngredientsMarkup(ingredients) {
-  console.log(ingredients);
   return ingredients.data.ingredients
     .map(ingredient => {
       return `<div modal-two-container dark--modal-back"><div class="ingr-modal-title-wrapper">
@@ -146,25 +147,20 @@ function createMarkupCocktailForModalListIngredients(res) {
     .join('');
 }
 
-refs.cocktailsList.addEventListener('click', onOpenModalClick);
-
 async function onIngredientClick(e) {
   try {
     const ingredient = e.target.textContent;
-    console.log(ingredient);
     const responseIngredient = await cocktailAPI.getCocktailByIngredient(
       ingredient
     );
-    console.log(responseIngredient);
+    const ingredientsContainer = document.querySelector('.modal-two-container');
     const markup = createIngredientsMarkup(responseIngredient);
-    renderMarkup();
+    renderMarkup(ingredientsContainer, markup);
+    const backdrop = document.querySelector('[data-modal-2]');
+    backdrop.classList.remove('is-hidden-modal-two');
   } catch (error) {
     throw new Error(error.message);
   }
-}
-
-function toggleModal() {
-  refs.modalOpenBtn.classList.toggle('is-hidden');
 }
 
 // export function onCloseEsc(e) {
@@ -177,3 +173,5 @@ function toggleModal() {
 //     document.removeEventListener('keydown', onCloseEsc);
 //   }
 // }
+
+refs.cocktailsList.addEventListener('click', onOpenModalClick);

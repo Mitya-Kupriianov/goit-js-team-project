@@ -25,7 +25,6 @@ const cocktailApi = new CocktailAPI();
 //! <--------1-------> ///
 
 export function onLetterClick(e) {
-  console.log(e.target.closest('.option'));
   if (!e.target.innerHTML) return;
   const letter = e.target.innerHTML.toLowerCase();
   renderByLetter(letter);
