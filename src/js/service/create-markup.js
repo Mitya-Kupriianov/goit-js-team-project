@@ -23,7 +23,7 @@ function onAddBtnClick(e) {
     // console.dir('btn', btn);
     if (!data) {
       btn.classList.add('activated');
-      setCocktailToLocalStorage(id);
+      setCocktailToLocalStorage(id, 'cocktails');
     }
     if (data.includes(id)) {
       Notiflix.Notify.failure('Cocktail was deleted from favourites!');
@@ -32,16 +32,22 @@ function onAddBtnClick(e) {
     } else {
       Notiflix.Notify.success('Cocktail was added to favourites, Congrats!');
       btn.classList.add('activated');
-      setCocktailToLocalStorage(id);
+      setCocktailToLocalStorage(id, 'cocktails');
     }
   }
 }
 
 //              -------Create markup-------
 
-export function createMarkup(arr) {
-  return arr.data.drinks.map(({ strDrink, strDrinkThumb, idDrink }) => {
-    return `
+export function createMarkup({ strDrink, strDrinkThumb, idDrink }) {
+  console.log(arr);
+  // return arr.map(
+  //   ({
+  //     data: {
+  //       drinks: [{ strDrink, strDrinkThumb, idDrink }],
+  //     },
+  //   }) => {
+  return `
       <li class="cocktails__item card-set-item">
         <img
           src="${strDrinkThumb}"
@@ -68,12 +74,21 @@ export function createMarkup(arr) {
           </div>
         </div>
       </li>`;
-  });
+}
+//   );
+// }
+
+function createListMarkup(array) {
+  console.log(array);
+  // return array.map(() => {
+  //   return createMarkup()
+  // })
 }
 
 export function createRandomMarkup(arr) {
-  return arr.map(item => {
-    const { strDrink, strDrinkThumb, idDrink } = item.data.drinks[0];
+  console.log(arr);
+  return arr.data.drinks.map(({ strDrink, strDrinkThumb, idDrink }) => {
+    // const { strDrink, strDrinkThumb, idDrink } = item.data.drinks[0];
     return `
       <li class="cocktails__item card-set-item">
         <img
@@ -115,7 +130,6 @@ export function markupFilter(markup) {
 }
 
 //              -------Render markup-------
-
 
 export function renderMarkup(element, markup) {
   element.innerHTML = markup;

@@ -7,25 +7,30 @@ const favoriteList = document.querySelector('.cocktails__list');
 
 const favorite = new CocktailAPI();
 
-export async function onFavoriteCocktailsLoad() {
-  const data = await getCocktailStorageData(favorite.KEY);
-  const drinks = [];
+export function onFavoriteCocktailsLoad() {
+  const data = getCocktailStorageData(favorite.KEY);
   if (!data) {
     favoriteList.innerHTML = "Sorry, we didn't find any cocktail for you";
   }
+  toCountAndRenderIngr(data);
+}
 
-  const render = () => {
-    const arr = { data: { drinks: drinks } };
-    const markup = createMarkup(arr);
-    renderMarkup(favoriteList, markup);
-  };
+function render(data) {
+  console.log(data);
+  const markup = createMarkup(data);
+  console.log(markup);
+  renderMarkup(favoriteList, markup);
+}
 
-  await data?.forEach(async id => {
-    const response = await favorite.getCocktailsId(id);
-    const cocktail = response.data.drinks;
-    if (cocktail.length) drinks.push(...cocktail);
-    if (drinks.length === data.length) render();
+async function toCountAndRenderIngr(data) {
+  const drinks = [];
+  console.log(data);
+  data.forEach(id => {
+    const response = favorite.getCocktailsId(id);
+
+    drinks.push(response);
   });
+  Promise.all(drinks).then(render);
 }
 
 window.addEventListener('load', onFavoriteCocktailsLoad);

@@ -7,11 +7,11 @@ let cocktail = {
 };
 
 //              -------Set to Local Storage-------
-export function setCocktailToLocalStorage(id) {
+export function setCocktailToLocalStorage(id, payLoad) {
   let data = getCocktailStorageData(favorite.KEY);
   data = data ? data : [];
   data.push(id);
-  localStorage.setItem('cocktails', JSON.stringify(data));
+  localStorage.setItem(payLoad, JSON.stringify(data));
 }
 
 //              -------Get from Local Storage-------

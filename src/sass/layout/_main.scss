@@ -26,13 +26,14 @@
 }
 
 .cocktails__list {
-  justify-content: space-evenly;
+  @include mq(desc) {
+    justify-content: space-evenly;
+  }
 }
 
 .cocktails__item {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   border-radius: 4px;
   outline: 1px solid var(--button-text-color);
 
