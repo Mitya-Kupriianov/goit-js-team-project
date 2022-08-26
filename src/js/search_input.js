@@ -1,7 +1,7 @@
 import CocktailAPI from './service/getCocktail';
 // import cardTmpl from '../tmp/random-card.hbs';
 import {
-  createMarkup,
+  createListMarkup,
   renderMarkup,
   markupFilter,
 } from './service/create-markup';
@@ -30,7 +30,7 @@ async function onSearch(e) {
     }
     cocktailAPI.resetPage();
     const responseSearch = await cocktailAPI.getCocktailByName();
-    const markup = createMarkup(responseSearch);
+    const markup = createListMarkup(responseSearch.data);
     const filteredMarkup = markupFilter(markup);
     renderMarkup(cocktailsList, filteredMarkup);
   } catch (error) {

@@ -12,7 +12,7 @@ export default class CocktailAPI {
     this.searchQuery = '';
     this.category = '';
     this.drinks = '';
-    this.ingredients = {};
+    this.ingredients = [];
     this.favoriteDrinks = [];
     this.favoriteIngredients = [];
   }

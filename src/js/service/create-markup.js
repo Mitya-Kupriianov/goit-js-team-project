@@ -23,7 +23,9 @@ function onAddBtnClick(e) {
     // console.dir('btn', btn);
     if (!data) {
       btn.classList.add('activated');
-      setCocktailToLocalStorage(id);
+
+      setCocktailToLocalStorage(id, 'cocktails');
+
     }
     if (data.includes(id)) {
       Notiflix.Notify.failure('Cocktail was deleted from favourites!');
@@ -32,16 +34,22 @@ function onAddBtnClick(e) {
     } else {
       Notiflix.Notify.success('Cocktail was added to favourites, Congrats!');
       btn.classList.add('activated');
-      setCocktailToLocalStorage(id);
+
+      setCocktailToLocalStorage(id, 'cocktails');
     }
   }
 }
 
 //              -------Create markup-------
 
-export function createMarkup(arr) {
-  return arr.data.drinks.map(({ strDrink, strDrinkThumb, idDrink }) => {
-    return `
+export function createMarkup({ strDrink, strDrinkThumb, idDrink }) {
+  // return arr.map(
+  //   ({
+  //     data: {
+  //       drinks: [{ strDrink, strDrinkThumb, idDrink }],
+  //     },
+  //   }) => {
+  return `
       <li class="cocktails__item card-set-item">
         <img
           src="${strDrinkThumb}"
@@ -68,41 +76,50 @@ export function createMarkup(arr) {
           </div>
         </div>
       </li>`;
-  });
+}
+//   );
+// }
+
+export function createListMarkup(data) {
+  return data.drinks.map(item => createCard(item));
 }
 
 export function createRandomMarkup(arr) {
-  return arr.map(item => {
-    const { strDrink, strDrinkThumb, idDrink } = item.data.drinks[0];
-    return `
-      <li class="cocktails__item card-set-item">
-        <img
-          src="${strDrinkThumb}"
-          alt="${strDrink}"
-        />
-        <div class="cocktails__box">
-          <h2 class="cocktails__second-title">${strDrink}</h2>
-          <div class="cocktails__button-box">
-            <button
-              type="button"
-              class="cocktails__btn"
-              data-modal-cocktail-open
-               data-id=${idDrink}
-            >
-              <span class="cocktails__button-text" id=${idDrink} >Learn more</span>
-            </button>
-            <button type="button" class="cocktails__btn dark--btn-back js-add-btn transparent ${shouldBeActivated(
-              idDrink
-            )}" data-id="${idDrink}">
-              <span class="cocktails__button-text">Add to</span>  
-              <img class="empty-heart" data-toggle="hidden-hearFt" src="${emptyHeart}" alt="" width="18" height="18"/>
-              <img class="full-heart" data-toggle="empty-heart" src="${fullHeart}" alt="" width="18" height="18"/> 
-            </button>
-          </div>
-        </div>
-      </li>`;
-  });
+  console.log(arr);
+  return arr.map(item => createCard(item.data.drinks[0]));
 }
+
+function createCard({ strDrink, strDrinkThumb, idDrink }) {
+  return `
+  <li class="cocktails__item card-set-item">
+    <img
+      src="${strDrinkThumb}"
+      alt="${strDrink}"
+    />
+    <div class="cocktails__box">
+      <h2 class="cocktails__second-title">${strDrink}</h2>
+      <div class="cocktails__button-box">
+        <button
+          type="button"
+          class="cocktails__btn"
+          data-modal-cocktail-open
+           data-id=${idDrink}
+        >
+          <span class="cocktails__button-text" id=${idDrink} >Learn more</span>
+        </button>
+        <button type="button" class="cocktails__btn dark--btn-back js-add-btn transparent ${shouldBeActivated(
+          idDrink
+        )}" data-id="${idDrink}">
+          <span class="cocktails__button-text">Add to</span>  
+          <img class="empty-heart" data-toggle="hidden-hearFt" src="${emptyHeart}" alt="" width="18" height="18"/>
+          <img class="full-heart" data-toggle="empty-heart" src="${fullHeart}" alt="" width="18" height="18"/> 
+        </button>
+      </div>
+    </div>
+  </li>`;
+}
+
+//              -------Filter for screens (Adaptive)-------
 
 //              -------Filter for screens (Adaptive)-------
 
@@ -138,4 +155,6 @@ function shouldBeActivated(id) {
 
 //                  --------Listeners--------
 
+
 cocktailList.addEventListener('click', onAddBtnClick);
+

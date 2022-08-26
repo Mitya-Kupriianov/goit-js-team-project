@@ -39,6 +39,7 @@ function createModalMarkup(response) {
 }
 
 function createIngredientsMarkup(ingredients) {
+  console.log(ingredients);
   return ingredients.data.ingredients
     .map(ingredient => {
       return `<div modal-two-container dark--modal-back"><div class="ingr-modal-title-wrapper">
@@ -49,14 +50,18 @@ function createIngredientsMarkup(ingredients) {
 </div>
  <button type="button" class="modal-ingredients-close-btn" data-modal-close-ingr>
      <svg class="icon-modal-ingredients" height="32" width="32">
-    <use href="${iconsModal}#icon-close-modal-cocktail"></use>
+    <use href="#icon-close-modal-cocktail"></use>
   </svg>
   </button>
 </div>
 <div class="modal-ingredients-desc">
 
 <p class="ingredients-modal-text">
-  ${strDescription === null ? 'Sorry, not specified' : strDescription}
+  ${
+    ingredient.Description === null
+      ? 'Sorry, not specified'
+      : ingredient.strDescription
+  }
 </p>
 <ul class="ingredients-modal-list">
 
@@ -95,16 +100,15 @@ export async function onOpenModalClick(e) {
       const modalMarkup = createModalMarkup(responseID);
       renderMarkup(refs.modalContainer, modalMarkup);
 
+      const ingrWrap = document.querySelector('.modal-coctail-components');
       const backdrop = document.querySelector('[data-modal]');
       backdrop.classList.remove('is-hidden-modal-coctails');
 
       const markupIngredientsList =
         await createMarkupCocktailForModalListIngredients(responseID);
-      const ingrWrap = document.querySelector('.modal-coctail-components');
       renderMarkup(ingrWrap, markupIngredientsList);
+      ingrWrap.addEventListener('click', onIngredientClick);
 
-      // ----------Нету этой функции!!!----------
-      // ingrWrap.addEventListener('click', onIngredientClick);
       (() => {
         const refs = {
           backdrop: document.querySelector('[data-modal]'),
@@ -143,6 +147,21 @@ function createMarkupCocktailForModalListIngredients(res) {
 }
 
 refs.cocktailsList.addEventListener('click', onOpenModalClick);
+
+async function onIngredientClick(e) {
+  try {
+    const ingredient = e.target.textContent;
+    console.log(ingredient);
+    const responseIngredient = await cocktailAPI.getCocktailByIngredient(
+      ingredient
+    );
+    console.log(responseIngredient);
+    const markup = createIngredientsMarkup(responseIngredient);
+    renderMarkup();
+  } catch (error) {
+    throw new Error(error.message);
+  }
+}
 
 function toggleModal() {
   refs.modalOpenBtn.classList.toggle('is-hidden');

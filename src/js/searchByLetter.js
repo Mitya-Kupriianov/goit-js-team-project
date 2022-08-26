@@ -2,7 +2,7 @@ import CocktailAPI from './service/getCocktail';
 import { loadMore, pagesDrop } from './pagination';
 import {
   renderMarkup,
-  createMarkup,
+  createListMarkup,
   markupFilter,
 } from './service/create-markup';
 
@@ -40,16 +40,23 @@ function showLoadMoreBtn() {
 export let markupLetter = '';
 
 export async function renderByLetter(letter) {
-  try {
-    cocktailApi.letter = letter;
-    const response = await cocktailApi.getCocktailByLetter();
-    const markup = createMarkup(response);
-    markupLetter = markup;
-    const filterMarkup = markupFilter(markup);
-    renderMarkup(cocktailList, filterMarkup);
-  } catch (error) {
-    onError();
-    title.innerHTML = "Sorry, we didn't find any cocktail for you";
-    return (cocktailList.innerHTML = noResultsMarkup());
-  }
+  cocktailApi.letter = letter;
+  const drinks = [];
+  const response = cocktailApi.getCocktailByLetter();
+  drinks.push(response);
+
+  Promise.all(drinks).then(
+    function (drinks) {
+      const markup = createListMarkup(drinks[0].data);
+
+      markupLetter = markup;
+      const filterMarkup = markupFilter(markupLetter);
+      renderMarkup(cocktailList, filterMarkup);
+    }
+    //  .catch (error) {
+    //   onError();
+    //   title.innerHTML = "Sorry, we didn't find any cocktail for you";
+    //   return (cocktailList.innerHTML = noResultsMarkup());
+    // }
+  );
 }
