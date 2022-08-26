@@ -44,6 +44,7 @@ export async function renderByLetter(letter) {
   const response = cocktailApi.getCocktailByLetter();
   drinks.push(response);
 
+
   Promise.all(drinks).then(function (drinks) {
     const markup = createListMarkup(drinks[0].data);
 
@@ -54,4 +55,5 @@ export async function renderByLetter(letter) {
     title.innerHTML = "Sorry, we didn't find any cocktail for you";
     return (cocktailList.innerHTML = noResultsMarkup());
   });
-}
+
+
