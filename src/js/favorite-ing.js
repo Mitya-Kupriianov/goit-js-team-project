@@ -3,16 +3,23 @@ import {
   removeFromLocalStorage,
 } from '../js/service/localStorage';
 import CocktailAPI from './service/getCocktail';
+import { noResultsMarkup } from '../js/service/create-markup';
+import { onError } from '../js/service/notification';
 
 console.log(1111);
 const favorite = new CocktailAPI();
 const favoriteListRef = document.querySelector('.favorite__list-card');
+console.dir(favoriteListRef);
 
 export async function onFavoriteIngredientsLoad() {
-  const data = await getCocktailStorageData(favorite.KEY);
+  const data = await getCocktailStorageData(favorite.INGREDIENTS);
+  console.log(data);
   const ingredients = [];
   if (!data) {
+    onError();
     favoriteListRef.innerHTML = "Sorry, we didn't find any cocktail for you";
+
+    return (favoriteListRef.innerHTML = noResultsMarkup());
   }
 
   const render = () => {

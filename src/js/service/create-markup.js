@@ -7,6 +7,8 @@ import {
 import emptyHeart from '../../images/hearts/empty-heart.png';
 import fullHeart from '../../images/hearts/full-heart.png';
 import Notiflix from 'notiflix';
+import * as noResults from '../../images/notice/notice.png';
+import * as noResults2x from '../../images/notice/notice@2x.png';
 
 const favorite = new CocktailAPI();
 
@@ -42,12 +44,6 @@ function onAddBtnClick(e) {
 //              -------Create markup-------
 
 export function createMarkup({ strDrink, strDrinkThumb, idDrink }) {
-  // return arr.map(
-  //   ({
-  //     data: {
-  //       drinks: [{ strDrink, strDrinkThumb, idDrink }],
-  //     },
-  //   }) => {
   return `
       <li class="cocktails__item card-set-item">
         <img
@@ -66,7 +62,8 @@ export function createMarkup({ strDrink, strDrinkThumb, idDrink }) {
               <span class="cocktails__button-text" id=${idDrink} >Learn more</span>
             </button>
             <button type="button" class="cocktails__btn dark--btn-back js-add-btn transparent ${shouldBeActivated(
-              idDrink
+              idDrink,
+              'cocktails'
             )}" data-id="${idDrink}">
               <span class="cocktails__button-text">Add to</span>  
               <img class="empty-heart" data-toggle="hidden-hearFt" src="${emptyHeart}" alt="" width="18" height="18"/>
@@ -76,8 +73,6 @@ export function createMarkup({ strDrink, strDrinkThumb, idDrink }) {
         </div>
       </li>`;
 }
-//   );
-// }
 
 export function createListMarkup(data) {
   return data.drinks.map(item => createMarkup(item));
@@ -135,15 +130,15 @@ export function renderMarkup(element, markup) {
 }
 
 export function noResultsMarkup() {
-  return `<img class="no-result" srcset = "${noResults}", srcset =  "${noResults2x}" src="${noResults2x}" alt="No Results"></img>`;
+  return `<li class="garcon"><img class="no-result" srcset = "${noResults}", srcset =  "${noResults2x}" src="${noResults2x}" alt="No Results"></img></li>`;
 }
 
 //              -------To toggle Add to favorite icon-------
 
-function shouldBeActivated(id) {
-  const data = getCocktailStorageData(favorite.KEY);
+export function shouldBeActivated(id, payLoad) {
+  const data = getCocktailStorageData(payLoad);
   if (data) {
-    return localStorage.getItem('cocktails').includes(id) ? 'activated' : '';
+    return localStorage.getItem(payLoad).includes(id) ? 'activated' : '';
   } else {
     return;
   }
