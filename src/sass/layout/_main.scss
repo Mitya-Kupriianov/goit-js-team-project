@@ -26,7 +26,16 @@
 }
 
 .cocktails__list {
-  justify-content: space-evenly;
+  justify-content: center;
+  @include mq(desc) {
+    // justify-content: space-evenly;
+  }
+}
+
+.cocktails__list--favotit {
+  @include mq(tab-only) {
+    --card-gap: 15px;
+  }
 }
 
 .cocktails__item {
@@ -36,19 +45,16 @@
   border-radius: 4px;
   outline: 1px solid var(--button-text-color);
 
-  @include mq(mob-only) {
-    max-width: 280px;
+  @include mq(mob) {
+    // max-width: 420px;
     --card-item: 1;
-    gap: 20px;
   }
-  @include mq(fab) {
-    --card-item: 2;
-    max-width: 220px;
-  }
-  @include mq(tab-only) {
+  @include mq(tab) {
     max-width: 320px;
+    --card-item: 2;
   }
   @include mq(desc) {
+    margin-left: 20px;
     max-width: 335px;
   }
 }
@@ -78,13 +84,12 @@
 
 .cocktails__button-box {
   @include mq(mob) {
-    display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    gap: 20px;
+    display: flex;
   }
   @include mq(fab) {
-    flex-direction: column;
+    // flex-direction: column;
   }
   @include mq(tab) {
     flex-direction: row;
