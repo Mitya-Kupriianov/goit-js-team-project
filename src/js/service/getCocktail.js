@@ -49,9 +49,11 @@ export default class CocktailAPI {
 
   // todo byIngredient //
 
-  async getCocktailByIngredient() {
+  async getCocktailByIngredient(ingredients) {
     try {
-      return await axios(`${BASE_URL}search.php?i=${this.ingredients}`);
+      return await axios(
+        `${BASE_URL}search.php?i=${ingredients || this.ingredients}`
+      );
     } catch (error) {
       throw new Error(error.message);
     }

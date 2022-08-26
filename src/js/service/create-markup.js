@@ -23,7 +23,9 @@ function onAddBtnClick(e) {
     // console.dir('btn', btn);
     if (!data) {
       btn.classList.add('activated');
+
       setCocktailToLocalStorage(id, 'cocktails');
+
     }
     if (data.includes(id)) {
       Notiflix.Notify.failure('Cocktail was deleted from favourites!');
@@ -32,6 +34,7 @@ function onAddBtnClick(e) {
     } else {
       Notiflix.Notify.success('Cocktail was added to favourites, Congrats!');
       btn.classList.add('activated');
+
       setCocktailToLocalStorage(id, 'cocktails');
     }
   }
@@ -118,6 +121,8 @@ function createCard({ strDrink, strDrinkThumb, idDrink }) {
 
 //              -------Filter for screens (Adaptive)-------
 
+//              -------Filter for screens (Adaptive)-------
+
 export function markupFilter(markup) {
   if (window.screen.width < 768) {
     return markup.filter((_, index) => index < 3).join('');
@@ -127,6 +132,7 @@ export function markupFilter(markup) {
 }
 
 //              -------Render markup-------
+
 
 export function renderMarkup(element, markup) {
   element.innerHTML = markup;
@@ -149,4 +155,6 @@ function shouldBeActivated(id) {
 
 //                  --------Listeners--------
 
+
 cocktailList.addEventListener('click', onAddBtnClick);
+
