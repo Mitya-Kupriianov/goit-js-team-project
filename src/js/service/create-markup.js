@@ -7,6 +7,8 @@ import {
 import emptyHeart from '../../images/hearts/empty-heart.png';
 import fullHeart from '../../images/hearts/full-heart.png';
 import Notiflix from 'notiflix';
+import * as noResults from '../../images/notice/notice.png';
+import * as noResults2x from '../../images/notice/notice@2x.png';
 
 const favorite = new CocktailAPI();
 
@@ -116,12 +118,13 @@ export function markupFilter(markup) {
 
 //              -------Render markup-------
 
-
 export function renderMarkup(element, markup) {
   element.innerHTML = markup;
 }
 
 export function noResultsMarkup() {
+  const title = document.querySelector('.cocktails__first-title');
+  title.innerHTML = "Sorry, we didn't find any cocktail for you";
   return `<img class="no-result" srcset = "${noResults}", srcset =  "${noResults2x}" src="${noResults2x}" alt="No Results"></img>`;
 }
 
