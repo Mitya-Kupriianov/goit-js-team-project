@@ -27,7 +27,7 @@ import './js/service/render-markup';
 import './js/refs';
 import './js/modal_markup';
 import './js/service/localStorage';
-// import './js/scroll';
+import './js/scroll';
 
 import './js/searchByLetter';
 import './js/pagination';

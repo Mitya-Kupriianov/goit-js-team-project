@@ -167,6 +167,7 @@
   }
 
   padding: 0;
+  overflow-y: scroll;
 }
 .modal-Instractions {
   @include mq(mob) {
@@ -192,12 +193,12 @@
   text-transform: uppercase;
 }
 .modal-text {
-  @include mq(mob) {
+   @include mq(mob) {
     position: absolute;
     width: 275px;
     height: 168px;
     left: 16px;
-    top: 137px;
+    top: 137px; 
   }
   @include mq(tab) {
     position: absolute;
@@ -213,6 +214,7 @@
   font-weight: 400;
   color: #5f6775;
   margin: 0;
+  overflow-y: scroll;
 }
 
 .modal-menu__close {
