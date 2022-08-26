@@ -1,16 +1,12 @@
-import { refs } from './hero-refs';
-const { addToFavBtn } = refs;
-
 import CocktailAPI from './getCocktail';
 import { includes } from 'lodash';
 const favorite = new CocktailAPI();
 
 let cocktail = {
-  // strDrink: '',
-  // strDrinkThumb: '',
   idDrink: '',
 };
 
+//              -------Set to Local Storage-------
 export function setCocktailToLocalStorage(id) {
   let data = getCocktailStorageData(favorite.KEY);
   data = data ? data : [];
@@ -18,6 +14,7 @@ export function setCocktailToLocalStorage(id) {
   localStorage.setItem('cocktails', JSON.stringify(data));
 }
 
+//              -------Get from Local Storage-------
 export function getCocktailStorageData(KEY) {
   try {
     const jsonData = localStorage.getItem(KEY);
@@ -27,6 +24,7 @@ export function getCocktailStorageData(KEY) {
   }
 }
 
+//              -------Remove from Local Storage-------
 export function removeFromLocalStorage(idDrink) {
   let data = getCocktailStorageData(favorite.KEY);
   let index = data.indexOf(idDrink);

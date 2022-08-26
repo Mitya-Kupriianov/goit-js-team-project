@@ -18,7 +18,7 @@
     display: inline-flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    gap: 15px;
+    gap: 7px;
     max-width: 393px;
 
     &:hover {
@@ -45,6 +45,9 @@
   @include mq(tab) {
     @include fonts($fs: 14px, $fw: 700, $lh: 1.5, $ls: 0.02em);
     padding: 3px;
+  }
+  @include mq(desc) {
+    @include fonts($fs: 24px, $fw: null, $lh: null, $ls: null);
   }
 }
 
