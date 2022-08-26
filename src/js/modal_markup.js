@@ -21,7 +21,6 @@ function createModalMarkup(response) {
   return response.data.drinks
     .map(drink => {
       return `
-    <div class="modal-coctails dark--modal-back" data-modal-open data-modal-scale>
       <h2 class="modal-coctail-name dark--title">${drink.strDrink}</h2>
       <h3 class="modal-ingredients dark--title">Ingredients</h3>
 
@@ -37,8 +36,7 @@ function createModalMarkup(response) {
        <button class="modal-button" data-modal-a>Add to favorite</button>
       <button class="modal-button hidden_remove" data-modal-b>
         Remove from favorite
-      </button>
-    </div>`;
+      </button>`;
     })
     .join('');
 }
@@ -59,6 +57,7 @@ function createIngredientsMarkup(ingredients) {
   console.log(ingredients);
   return ingredients.data.ingredients
     .map(ingredient => {
+
       return `<div class="ingredient-modal-wrap">
   <img class="ingredient-modal-pic" src='https://www.thecocktaildb.com/images/ingredients/${
     ingredient.strIngredient
@@ -68,6 +67,7 @@ function createIngredientsMarkup(ingredients) {
   <h3 class="inner-modal-name dark--title">${toIdentifyStrType(ingredient)}</h3>
   <h4 class="inner-modal-passage dark--text">
     ${ingredient.strIngredient}
+
   </h4>
   <div class="border"></div>
 </div>
