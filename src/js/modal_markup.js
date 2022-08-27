@@ -180,8 +180,6 @@ async function onIngredientClick(e) {
   }
 }
 
-function onClickInnerModal(e) {}
-
 // export function onCloseEsc(e) {
 //   console.dir(e);
 //   if (e.code === 'Escape') {
