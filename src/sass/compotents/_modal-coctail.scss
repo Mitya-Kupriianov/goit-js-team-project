@@ -33,6 +33,7 @@
 }
 .modal-coctails__position {
   // z-index: 1;
+  border-radius: 10px;
   position: absolute;
   width: 320px;
   height: 990px;
@@ -50,7 +51,8 @@
   overflow: hidden;
 }
 .modal-coctails {
- box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
   padding-top: 20px;
   padding-bottom: 20px;
   z-index: 19;
@@ -78,9 +80,10 @@
     height: 320px;
     left: 20px;
     top: 340px;
-    border-radius: 4px 4px 4px 45px;
+    border-radius: 4px 4px 4px 4px;
   }
   @include mq(tab) {
+    border-radius: 4px 4px 4px 45px;
     position: absolute;
     width: 288px;
     height: 320px;
@@ -195,12 +198,12 @@
   text-transform: uppercase;
 }
 .modal-text {
-   @include mq(mob) {
+  @include mq(mob) {
     position: absolute;
     width: 275px;
     height: 168px;
     left: 16px;
-    top: 137px; 
+    top: 137px;
   }
   @include mq(tab) {
     position: absolute;

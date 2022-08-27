@@ -57,7 +57,6 @@ function createIngredientsMarkup(ingredients) {
   console.log(ingredients);
   return ingredients.data.ingredients
     .map(ingredient => {
-
       return `<div class="ingredient-modal-wrap">
   <img class="ingredient-modal-pic" src='https://www.thecocktaildb.com/images/ingredients/${
     ingredient.strIngredient
@@ -70,12 +69,6 @@ function createIngredientsMarkup(ingredients) {
 
   </h4>
   <div class="border"></div>
-</div>
- <button type="button" class="modal-ingredients-close-btn" data-modal-close-ingr>
-     <svg class="icon-modal-ingredients" height="32" width="32">
-    <use href="#icon-close-modal-cocktail"></use>
-  </svg>
-  </button>
 </div>
 <div class="modal-ingredients-desc">
 
