@@ -30,6 +30,6 @@ export function removeFromLocalStorage(id, payLoad) {
   let index = data.indexOf(id);
   if (data.includes(id)) {
     data.splice(index, 1);
-    localStorage.setItem('cocktails', JSON.stringify(data));
+    localStorage.setItem(payLoad, JSON.stringify(data));
   }
 }
