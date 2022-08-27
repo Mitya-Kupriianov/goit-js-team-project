@@ -51,7 +51,7 @@ export function createMarkup({ strDrink, strDrinkThumb, idDrink }) {
           alt="${strDrink}"
         />
         <div class="cocktails__box">
-          <h2 class="cocktails__second-title">${strDrink}</h2>
+          <h2 class="cocktails__second-title dark--title">${strDrink}</h2>
           <div class="cocktails__button-box">
             <button
               type="button"

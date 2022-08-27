@@ -72,7 +72,7 @@ function createIngredientsMarkup(ingredients) {
 </div>
 <div class="modal-ingredients-desc">
 
-<p class="inner-modal-text">
+<p class="inner-modal-text dark--text">
   ${toMakeDescriptionText(ingredient)}
 </p>
 <ul class="ingredients-modal-list">
