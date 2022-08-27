@@ -57,19 +57,19 @@
 
 .scroll-up {
   position: fixed;
-bottom: 102px;
-  right: 7px;
+  bottom: 115px;
+  right: -7px;
   border: 0;
   background-color: transparent;
   z-index: 4;
 
   @include mq(tab) {
-   bottom: 102px;
+    bottom: 115px;
     right: 15px;
   }
 
   @include mq(desc) {
-    bottom: 102px;
+    bottom: 115px;
     right: 50px;
   }
 
@@ -81,7 +81,7 @@ bottom: 102px;
 
 .scroll-up__icon {
   fill: #fd5103;
-  width: 30px;
+  width: 20px;
   height: 30px;
   border-radius: 10px;
 

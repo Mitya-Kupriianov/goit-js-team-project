@@ -45,7 +45,7 @@ function onAddBtnClick(e) {
 
 export function createMarkup({ strDrink, strDrinkThumb, idDrink }) {
   return /*html*/ `
-      <li class="cocktails__item card-set-item">
+      <li class="cocktails__item card-set-item"data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400" data-aos-offset="200">
         <img
           src="${strDrinkThumb}"
           alt="${strDrink}"
