@@ -33,6 +33,7 @@
 }
 .modal-coctails__position {
   // z-index: 1;
+  background-color: transparent;
   border-radius: 10px;
   position: absolute;
   width: 320px;
@@ -47,12 +48,11 @@
     height: 598px;
   }
   transition: var(--transition);
-  background-color: var(--button-color-white);
   overflow: hidden;
-}
-.modal-coctails {
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
     rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+.modal-coctails {
   padding-top: 20px;
   padding-bottom: 20px;
   z-index: 19;
