@@ -3,17 +3,16 @@ import {
   removeFromLocalStorage,
 } from '../js/service/localStorage';
 import CocktailAPI from './service/getCocktail';
-import { noResultsMarkup } from '../js/service/create-markup';
 import { onError } from '../js/service/notification';
 
-console.log(1111);
+// console.log(1111);
 const favorite = new CocktailAPI();
 const favoriteListRef = document.querySelector('.favorite__list-card');
 console.dir(favoriteListRef);
 
 export async function onFavoriteIngredientsLoad() {
   const data = await getCocktailStorageData(favorite.INGREDIENTS);
-  console.log(data);
+  // console.log(data);
   const ingredients = [];
   if (!data) {
     onError();
@@ -52,16 +51,14 @@ export function createFavoriteIngredientsMarkup(arr) {
       <div class="favorite__btn-wrap">
         <button
               type="button"
-              class="cocktails__btn"
+              class="cocktails__btn cocktails__button-text"
               data-modal-cocktail-open
                data-id=${idDrink}
-            >
-              <span class="cocktails__button-text" id=${idDrink} >Learn more</span>
+            >Learn more
             </button>
-            <button type="button" class="cocktails__btn dark--btn-back js-add-btn transparent ${shouldBeActivated(
+            <button type="button" class="cocktails__button-text cocktails__btn dark--btn-back js-add-btn transparent ${shouldBeActivated(
               idDrink
-            )}" data-id="${idDrink}">
-              <span class="cocktails__button-text">Remove</span>  
+            )}" data-id="${idDrink}">Remove
               <img class="empty-heart" data-toggle="hidden-hearFt" src="${emptyHeart}" alt="" width="18" height="18"/>
               <img class="full-heart" data-toggle="empty-heart" src="${fullHeart}" alt="" width="18" height="18"/> 
             </button>
@@ -69,6 +66,10 @@ export function createFavoriteIngredientsMarkup(arr) {
     </li>`;
     }
   );
+}
+
+function noResultsMarkup() {
+  return `<li class="garcon"><img class="no-result" srcset = "${noResults}", srcset =  "${noResults2x}" src="${noResults2x}" alt="No Results"></img></li>`;
 }
 
 window.addEventListener('load', onFavoriteIngredientsLoad);

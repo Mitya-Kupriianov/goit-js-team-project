@@ -20,9 +20,7 @@ function onAddBtnClick(e) {
   const btn = e.target.closest('.js-add-btn');
   const data = getCocktailStorageData(favorite.KEY);
   const id = btn.dataset.id;
-  // console.log('data', data);
   if (btn) {
-    // console.dir('btn', btn);
     if (!data) {
       btn.classList.add('activated');
 
@@ -37,6 +35,54 @@ function onAddBtnClick(e) {
       btn.classList.add('activated');
 
       setCocktailToLocalStorage(id, 'cocktails');
+    }
+  }
+}
+
+export function onAddModalBtnClick(e) {
+  const btn = e.target.closest('.js-add-btn-modal');
+  const data = getCocktailStorageData(favorite.KEY);
+  const id = e.target.id;
+  console.log(e);
+  if (btn) {
+    if (!data) {
+      btn.classList.add('activated');
+
+      setCocktailToLocalStorage(id, 'cocktails');
+    }
+    if (data.includes(id)) {
+      Notiflix.Notify.failure('Cocktail was deleted from favourites!');
+      removeFromLocalStorage(id, 'cocktails');
+      btn.classList.remove('activated');
+    } else {
+      Notiflix.Notify.success('Cocktail was added to favourites, Congrats!');
+      btn.classList.add('activated');
+
+      setCocktailToLocalStorage(id, 'cocktails');
+    }
+  }
+}
+
+export function onClickInnerModal(e) {
+  console.log(e);
+  const btn = e.target.closest('[data-inner-modal-button]');
+  const data = getCocktailStorageData(favorite.INGREDIENTS);
+  const id = e.target.id;
+  if (btn) {
+    if (!data) {
+      btn.classList.add('activated');
+
+      setCocktailToLocalStorage(id, 'ingredients');
+    }
+    if (data.includes(id)) {
+      Notiflix.Notify.failure('Ingredient was deleted from favourites!');
+      removeFromLocalStorage(id, 'ingredients');
+      btn.classList.remove('activated');
+    } else {
+      Notiflix.Notify.success('Ingredient was added to favourites, Congrats!');
+      btn.classList.add('activated');
+
+      setCocktailToLocalStorage(id, 'ingredients');
     }
   }
 }
@@ -61,10 +107,10 @@ export function createMarkup({ strDrink, strDrinkThumb, idDrink }) {
             >
               <span class="cocktails__button-text" id=${idDrink} >Learn more</span>
             </button>
-            <button type="button" class="cocktails__btn dark--btn-back js-add-btn transparent ${shouldBeActivated(
-              idDrink,
-              'cocktails'
-            )}" data-id="${idDrink}">
+            <button id="${idDrink}" type="button" class="cocktails__btn dark--btn-back js-add-btn transparent ${shouldBeActivated(
+    idDrink,
+    'cocktails'
+  )}" data-id="${idDrink}">
               <span class="cocktails__button-text">Add to</span>  
               <img class="empty-heart" data-toggle="hidden-hearFt" src="${emptyHeart}" alt="" width="18" height="18"/>
               <img class="full-heart" data-toggle="empty-heart" src="${fullHeart}" alt="" width="18" height="18"/> 
@@ -79,39 +125,9 @@ export function createListMarkup(data) {
 }
 
 export function createRandomMarkup(arr) {
-  console.log(arr);
+  // console.log(arr);
   return arr.map(item => createMarkup(item.data.drinks[0]));
 }
-
-// function createCard({ strDrink, strDrinkThumb, idDrink }) {
-//   return `
-//   <li class="cocktails__item card-set-item">
-//     <img
-//       src="${strDrinkThumb}"
-//       alt="${strDrink}"
-//     />
-//     <div class="cocktails__box">
-//       <h2 class="cocktails__second-title">${strDrink}</h2>
-//       <div class="cocktails__button-box">
-//         <button
-//           type="button"
-//           class="cocktails__btn"
-//           data-modal-cocktail-open
-//            data-id=${idDrink}
-//         >
-//           <span class="cocktails__button-text" id=${idDrink} >Learn more</span>
-//         </button>
-//         <button type="button" class="cocktails__btn dark--btn-back js-add-btn transparent ${shouldBeActivated(
-//           idDrink
-//         )}" data-id="${idDrink}">
-//           <span class="cocktails__button-text">Add to</span>
-//           <img class="empty-heart" data-toggle="hidden-hearFt" src="${emptyHeart}" alt="" width="18" height="18"/>
-//           <img class="full-heart" data-toggle="empty-heart" src="${fullHeart}" alt="" width="18" height="18"/>
-//         </button>
-//       </div>
-//     </div>
-//   </li>`;
-// }
 
 //              -------Filter for screens (Adaptive)-------
 

@@ -1,8 +1,12 @@
 import CocktailAPI from './service/getCocktail';
-import { renderMarkup, onAddBtnClick } from './service/create-markup';
+import {
+  renderMarkup,
+  onAddModalBtnClick,
+  onClickInnerModal,
+  shouldBeActivated,
+} from './service/create-markup';
 import emptyHeart from '../images/hearts/empty-heart.png';
 import fullHeart from '../images/hearts/full-heart.png';
-import { shouldBeActivated } from '../js/service/create-markup';
 
 export const refs = {
   cocktailsList: document.querySelector('.cocktails__list'),
@@ -33,11 +37,10 @@ function createModalMarkup(response) {
       <p class="modal-text dark--text">
         ${drink.strInstructions}
       </p>
-       <button type="button" class="modal-button cocktails__btn dark--btn-back js-add-btn-modal transparent ${shouldBeActivated(
+       <button type="button" class="cocktails__button-text modal-button cocktails__btn dark--btn-back js-add-btn-modal transparent ${shouldBeActivated(
          drink.idDrink,
          'cocktails'
-       )}" data-id="${drink.idDrink}">
-              <span class="cocktails__button-text">Add to</span>  
+       )}" id="${drink.idDrink}">Add to
               <img class="empty-heart" data-toggle="hidden-hearFt" src="${emptyHeart}" alt="" width="18" height="18"/>
               <img class="full-heart" data-toggle="empty-heart" src="${fullHeart}" alt="" width="18" height="18"/> 
             </button>`;
@@ -58,7 +61,7 @@ function toMakeDescriptionText(ingredient) {
 }
 
 function createIngredientsMarkup(ingredients) {
-  console.log(ingredients);
+  // console.log(ingredients);
   return ingredients.data.ingredients
     .map(ingredient => {
       return `<div class="ingredient-modal-wrap">
@@ -95,11 +98,10 @@ function createIngredientsMarkup(ingredients) {
 </div>
 <button id=${
         ingredient.idIngredient
-      } type="button" data-modal-c class="ingredients-modal-btn cocktails__btn dark--btn-back transparent ${shouldBeActivated(
+      } type="button" data-inner-modal-button class="cocktails__button-text ingredients-modal-btn cocktails__btn dark--btn-back transparent ${shouldBeActivated(
         ingredient.idIngredient,
         'ingredients'
-      )}">
-              <span class="cocktails__button-text">Add to</span>  
+      )}">Add to  
               <img class="empty-heart" data-toggle="hidden-hearFt" src="${emptyHeart}" alt="" width="18" height="18"/>
               <img class="full-heart" data-toggle="empty-heart" src="${fullHeart}" alt="" width="18" height="18"/> 
             </button>`;
@@ -110,11 +112,15 @@ function createIngredientsMarkup(ingredients) {
 export async function onOpenModalClick(e) {
   if (e.target.className === 'cocktails__button-text') {
     try {
+      console.log(e);
+
       cocktailAPI.id = e.target.id;
       const responseID = await cocktailAPI.getCocktailsId();
       const modalMarkup = createModalMarkup(responseID);
       renderMarkup(refs.modalContainer, modalMarkup);
-
+      document
+        .querySelector('.js-add-btn-modal')
+        .addEventListener('click', onAddModalBtnClick);
       const ingrWrap = document.querySelector('.modal-coctail-components');
       const backdrop = document.querySelector('[data-modal]');
       backdrop.classList.remove('is-hidden-modal-coctails');
@@ -126,7 +132,7 @@ export async function onOpenModalClick(e) {
 
       (() => {
         const refs = {
-          backdrop: document.querySelector('[data-modal]'),
+          // backdrop: document.querySelector('[data-modal]'),
           closeBtn: document.querySelector('[data-modal-close]'),
         };
 
@@ -145,14 +151,14 @@ export async function onOpenModalClick(e) {
 
 function createMarkupCocktailForModalListIngredients(res) {
   const drink = res.data.drinks[0];
-  console.log(drink);
+  // console.log(drink);
   const ingredients = [];
 
   for (let i = 1; i <= 15; i += 1) {
     let ingredient = drink['strIngredient' + i];
     if (!ingredient) break;
     ingredients.push(ingredient);
-    console.log(ingredients);
+    // console.log(ingredients);
   }
   return ingredients
     .map(ingredient => {
@@ -173,14 +179,17 @@ async function onIngredientClick(e) {
     );
     const markup = createIngredientsMarkup(responseIngredient);
     renderMarkup(ingredientsContainer, markup);
+    document
+      .querySelector('[data-inner-modal-button]')
+      .addEventListener('click', onClickInnerModal);
+
     const backdrop = document.querySelector('[data-inner-modal]');
+
     backdrop.classList.remove('is-hidden-inner-modal');
   } catch (error) {
     throw new Error(error.message);
   }
 }
-
-function onClickInnerModal(e) {}
 
 // export function onCloseEsc(e) {
 //   console.dir(e);

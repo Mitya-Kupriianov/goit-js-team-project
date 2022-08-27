@@ -1,7 +1,7 @@
 import { createRandomMarkup, renderMarkup } from './service/create-markup';
 import { getCocktailStorageData } from '../js/service/localStorage';
 import CocktailAPI from './service/getCocktail';
-import { refs } from './modal_markup';
+// import { refs } from './modal_markup';
 
 const favoriteList = document.querySelector('.cocktails__list');
 
@@ -17,9 +17,9 @@ export function onFavoriteCocktailsLoad() {
 }
 
 function render(data) {
-  console.log(data);
+  // console.log(data);
   const markup = createRandomMarkup(data);
-  console.log(markup);
+  // console.log(markup);
   renderMarkup(favoriteList, markup);
 }
 
