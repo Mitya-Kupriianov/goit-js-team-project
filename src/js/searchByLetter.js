@@ -41,19 +41,20 @@ export let markupLetter = '';
 export async function renderByLetter(letter) {
   cocktailApi.letter = letter;
   const drinks = [];
-  const response = cocktailApi.getCocktailByLetter();
+  const response = await cocktailApi.getCocktailByLetter();
+  console.log(response);
   drinks.push(response);
 
-
   Promise.all(drinks).then(function (drinks) {
+    console.log(drinks);
+    if (!drinks[0].data.drinks) {
+      onError();
+      title.innerHTML = "Sorry, we didn't find any cocktail for you";
+      return (cocktailList.innerHTML = noResultsMarkup());
+    }
     const markup = createListMarkup(drinks[0].data);
-
     markupLetter = markup;
     const filterMarkup = markupFilter(markupLetter);
     renderMarkup(cocktailList, filterMarkup);
-    onError();
-    title.innerHTML = "Sorry, we didn't find any cocktail for you";
-    return (cocktailList.innerHTML = noResultsMarkup());
   });
-
-
+}
