@@ -11,7 +11,7 @@ export function setCocktailToLocalStorage(id, payLoad) {
   let data = getCocktailStorageData(payLoad);
   data = data ? data : [];
   data.push(id);
-  localStorage.setItem('cocktails', JSON.stringify(data));
+  localStorage.setItem(payLoad, JSON.stringify(data));
 }
 
 //              -------Get from Local Storage-------
@@ -25,10 +25,10 @@ export function getCocktailStorageData(payLoad) {
 }
 
 //              -------Remove from Local Storage-------
-export function removeFromLocalStorage(idDrink, payLoad) {
+export function removeFromLocalStorage(id, payLoad) {
   let data = getCocktailStorageData(payLoad);
-  let index = data.indexOf(idDrink);
-  if (data.includes(idDrink)) {
+  let index = data.indexOf(id);
+  if (data.includes(id)) {
     data.splice(index, 1);
     localStorage.setItem('cocktails', JSON.stringify(data));
   }

@@ -59,7 +59,7 @@
   position: absolute;
   width: 320px;
   height: 990px;
-  overflow: auto;
+  // overflow: auto;
   top: 50%;
   left: 50%;
   border-radius: 10px;
@@ -154,6 +154,7 @@
 }
 .modal-coctail-components {
   @include mq(mob) {
+    overflow: auto;
     font-family: var(--title-poppins);
     position: absolute;
     width: 250px;
@@ -166,7 +167,7 @@
     @include fonts($fs: 16px, $fw: 400, $lh: 1.6, $ls: 0.02em);
     position: absolute;
     width: 215px;
-    height: 130px;
+    height: 155px;
     left: 320px;
     top: 166px;
   }
@@ -199,15 +200,17 @@
 }
 .modal-text {
   @include mq(mob) {
+    overflow-y: auto;
     position: absolute;
-    width: 275px;
+    // width: 275px;
+    width: 90%;
     height: 168px;
     left: 16px;
     top: 137px;
   }
   @include mq(tab) {
     position: absolute;
-    width: 615px;
+    // width: 615px;
     height: 84px;
     left: 28px;
     top: 398px;
@@ -219,7 +222,6 @@
   font-weight: 400;
   color: #5f6775;
   margin: 0;
-  overflow-y: scroll;
 }
 
 .modal-menu__close {

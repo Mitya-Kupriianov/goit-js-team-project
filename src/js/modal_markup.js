@@ -1,5 +1,5 @@
 import CocktailAPI from './service/getCocktail';
-import { renderMarkup } from './service/create-markup';
+import { renderMarkup, onAddBtnClick } from './service/create-markup';
 import emptyHeart from '../images/hearts/empty-heart.png';
 import fullHeart from '../images/hearts/full-heart.png';
 import { shouldBeActivated } from '../js/service/create-markup';
@@ -33,23 +33,27 @@ function createModalMarkup(response) {
       <p class="modal-text dark--text">
         ${drink.strInstructions}
       </p>
-       <button class="modal-button" data-modal-a>Add to favorite</button>
-      <button class="modal-button hidden_remove" data-modal-b>
-        Remove from favorite
-      </button>`;
+       <button type="button" class="modal-button cocktails__btn dark--btn-back js-add-btn-modal transparent ${shouldBeActivated(
+         drink.idDrink,
+         'cocktails'
+       )}" data-id="${drink.idDrink}">
+              <span class="cocktails__button-text">Add to</span>  
+              <img class="empty-heart" data-toggle="hidden-hearFt" src="${emptyHeart}" alt="" width="18" height="18"/>
+              <img class="full-heart" data-toggle="empty-heart" src="${fullHeart}" alt="" width="18" height="18"/> 
+            </button>`;
     })
     .join('');
 }
 
 function toIdentifyStrType(ingredient) {
   return ingredient.strType === null
-    ? 'Type is not mentioned :('
+    ? 'Cannot say anything about its type'
     : ingredient.strType;
 }
 
 function toMakeDescriptionText(ingredient) {
   return ingredient.Description === null
-    ? 'Sorry, description is not specified :('
+    ? 'Sorry, guys we do not know anything about that'
     : ingredient.strDescription;
 }
 
@@ -78,16 +82,17 @@ function createIngredientsMarkup(ingredients) {
 <ul class="ingredients-modal-list">
 
   <li class="inner-modal-ingredients dark--text"">
-    ✶ Type: ${toIdentifyStrType(ingredient)}
+    ✶ <b>Type</b>: ${toIdentifyStrType(ingredient)}
   </li>
   <li class="inner-modal-ingredients dark--text">
-    ✶ Country of origin: Sorry, not specified
+    ✶ <b>Country of origin</b>: Sorry, not specified
   </li>
-  <li class="inner-modal-ingredients dark--text">✶ Alcohol : ${
+  <li class="inner-modal-ingredients dark--text">✶ <b>Alcohol</b> : ${
     ingredient.strAlcohol
   }</li>
 
 </ul>
+</div>
 <button id=${
         ingredient.idIngredient
       } type="button" data-modal-c class="ingredients-modal-btn cocktails__btn dark--btn-back transparent ${shouldBeActivated(
@@ -97,8 +102,7 @@ function createIngredientsMarkup(ingredients) {
               <span class="cocktails__button-text">Add to</span>  
               <img class="empty-heart" data-toggle="hidden-hearFt" src="${emptyHeart}" alt="" width="18" height="18"/>
               <img class="full-heart" data-toggle="empty-heart" src="${fullHeart}" alt="" width="18" height="18"/> 
-            </button>
-</div>`;
+            </button>`;
     })
     .join('');
 }
@@ -157,6 +161,7 @@ function createMarkupCocktailForModalListIngredients(res) {
     .join('');
 }
 
+//        -------------------Click on List of Ingredients in Modal #1-------------------
 async function onIngredientClick(e) {
   try {
     const ingredient = e.target.textContent;
@@ -175,6 +180,8 @@ async function onIngredientClick(e) {
   }
 }
 
+function onClickInnerModal(e) {}
+
 // export function onCloseEsc(e) {
 //   console.dir(e);
 //   if (e.code === 'Escape') {
@@ -186,4 +193,5 @@ async function onIngredientClick(e) {
 //   }
 // }
 
+//                  -------------------Listeners-------------------
 refs.cocktailsList.addEventListener('click', onOpenModalClick);

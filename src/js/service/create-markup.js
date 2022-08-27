@@ -30,7 +30,7 @@ function onAddBtnClick(e) {
     }
     if (data.includes(id)) {
       Notiflix.Notify.failure('Cocktail was deleted from favourites!');
-      removeFromLocalStorage(id);
+      removeFromLocalStorage(id, 'cocktails');
       btn.classList.remove('activated');
     } else {
       Notiflix.Notify.success('Cocktail was added to favourites, Congrats!');
@@ -44,7 +44,7 @@ function onAddBtnClick(e) {
 //              -------Create markup-------
 
 export function createMarkup({ strDrink, strDrinkThumb, idDrink }) {
-  return `
+  return /*html*/ `
       <li class="cocktails__item card-set-item">
         <img
           src="${strDrinkThumb}"
