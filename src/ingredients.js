@@ -15,6 +15,7 @@ import './js/service/index';
 import './js/service/getCocktail';
 import './js/refs';
 import './js/service/localStorage';
+import './js/service/notification';
 
 import './js/favorite-ing';
 

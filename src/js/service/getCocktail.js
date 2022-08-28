@@ -6,6 +6,7 @@ export default class CocktailAPI {
   KEY = 'cocktails';
   INGREDIENTS = 'ingredients';
   constructor() {
+    this.iid = [];
     this.name = '';
     this.letter = '';
     this.page = 1;
@@ -55,6 +56,14 @@ export default class CocktailAPI {
       return await axios(
         `${BASE_URL}search.php?i=${ingredients || this.ingredients}`
       );
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  }
+
+  async getIngredientById(iid) {
+    try {
+      return await axios(`${BASE_URL}lookup.php?iid=${iid || this.iid}`);
     } catch (error) {
       throw new Error(error.message);
     }
