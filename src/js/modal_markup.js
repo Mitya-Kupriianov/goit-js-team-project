@@ -114,7 +114,7 @@ export async function onOpenModalClick(e) {
     try {
       const id = e.target.id;
       const responseID = await cocktailAPI.getCocktailsId(id);
-      console.log(responseID);
+      // console.log(responseID);
       const modalMarkup = createModalMarkup(responseID);
       renderMarkup(refs.modalContainer, modalMarkup);
       document
@@ -158,7 +158,7 @@ function createMarkupCocktailForModalListIngredients(res) {
 async function onIngredientClick(e) {
   try {
     const ingredient = e.target.textContent;
-    console.log(ingredient);
+    // console.log(ingredient);
     const responseIngredient = await cocktailAPI.getCocktailByIngredient(
       ingredient
     );

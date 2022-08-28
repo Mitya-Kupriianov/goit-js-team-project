@@ -1,5 +1,6 @@
 import { createRandomMarkup, renderMarkup } from './service/create-markup';
 import { getCocktailStorageData } from '../js/service/localStorage';
+import { onOpenModalClick } from '../js/modal_markup';
 import CocktailAPI from './service/getCocktail';
 import * as noResults from '../images/notice/notice.png';
 import * as noResults2x from '../images/notice/notice@2x.png';
@@ -23,7 +24,7 @@ export function onFavoriteCocktailsLoad() {
 // ---------------------------To render markup----------------------------------
 
 function render(data) {
-  console.log(data);
+  // console.log(data);
   const markup = createRandomMarkup(data).join('');
   // console.log(markup);
   renderMarkup(favoriteList, markup);
@@ -33,7 +34,7 @@ function render(data) {
 
 async function toCountAndRenderIngr(data) {
   const drinks = [];
-  console.log(data);
+  // console.log(data);
   data.forEach(id => {
     const response = favorite.getCocktailsId(id);
     drinks.push(response);

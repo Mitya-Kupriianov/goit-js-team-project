@@ -53,7 +53,6 @@ export function signOutUser() {
 }
 
 onAuthStateChanged(auth, user => {
-  console.log(user);
   if (user) {
     // User is signed in, see docs for a list of available properties
     // https://firebase.google.com/docs/reference/js/firebase.User
@@ -81,5 +80,5 @@ const refs = {
 
 export function disableFavoriteBtn(e) {
   const favBtn = e.target.closest('.js-add-btn');
-  console.log(favBtn);
+  // console.log(favBtn);
 }
