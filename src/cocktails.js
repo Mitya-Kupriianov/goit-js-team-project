@@ -17,3 +17,9 @@ import './js/refs';
 import './js/service/localStorage';
 import './js/favorite-cocktails';
 import './js/service/create-markup';
+
+// Scroll
+import './js/scroll';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+AOS.init();
