@@ -155,7 +155,7 @@ export function noResultsMarkup() {
 export function shouldBeActivated(id, payLoad) {
   const data = getCocktailStorageData(payLoad);
   if (data) {
-    return localStorage.getItem(payLoad).includes(id) ? 'activated' : '';
+    return localStorage.getItem(payLoad)?.includes(id) ? 'activated' : '';
   } else {
     return;
   }

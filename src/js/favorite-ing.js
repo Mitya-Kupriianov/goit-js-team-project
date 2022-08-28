@@ -17,16 +17,17 @@ const favoriteListRef = document.querySelector('.favorite__list-card');
 // ---------------------------On page load----------------------------------
 
 export function onFavoriteIngredientsLoad() {
+  const markup = noResultsMarkup();
   const data = getCocktailStorageData(favorite.INGREDIENTS);
-
-  if (!data) {
+  if (!data.length) {
     onError();
-    favoriteListRef.innerHTML = noResultsMarkup();
+    favoriteListRef.innerHTML = markup;
+  } else {
+    toCountAndRenderIngredient(data);
+    const FavListRef = document.querySelector('.favorite__list-card');
+    FavListRef.addEventListener('click', onRemoveIngrBtnClick);
+    FavListRef.addEventListener('click', onIngredientClick);
   }
-  toCountAndRenderIngredient(data);
-  const FavListRef = document.querySelector('.favorite__list-card');
-  FavListRef.addEventListener('click', onRemoveIngrBtnClick);
-  FavListRef.addEventListener('click', onIngredientClick);
 }
 
 // ---------------------------To render markup----------------------------------
