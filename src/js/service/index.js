@@ -11,6 +11,9 @@ import {
   signOut,
 } from 'firebase/auth';
 
+import { afterLogIn, afterLogOut } from './create-markup';
+import { addHeaderListener, delHeaderListener } from '../header';
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
@@ -56,9 +59,14 @@ onAuthStateChanged(auth, user => {
   if (user) {
     // User is signed in, see docs for a list of available properties
     // https://firebase.google.com/docs/reference/js/firebase.User
-    toggleBtnContent();
+    toggleBtnContent(user);
+    afterLogIn();
+
     // ...
   } else {
+    toggleBtnContent(user);
+    afterLogOut();
+
     // User is signed out
     // ...
   }
@@ -67,9 +75,11 @@ onAuthStateChanged(auth, user => {
 export function getUser() {
   return auth.currentUser;
 }
-onAuthStateChanged(auth, user => {
-  toggleBtnContent(user);
-});
+
+// onAuthStateChanged(auth, user => {
+//   toggleBtnContent(user);
+// });
+
 // listeners //
 
 // disableBtnRefs.addEventListener('click', disableFavoriteBtn);
