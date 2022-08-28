@@ -129,19 +129,6 @@ export async function onOpenModalClick(e) {
       renderMarkup(ingrWrap, markupIngredientsList);
       ingrWrap.addEventListener('click', onIngredientClick);
 
-      // (() => {
-      //   const refs = {
-      //     // backdrop: document.querySelector('[data-modal]'),
-      //     closeBtn: document.querySelector('[data-modal-close]'),
-      //   };
-
-      //   refs.closeBtn.addEventListener('click', closeModal);
-
-      //   function closeModal() {
-      //     refs.backdrop.classList.add('is-hidden-modal-coctails');
-      //   }
-      // })();
-
       // document.addEventListener('keydown', onCloseEsc);
     } catch (error) {
       console.log(error.message);
@@ -151,7 +138,7 @@ export async function onOpenModalClick(e) {
 
 function createMarkupCocktailForModalListIngredients(res) {
   const drink = res.data.drinks[0];
-  // console.log(drink);
+
   const ingredients = [];
 
   for (let i = 1; i <= 15; i += 1) {

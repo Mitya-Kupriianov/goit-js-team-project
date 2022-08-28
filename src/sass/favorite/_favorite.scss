@@ -34,6 +34,7 @@
   border-radius: 5px;
   overflow: hidden;
   width: 100%;
+  padding: 20px;
 
   @include mq(mob) {
     --card-item: 1;
@@ -42,65 +43,60 @@
   @include mq(tab) {
     --card-item: 2;
   }
-
-  @include mq(desc) {
-    margin-left: 20px;
-  }
 }
 
 .favorite__list-card {
+  justify-content: center;
+
   @include mq(tab-only) {
     --card-gap: 15px;
   }
+}
 
-  & .favorite__list-item {
-    padding: 20px;
+.favorite__list-name {
+  @include fonts($fs: 26px, $fw: 900, $lh: 1.6, $ls: null);
+  margin-bottom: 20px;
+
+  text-align: inherit;
+  color: var(--background-dark);
+
+  @include mq(fab) {
+    font-size: 28px;
+    line-height: 1.2;
   }
 
-  & .favorite__list-name {
-    margin-bottom: 20px;
-    @include fonts($fs: 26px, $fw: 900, $lh: 1.6, $ls: null);
-    text-align: inherit;
-    color: var(--gallery-title-color);
-
-    @include mq(fab) {
-      font-size: 28px;
-      line-height: 1.2;
-    }
-
-    @include mq(tab) {
-      margin-bottom: 28px;
-      font-size: 28px;
-      line-height: 1.2;
-    }
-
-    @include mq(desc) {
-      margin-bottom: 28px;
-      font-size: 32px;
-      line-height: 1.2;
-    }
+  @include mq(tab) {
+    margin-bottom: 28px;
+    font-size: 28px;
+    line-height: 1.2;
   }
 
-  & .favorite__list-type {
-    margin-bottom: 20px;
-    font-family: var(--title-poppins);
-    @include fonts($fs: 14px, $fw: 600, $lh: 1.5, $ls: null);
+  @include mq(desc) {
+    margin-bottom: 28px;
+    font-size: 32px;
+    line-height: 1.2;
+  }
+}
 
-    text-transform: uppercase;
-    color: var(--alfavito-color);
+.favorite__list-type {
+  margin-bottom: 20px;
+  font-family: var(--title-poppins);
+  @include fonts($fs: 14px, $fw: 600, $lh: 1.5, $ls: null);
 
-    @include mq(tab) {
-      padding-bottom: 28px;
-      font-weight: 900;
-      font-size: 16px;
-      line-height: 1.5;
-    }
+  text-transform: uppercase;
+  color: var(--alfavito-color);
 
-    @include mq(desc) {
-      padding-bottom: 28px;
-      font-size: 16px;
-      line-height: 1.5;
-    }
+  @include mq(tab) {
+    padding-bottom: 28px;
+    font-weight: 900;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  @include mq(desc) {
+    padding-bottom: 28px;
+    font-size: 16px;
+    line-height: 1.5;
   }
 }
 
