@@ -14,12 +14,13 @@ const favorite = new CocktailAPI();
 
 const cocktailList = document.querySelector('.cocktails__list');
 
-//              -------Click on "Add to Favorites button"-------
+//              -------Click on "Add to Favorites buttons"-------
 
 function onAddBtnClick(e) {
+  console.log(e);
   const btn = e.target.closest('.js-add-btn');
   const data = getCocktailStorageData(favorite.KEY);
-  const id = btn.dataset.id;
+  const id = btn.id;
   if (btn) {
     if (!data) {
       btn.classList.add('activated');
@@ -101,17 +102,17 @@ export function createMarkup({ strDrink, strDrinkThumb, idDrink }) {
           <div class="cocktails__button-box">
             <button
               type="button"
-              class="cocktails__btn"
+              class="cocktails__btn js-split cocktails__button-text"
               data-modal-cocktail-open
                data-id=${idDrink}
-            >
-              <span class="cocktails__button-text" id=${idDrink} >Learn more</span>
+                id=${idDrink}
+            >Learn more
             </button>
-            <button id="${idDrink}" type="button" class="cocktails__btn dark--btn-back js-add-btn transparent ${shouldBeActivated(
+            <button id="${idDrink}" type="button" class="cocktails__btn cocktails__button-text dark--btn-back js-add-btn transparent ${shouldBeActivated(
     idDrink,
     'cocktails'
-  )}" data-id="${idDrink}">
-              <span class="cocktails__button-text">Add to</span>  
+  )}" id="${idDrink}">Add to
+
               <img class="empty-heart" data-toggle="hidden-hearFt" src="${emptyHeart}" alt="" width="18" height="18"/>
               <img class="full-heart" data-toggle="empty-heart" src="${fullHeart}" alt="" width="18" height="18"/> 
             </button>
