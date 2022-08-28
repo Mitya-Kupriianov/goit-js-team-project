@@ -9,15 +9,16 @@ import fullHeart from '../images/hearts/full-heart.png';
 import * as noResults from '../images/notice/notice.png';
 import * as noResults2x from '../images/notice/notice@2x.png';
 import Notiflix from 'notiflix';
-// import { onIngredientClick } from '../js/modal_markup';
+// import { toIdentifyStrType, toMakeDescriptionText } from '../js/modal_markup';
 
-// console.log(1111);
 const favorite = new CocktailAPI();
 const favoriteListRef = document.querySelector('.favorite__list-card');
 
+// ---------------------------On page load----------------------------------
+
 export function onFavoriteIngredientsLoad() {
   const data = getCocktailStorageData(favorite.INGREDIENTS);
-  // console.log(data);
+
   if (!data) {
     onError();
     favoriteListRef.innerHTML = noResultsMarkup();
@@ -28,23 +29,26 @@ export function onFavoriteIngredientsLoad() {
   FavListRef.addEventListener('click', onIngredientClick);
 }
 
+// ---------------------------To render markup----------------------------------
+
 function render(data) {
-  // console.log(data);
-  const markup = createCards(data);
-  // console.log(markup);
+  const markup = createCards(data).join('');
+
   renderMarkupIngred(favoriteListRef, markup);
 }
 
+// ---------------------------Counting and rendering cards----------------------------------
+
 async function toCountAndRenderIngredient(data) {
   const ingredients = [];
-  // console.log(data);
   data.forEach(iid => {
     const response = favorite.getIngredientById(iid);
     ingredients.push(response);
-    // console.log(drinks);
   });
   Promise.all(ingredients).then(render);
 }
+
+// ---------------------------Create favorite ingredients markup----------------------------------
 
 export function createFavoriteIngredientsMarkup({
   strIngredient,
@@ -54,11 +58,13 @@ export function createFavoriteIngredientsMarkup({
   return /*html*/ `
       <li class="favorite__list-item card-set-item">
       <p class="favorite__list-name">${strIngredient}</p>
-      <p class="favorite__list-type">${strType}</p>
+      <p class="favorite__list-type">${
+        strType === null ? strIngredient : strType
+      }</p>
       <div class="favorite__btn-wrap">
         <button
               type="button"
-              class="js-split cocktails__btn cocktails__button-text"
+              class="js-ingr cocktails__btn cocktails__button-text"
               data-modal-ingredient-open
                data-id=${idIngredient}
             >Learn more
@@ -74,9 +80,19 @@ export function createFavoriteIngredientsMarkup({
     </li>`;
 }
 
-window.addEventListener('load', onFavoriteIngredientsLoad);
+//          ---------------Function copies :(-------------------
 
-//          ---------------Function Copies :(-------------------
+function toIdentifyStrType(ingredient) {
+  return ingredient.strType === null
+    ? ingredient.strIngredient
+    : ingredient.strType;
+}
+
+function toMakeDescriptionText(ingredient) {
+  return ingredient.strDescription === null
+    ? 'Sorry, guys we do not have any info about that'
+    : ingredient.strDescription;
+}
 
 function shouldBeActive(id, payLoad) {
   const data = getCocktailStorageData(payLoad);
@@ -102,56 +118,63 @@ function renderMarkupIngred(element, markup) {
   element.innerHTML = markup;
 }
 
+// ---------------------------On Card remove button click----------------------------------
+
 function onRemoveIngrBtnClick(e) {
   // console.log(e);
   const btn = e.target.closest('.js-remove-btn');
   // console.log(btn);
   const data = getCocktailStorageData(favorite.INGREDIENTS);
   // console.log(data);
-  const id = e.target.dataset.id;
+  const id = e.target?.dataset.id;
   // console.log(id);
   if (btn) {
     if (data.includes(id)) {
       Notiflix.Notify.failure('Ingredient was removed from Your favourites!');
       removeFromLocalStorage(id, 'ingredients');
       btn.classList.remove('activated');
-    } else {
-      Notiflix.Notify.success(
-        'Ingredient was added to Your favourites, Congrats!'
-      );
-      btn.classList.add('activated');
-
-      setCocktailToLocalStorage(id, 'ingredients');
     }
   }
 }
 
-// -----------------------Fignya----------------------------------
-async function onIngredientClick(e) {
-  try {
-    const btn = e.target.closest('.js-split ');
-    const ingredient = e.target.textContent;
-    const responseIngredient = await favorite.getCocktailByIngredient(
-      ingredient
-    );
-    const ingredientsContainer = document.querySelector(
-      '.inner-modal-container'
-    );
-    const markup = createIngredientsMarkup(responseIngredient);
-    renderMarkup(ingredientsContainer, markup);
-    document
-      .querySelector('[data-inner-modal-button]')
-      .addEventListener('click', onClickInnerModal);
+// ---------------------------On modal remove button click----------------------------------
 
-    const backdrop = document.querySelector('[data-inner-modal]');
+function onModalRemoveIngrBtnClick(e) {
+  console.log(e);
+  const btn = e.target.closest('.js-remove-modal-btn');
+  const id = e.target?.dataset.id;
+  const data = getCocktailStorageData(favorite.INGREDIENTS);
 
-    backdrop.classList.remove('is-hidden-inner-modal');
-  } catch (error) {
-    throw new Error(error.message);
+  if (btn) {
+    if (data.includes(id)) {
+      Notiflix.Notify.failure('Ingredient was removed from Your favourites!');
+      removeFromLocalStorage(id, 'ingredients');
+      btn.classList.remove('activated');
+    }
   }
 }
 
-function createIngredientsMarkup(ingredients) {
+// ---------------------------On learn more click----------------------------------
+
+async function onIngredientClick(e) {
+  const btn = e.target.closest('.js-ingr');
+  const ingredient = btn?.dataset.id;
+  const responseIngredient = await favorite.getIngredientById(ingredient);
+  const ingredientsContainer = document.querySelector('.inner-modal-container');
+  const markup = createIngredientsModalMarkup(responseIngredient);
+  const backdrop = document.querySelector('[data-inner-modal]');
+
+  renderMarkupIngred(ingredientsContainer, markup);
+  document
+    .querySelector('.js-remove-modal-btn')
+    .addEventListener('click', onModalRemoveIngrBtnClick);
+
+  backdrop.classList.remove('is-hidden-inner-modal');
+}
+
+// ---------------------------Render ingredients modal---------------------------------
+
+function createIngredientsModalMarkup(ingredients) {
   // console.log(ingredients);
   return ingredients.data.ingredients
     .map(ingredient => {
@@ -187,15 +210,19 @@ function createIngredientsMarkup(ingredients) {
 
 </ul>
 </div>
-<button id=${
+<button data-id=${
         ingredient.idIngredient
-      } type="button" data-inner-modal-button class="cocktails__button-text ingredients-modal-btn cocktails__btn dark--btn-back transparent ${shouldBeActivated(
+      } type="button" data-inner-modal-button class="cocktails__button-text ingredients-modal-btn cocktails__btn dark--btn-back js-remove-modal-btn transparent ${shouldBeActive(
         ingredient.idIngredient,
         'ingredients'
-      )}">Add to  
+      )}">Remove  
               <img class="empty-heart" data-toggle="hidden-hearFt" src="${emptyHeart}" alt="" width="18" height="18"/>
               <img class="full-heart" data-toggle="empty-heart" src="${fullHeart}" alt="" width="18" height="18"/> 
             </button>`;
     })
     .join('');
 }
+
+// ------------------------------Listeners-------------------------------------
+
+window.addEventListener('load', onFavoriteIngredientsLoad);
