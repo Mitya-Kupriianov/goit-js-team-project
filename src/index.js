@@ -6,8 +6,6 @@ import './js/firebase-config';
 import './js/transform_modal-coctail';
 import './js/transform_modal-components';
 import './js/team_modal';
-import './js/open-close-footer-modal';
-import './js/open_modal';
 
 import './js/header';
 

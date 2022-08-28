@@ -33,7 +33,7 @@ function createModalMarkup(response) {
         <ul class="modal-coctail-components dark--text">
         </ul>
       <img src="${drink.strDrinkThumb}" alt="cocktail" class="modal-img" />
-      <h3 class="modal-Instractions dark--title">Instructions:</h3>
+      <h3 class="modal-Instructions dark--title">Instructions:</h3>
       <p class="modal-text dark--text">
         ${drink.strInstructions}
       </p>
@@ -110,12 +110,11 @@ function createIngredientsMarkup(ingredients) {
 }
 
 export async function onOpenModalClick(e) {
-  if (e.target.className === 'cocktails__button-text') {
+  console.log(e);
+  if (e.target.closest('.js-split')) {
     try {
-      console.log(e);
-
-      cocktailAPI.id = e.target.id;
-      const responseID = await cocktailAPI.getCocktailsId();
+      const id = e.target.id;
+      const responseID = await cocktailAPI.getCocktailsId(id);
       const modalMarkup = createModalMarkup(responseID);
       renderMarkup(refs.modalContainer, modalMarkup);
       document

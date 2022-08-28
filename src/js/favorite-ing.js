@@ -28,7 +28,7 @@ export function onFavoriteIngredientsLoad() {
 }
 
 function render(data) {
-  console.log(data);
+  // console.log(data);
   const markup = createCards(data);
   // console.log(markup);
   renderMarkupIngred(favoriteListRef, markup);
@@ -45,15 +45,6 @@ async function toCountAndRenderIngredient(data) {
   Promise.all(ingredients).then(render);
 }
 
-function shouldBeActive(id, payLoad) {
-  const data = getCocktailStorageData(payLoad);
-  if (data) {
-    return localStorage.getItem(payLoad).includes(id) ? 'activated' : '';
-  } else {
-    return;
-  }
-}
-
 export function createFavoriteIngredientsMarkup({
   strIngredient,
   strType,
@@ -67,7 +58,7 @@ export function createFavoriteIngredientsMarkup({
         <button
               type="button"
               class="cocktails__btn cocktails__button-text"
-              data-modal-cocktail-open
+              data-modal-ingredient-open
                data-id=${idIngredient}
             >Learn more
             </button>
@@ -80,6 +71,19 @@ export function createFavoriteIngredientsMarkup({
             </button>
       </div>
     </li>`;
+}
+
+window.addEventListener('load', onFavoriteIngredientsLoad);
+
+//          ---------------Function Copies :(-------------------
+
+function shouldBeActive(id, payLoad) {
+  const data = getCocktailStorageData(payLoad);
+  if (data) {
+    return localStorage.getItem(payLoad).includes(id) ? 'activated' : '';
+  } else {
+    return;
+  }
 }
 
 function createCards(arr) {
@@ -97,18 +101,14 @@ function renderMarkupIngred(element, markup) {
   element.innerHTML = markup;
 }
 
-window.addEventListener('load', onFavoriteIngredientsLoad);
-
-//          ---------------Copies-------------------
-
 function onRemoveIngrBtnClick(e) {
-  console.log(e);
+  // console.log(e);
   const btn = e.target.closest('.js-remove-btn');
-  console.log(btn);
+  // console.log(btn);
   const data = getCocktailStorageData(favorite.INGREDIENTS);
-  console.log(data);
+  // console.log(data);
   const id = e.target.dataset.id;
-  console.log(id);
+  // console.log(id);
   if (btn) {
     if (data.includes(id)) {
       Notiflix.Notify.failure('Ingredient was removed from Your favourites!');
