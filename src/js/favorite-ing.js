@@ -18,7 +18,9 @@ export function onFavoriteIngredientsLoad() {
   const markup = noResultsMarkup();
   const data = getCocktailStorageData(favorite.INGREDIENTS);
   if (!data.length) {
+
     favoriteListRef.innerHTML = noResultsMarkup();
+
   } else {
     toCountAndRenderIngredient(data);
     const FavListRef = document.querySelector('.favorite__list-card');
