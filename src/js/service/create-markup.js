@@ -125,7 +125,7 @@ export function createListMarkup(data) {
 }
 
 export function createRandomMarkup(arr) {
-  // console.log(arr);
+  console.log(arr);
   return arr.map(item => createMarkup(item.data.drinks[0]));
 }
 

@@ -34,6 +34,9 @@
 
 .favorite__list-card {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   @include mq(tab) {
     --card-item: 2;
@@ -101,4 +104,26 @@
   padding-bottom: 20px;
   display: flex;
   justify-content: space-evenly;
+}
+
+.garcon {
+  @include mq(mob) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    @include fonts($fs: 18px, $fw: 700, $lh: 1.31, $ls: null);
+    font-family: var(--title-poppins);
+    color: var(--title-secondary-light-theme);
+  }
+  @include mq(tab) {
+    max-width: 493px;
+    @include fonts($fs: 20px, $fw: 700, $lh: 1.5, $ls: null);
+  }
+}
+
+.no-result {
+  margin-top: 20px;
 }

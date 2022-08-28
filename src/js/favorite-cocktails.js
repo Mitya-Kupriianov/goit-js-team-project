@@ -17,7 +17,7 @@ export function onFavoriteCocktailsLoad() {
 }
 
 function render(data) {
-  // console.log(data);
+  console.log(data);
   const markup = createRandomMarkup(data);
   // console.log(markup);
   renderMarkup(favoriteList, markup);
