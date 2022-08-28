@@ -51,7 +51,7 @@ export function createFavoriteIngredientsMarkup({
   idIngredient,
 }) {
   return /*html*/ `
-      <li class="favorite__list-item card-set-item">
+      <li class="favorite__list-item cocktails__item card-set-item">
       <p class="favorite__list-name">${strIngredient}</p>
       <p class="favorite__list-type">${strType}</p>
       <div class="favorite__btn-wrap">
