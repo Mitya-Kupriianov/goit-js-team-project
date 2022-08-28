@@ -3,13 +3,11 @@ import {
   removeFromLocalStorage,
 } from '../js/service/localStorage';
 import CocktailAPI from './service/getCocktail';
-import { onError } from '../js/service/notification';
 import emptyHeart from '../images/hearts/empty-heart.png';
 import fullHeart from '../images/hearts/full-heart.png';
 import * as noResults from '../images/notice/notice.png';
 import * as noResults2x from '../images/notice/notice@2x.png';
 import Notiflix from 'notiflix';
-// import { toIdentifyStrType, toMakeDescriptionText } from '../js/modal_markup';
 
 const favorite = new CocktailAPI();
 const favoriteListRef = document.querySelector('.favorite__list-card');
@@ -20,8 +18,9 @@ export function onFavoriteIngredientsLoad() {
   const markup = noResultsMarkup();
   const data = getCocktailStorageData(favorite.INGREDIENTS);
   if (!data.length) {
-    onError();
-    favoriteListRef.innerHTML = markup;
+
+    favoriteListRef.innerHTML = noResultsMarkup();
+
   } else {
     toCountAndRenderIngredient(data);
     const FavListRef = document.querySelector('.favorite__list-card');
@@ -38,7 +37,7 @@ function render(data) {
   renderMarkupIngred(favoriteListRef, markup);
 }
 
-// ---------------------------Counting and rendering cards----------------------------------
+// ---------------Counting and rendering cards----------------------------------
 
 async function toCountAndRenderIngredient(data) {
   const ingredients = [];
@@ -49,7 +48,7 @@ async function toCountAndRenderIngredient(data) {
   Promise.all(ingredients).then(render);
 }
 
-// ---------------------------Create favorite ingredients markup----------------------------------
+// ------------------Create favorite ingredients markup--------------------------
 
 export function createFavoriteIngredientsMarkup({
   strIngredient,
@@ -58,8 +57,8 @@ export function createFavoriteIngredientsMarkup({
 }) {
   return /*html*/ `
       <li class="favorite__list-item cocktails__item card-set-item">
-      <p class="favorite__list-name">${strIngredient}</p>
-      <p class="favorite__list-type">${
+      <p class="favorite__list-name dark--title">${strIngredient}</p>
+      <p class="favorite__list-type dark--text">${
         strType === null ? strIngredient : strType
       }</p>
       <div class="favorite__btn-wrap">
@@ -112,14 +111,14 @@ function createCards(arr) {
 }
 
 function noResultsMarkup() {
-  return `<li class="garcon"> Sorry, we didn't find any ingredient for you<img class="no-result" srcset = "${noResults}", srcset =  "${noResults2x}" src="${noResults2x}" alt="No Results"></img></li>`;
+  return `<li class="garcon"> Sorry, we did not find any ingredient for you<img class="no-result" srcset = "${noResults}", srcset =  "${noResults2x}" src="${noResults2x}" alt="No Results"></img></li>`;
 }
 
 function renderMarkupIngred(element, markup) {
   element.innerHTML = markup;
 }
 
-// ---------------------------On Card remove button click----------------------------------
+// ---------------------On Card remove button click----------------------------
 
 function onRemoveIngrBtnClick(e) {
   // console.log(e);
@@ -138,7 +137,7 @@ function onRemoveIngrBtnClick(e) {
   }
 }
 
-// ---------------------------On modal remove button click----------------------------------
+// ---------------------On modal remove button click----------------------------
 
 function onModalRemoveIngrBtnClick(e) {
   console.log(e);
@@ -155,7 +154,7 @@ function onModalRemoveIngrBtnClick(e) {
   }
 }
 
-// ---------------------------On learn more click----------------------------------
+// -------------------------On learn more click----------------------------------
 
 async function onIngredientClick(e) {
   const btn = e.target.closest('.js-ingr');
@@ -173,7 +172,7 @@ async function onIngredientClick(e) {
   backdrop.classList.remove('is-hidden-inner-modal');
 }
 
-// ---------------------------Render ingredients modal---------------------------------
+// -----------------------Render ingredients modal-------------------------------
 
 function createIngredientsModalMarkup(ingredients) {
   // console.log(ingredients);

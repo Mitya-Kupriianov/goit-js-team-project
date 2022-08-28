@@ -22,9 +22,9 @@ export const signIn = () => {
     .then(result => {
       // This gives you a Google Access Token. You can use it to access the Google API.
       const credential = GoogleAuthProvider.credentialFromResult(result);
-      console.log(credential);
+      // console.log(credential);
       const token = credential.accessToken;
-      console.log(token);
+      // console.log(token);
       // The signed-in user info.
       const user = result.user;
       // console.log(user);
@@ -53,6 +53,7 @@ export function signOutUser() {
 }
 
 onAuthStateChanged(auth, user => {
+  console.log(user);
   if (user) {
     // User is signed in, see docs for a list of available properties
     // https://firebase.google.com/docs/reference/js/firebase.User
