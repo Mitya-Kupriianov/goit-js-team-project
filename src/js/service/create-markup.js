@@ -17,6 +17,8 @@ const cocktailList = document.querySelector('.cocktails__list');
 //              -------Click on "Add to Favorites buttons"-------
 
 function onAddBtnClick(e) {
+
+
   const btn = e.target.closest('.js-add-btn');
   const data = getCocktailStorageData(favorite.KEY);
   console.log(data);
@@ -163,4 +165,10 @@ export function shouldBeActivated(id, payLoad) {
 
 //                  --------Listeners--------
 
-cocktailList.addEventListener('click', onAddBtnClick);
+export function afterLogIn() {
+  cocktailList.addEventListener('click', onAddBtnClick);
+}
+
+export function afterLogOut() {
+  cocktailList.removeEventListener('click', onAddBtnClick);
+}
