@@ -9,6 +9,7 @@ import fullHeart from '../images/hearts/full-heart.png';
 import * as noResults from '../images/notice/notice.png';
 import * as noResults2x from '../images/notice/notice@2x.png';
 import Notiflix from 'notiflix';
+// import { onIngredientClick } from '../js/modal_markup';
 
 // console.log(1111);
 const favorite = new CocktailAPI();
@@ -22,9 +23,9 @@ export function onFavoriteIngredientsLoad() {
     favoriteListRef.innerHTML = noResultsMarkup();
   }
   toCountAndRenderIngredient(data);
-  document
-    .querySelector('.favorite__list-card')
-    .addEventListener('click', onRemoveIngrBtnClick);
+  const FavListRef = document.querySelector('.favorite__list-card');
+  FavListRef.addEventListener('click', onRemoveIngrBtnClick);
+  FavListRef.addEventListener('click', onIngredientClick);
 }
 
 function render(data) {
@@ -57,7 +58,7 @@ export function createFavoriteIngredientsMarkup({
       <div class="favorite__btn-wrap">
         <button
               type="button"
-              class="cocktails__btn cocktails__button-text"
+              class="js-split cocktails__btn cocktails__button-text"
               data-modal-ingredient-open
                data-id=${idIngredient}
             >Learn more
@@ -123,4 +124,78 @@ function onRemoveIngrBtnClick(e) {
       setCocktailToLocalStorage(id, 'ingredients');
     }
   }
+}
+
+// -----------------------Fignya----------------------------------
+async function onIngredientClick(e) {
+  try {
+    const btn = e.target.closest('.js-split ');
+    const ingredient = e.target.textContent;
+    const responseIngredient = await favorite.getCocktailByIngredient(
+      ingredient
+    );
+    const ingredientsContainer = document.querySelector(
+      '.inner-modal-container'
+    );
+    const markup = createIngredientsMarkup(responseIngredient);
+    renderMarkup(ingredientsContainer, markup);
+    document
+      .querySelector('[data-inner-modal-button]')
+      .addEventListener('click', onClickInnerModal);
+
+    const backdrop = document.querySelector('[data-inner-modal]');
+
+    backdrop.classList.remove('is-hidden-inner-modal');
+  } catch (error) {
+    throw new Error(error.message);
+  }
+}
+
+function createIngredientsMarkup(ingredients) {
+  // console.log(ingredients);
+  return ingredients.data.ingredients
+    .map(ingredient => {
+      return `<div class="ingredient-modal-wrap">
+  <img class="ingredient-modal-pic" src='https://www.thecocktaildb.com/images/ingredients/${
+    ingredient.strIngredient
+  }-Small.png'
+  alt=${ingredient.strIngredient}></div>
+      <div inner-modal-container dark--modal-back"><div class="ingr-modal-title-wrapper">
+  <h3 class="inner-modal-name dark--title">${toIdentifyStrType(ingredient)}</h3>
+  <h4 class="inner-modal-passage dark--text">
+    ${ingredient.strIngredient}
+
+  </h4>
+  <div class="border"></div>
+</div>
+<div class="modal-ingredients-desc">
+
+<p class="inner-modal-text dark--text">
+  ${toMakeDescriptionText(ingredient)}
+</p>
+<ul class="ingredients-modal-list">
+
+  <li class="inner-modal-ingredients dark--text"">
+    ✶ <b>Type</b>: ${toIdentifyStrType(ingredient)}
+  </li>
+  <li class="inner-modal-ingredients dark--text">
+    ✶ <b>Country of origin</b>: Sorry, not specified
+  </li>
+  <li class="inner-modal-ingredients dark--text">✶ <b>Alcohol</b> : ${
+    ingredient.strAlcohol
+  }</li>
+
+</ul>
+</div>
+<button id=${
+        ingredient.idIngredient
+      } type="button" data-inner-modal-button class="cocktails__button-text ingredients-modal-btn cocktails__btn dark--btn-back transparent ${shouldBeActivated(
+        ingredient.idIngredient,
+        'ingredients'
+      )}">Add to  
+              <img class="empty-heart" data-toggle="hidden-hearFt" src="${emptyHeart}" alt="" width="18" height="18"/>
+              <img class="full-heart" data-toggle="empty-heart" src="${fullHeart}" alt="" width="18" height="18"/> 
+            </button>`;
+    })
+    .join('');
 }
