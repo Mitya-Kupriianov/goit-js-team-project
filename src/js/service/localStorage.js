@@ -18,7 +18,7 @@ export function setCocktailToLocalStorage(id, payLoad) {
 export function getCocktailStorageData(payLoad) {
   try {
     const jsonData = localStorage.getItem(payLoad);
-    if (jsonData) return JSON.parse(jsonData);
+    return jsonData ? JSON.parse(jsonData) : [];
   } catch (error) {
     console.log(error);
   }
