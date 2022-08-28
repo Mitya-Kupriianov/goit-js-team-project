@@ -17,10 +17,10 @@ const cocktailList = document.querySelector('.cocktails__list');
 //              -------Click on "Add to Favorites buttons"-------
 
 function onAddBtnClick(e) {
-  console.log(e);
   const btn = e.target.closest('.js-add-btn');
   const data = getCocktailStorageData(favorite.KEY);
-  const id = btn.id;
+  console.log(data);
+  const id = btn?.id;
   if (btn) {
     if (!data) {
       btn.classList.add('activated');
@@ -65,7 +65,7 @@ export function onAddModalBtnClick(e) {
 }
 
 export function onClickInnerModal(e) {
-  console.log(e);
+  // console.log(e);
   const btn = e.target.closest('[data-inner-modal-button]');
   const data = getCocktailStorageData(favorite.INGREDIENTS);
   const id = e.target.id;

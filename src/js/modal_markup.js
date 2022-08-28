@@ -10,7 +10,6 @@ import fullHeart from '../images/hearts/full-heart.png';
 
 export const refs = {
   cocktailsList: document.querySelector('.cocktails__list'),
-  backdropT: document.querySelectorAll('[data-inner-modal]'),
   modalContainer: document.querySelector('.modal-coctails'),
   modalIngrContainer: document.querySelector('.backdrop-modal-components'),
   backdrop: document.querySelector('[data-inner-modal]'),
@@ -55,7 +54,7 @@ function toIdentifyStrType(ingredient) {
 }
 
 function toMakeDescriptionText(ingredient) {
-  return ingredient.Description === null
+  return ingredient.strDescription === null
     ? 'Sorry, guys we do not know anything about that'
     : ingredient.strDescription;
 }
@@ -110,11 +109,12 @@ function createIngredientsMarkup(ingredients) {
 }
 
 export async function onOpenModalClick(e) {
-  console.log(e);
+  // console.log(e);
   if (e.target.closest('.js-split')) {
     try {
       const id = e.target.id;
       const responseID = await cocktailAPI.getCocktailsId(id);
+      console.log(responseID);
       const modalMarkup = createModalMarkup(responseID);
       renderMarkup(refs.modalContainer, modalMarkup);
       document
@@ -129,18 +129,19 @@ export async function onOpenModalClick(e) {
       renderMarkup(ingrWrap, markupIngredientsList);
       ingrWrap.addEventListener('click', onIngredientClick);
 
-      (() => {
-        const refs = {
-          // backdrop: document.querySelector('[data-modal]'),
-          closeBtn: document.querySelector('[data-modal-close]'),
-        };
+      // (() => {
+      //   const refs = {
+      //     // backdrop: document.querySelector('[data-modal]'),
+      //     closeBtn: document.querySelector('[data-modal-close]'),
+      //   };
 
-        refs.closeBtn.addEventListener('click', closeModal);
+      //   refs.closeBtn.addEventListener('click', closeModal);
 
-        function closeModal() {
-          refs.backdrop.classList.add('is-hidden-modal-coctails');
-        }
-      })();
+      //   function closeModal() {
+      //     refs.backdrop.classList.add('is-hidden-modal-coctails');
+      //   }
+      // })();
+
       // document.addEventListener('keydown', onCloseEsc);
     } catch (error) {
       console.log(error.message);
@@ -170,6 +171,7 @@ function createMarkupCocktailForModalListIngredients(res) {
 async function onIngredientClick(e) {
   try {
     const ingredient = e.target.textContent;
+    console.log(ingredient);
     const responseIngredient = await cocktailAPI.getCocktailByIngredient(
       ingredient
     );
