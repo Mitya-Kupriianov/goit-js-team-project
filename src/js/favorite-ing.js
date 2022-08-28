@@ -15,12 +15,10 @@ const favoriteListRef = document.querySelector('.favorite__list-card');
 // ---------------------------On page load----------------------------------
 
 export function onFavoriteIngredientsLoad() {
-  const markup = noResultsMarkup();
+  // const markup = noResultsMarkup();
   const data = getCocktailStorageData(favorite.INGREDIENTS);
   if (!data.length) {
-
     favoriteListRef.innerHTML = noResultsMarkup();
-
   } else {
     toCountAndRenderIngredient(data);
     const FavListRef = document.querySelector('.favorite__list-card');
@@ -140,7 +138,7 @@ function onRemoveIngrBtnClick(e) {
 // ---------------------On modal remove button click----------------------------
 
 function onModalRemoveIngrBtnClick(e) {
-  console.log(e);
+  // console.log(e);
   const btn = e.target.closest('.js-remove-modal-btn');
   const id = e.target?.dataset.id;
   const data = getCocktailStorageData(favorite.INGREDIENTS);
