@@ -29,8 +29,8 @@ import './js/modal_markup';
 import './js/service/localStorage';
 // Scroll
 import './js/scroll';
-// import AOS from 'aos';
-// import 'aos/dist/aos.css';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 AOS.init();
 
 import './js/searchByLetter';
