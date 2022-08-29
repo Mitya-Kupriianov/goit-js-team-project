@@ -110,9 +110,11 @@ export function createMarkup({ strDrink, strDrinkThumb, idDrink }) {
             <button id="${idDrink}" type="button" class="cocktails__btn dark--btn-back js-add-btn transparent ${shouldBeActivated(
     idDrink,
     'cocktails'
-  )}" data-id="${idDrink}">
-              <span class="cocktails__button-text">Add to</span>  
-              <img class="empty-heart" data-toggle="hidden-hearFt" src="${emptyHeart}" alt="" width="18" height="18"/>
+
+  )}" id="${idDrink}">Add to
+
+              <img class="empty-heart" data-toggle="hidden-heart" src="${emptyHeart}" alt="" width="18" height="18"/>
+
               <img class="full-heart" data-toggle="empty-heart" src="${fullHeart}" alt="" width="18" height="18"/> 
             </button>
           </div>
@@ -125,7 +127,7 @@ export function createListMarkup(data) {
 }
 
 export function createRandomMarkup(arr) {
-  // console.log(arr);
+
   return arr.map(item => createMarkup(item.data.drinks[0]));
 }
 
@@ -160,6 +162,6 @@ export function shouldBeActivated(id, payLoad) {
   }
 }
 
-//                  --------Listeners--------
+//                  --------Listeners-----------
 
 cocktailList.addEventListener('click', onAddBtnClick);
