@@ -161,7 +161,7 @@ export function shouldBeActivated(id, payLoad) {
   }
 }
 
-//                  --------Listeners--------
+//                  --------Listeners-----------
 
 export function afterLogIn() {
   cocktailList.addEventListener('click', onAddBtnClick);
