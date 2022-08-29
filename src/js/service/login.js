@@ -18,9 +18,10 @@ export function onLoginClick(event) {
 
 export function toggleBtnContent(user) {
   let statusUser = 'Log in';
-
+  console.log('asdasdasd');
   if (user) {
     statusUser = 'Log out';
+    console.log('12121212');
   }
 
   refs.buttonLogin.textContent = statusUser;
