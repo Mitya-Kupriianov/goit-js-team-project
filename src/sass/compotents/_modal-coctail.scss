@@ -24,7 +24,6 @@
   z-index: 5;
 }
 
-
 .ingr-modal-title-wrapper {
   display: flex;
   flex-direction: column;
@@ -54,7 +53,6 @@
     overflow: auto;
   }
 
-
   @include mq(tab) {
     width: 768px;
     height: 598px;
@@ -64,49 +62,35 @@
   overflow: overlay;
   justify-content: space-between;
   position: absolute;
-
-  width: 320px;
-  height: 100vh;
-  // overflow: auto;
-
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   position: absolute;
   transition: var(--transition);
   background-color: var(--button-color-white);
-
   border-radius: 10px;
 }
-
+// .modal-two-header {
+//   position: absolute;
+//   width: 181px;
+//   height: 37px;
+//   left: 28px;
+//   top: 40px;
+//   font-family: var(--text-roboto);
+//   font-style: normal;
+//   font-weight: 900;
+//   font-size: 32px;
+//   line-height: 38px;
+//   color: var(--title-secondary-light-theme);
+// }
 .inner-modal-name {
   @include fonts($fs: 32px, $fw: 900, $lh: 1.19, $ls: 0.02em);
-
-
-.modal-img {
-  @include mq(mob) {
-    position: absolute;
-    width: 280px;
-    height: 320px;
-    left: 20px;
-    top: 340px;
-    border-radius: 4px 4px 4px 45px;
-  }
-  @include mq(tab) {
-    border-radius: 4px 4px 4px 45px;
-    position: absolute;
-    width: 288px;
-    height: 320px;
-    left: 0px;
-    top: 0px;
-  }
 
   font-family: 'Roboto';
   font-style: normal;
   font-family: var(--text-roboto);
 
   color: var(--title-secondary-light-theme);
-
 }
 
 .inner-modal-text {
@@ -158,11 +142,7 @@
   color: var(--title-secondary-light-theme);
 }
 
-// .modal-Instractions {
-
-
 .modal-button {
-
   @include mq(mob) {
     position: absolute;
     bottom: -270px;
@@ -223,5 +203,4 @@
   // overflow: auto;
   transition: 700ms;
   border-radius: 10px;
-}
 }

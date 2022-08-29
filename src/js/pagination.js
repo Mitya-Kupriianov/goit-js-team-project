@@ -27,8 +27,8 @@ export function loadMore() {
     return markup
       .filter((_, index) => {
         if (index > coctailsLength - 1 && index < val * pages)
-          console.log('index', index);
-        return index > coctailsLength - 1 && index < val * pages;
+          // console.log('index', index);
+          return index > coctailsLength - 1 && index < val * pages;
       })
       .join('');
   }
