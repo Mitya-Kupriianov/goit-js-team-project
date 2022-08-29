@@ -117,6 +117,7 @@ export async function onOpenModalClick(e) {
       // console.log(responseID);
       const modalMarkup = createModalMarkup(responseID);
       renderMarkup(refs.modalContainer, modalMarkup);
+      document.body.classList.toggle('body-owerly');
       document
         .querySelector('.js-add-btn-modal')
         .addEventListener('click', onAddModalBtnClick);
