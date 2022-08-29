@@ -18,3 +18,4 @@ function onFavClick(e) {
   const refMenu = document.querySelector('.menu__wrap');
   refMenu.classList.toggle('menu__wrap-close');
 }
+// console.log();
