@@ -113,7 +113,7 @@ export function createMarkup({ strDrink, strDrinkThumb, idDrink }) {
     'cocktails'
   )}" id="${idDrink}">Add to
 
-              <img class="empty-heart" data-toggle="hidden-hearFt" src="${emptyHeart}" alt="" width="18" height="18"/>
+              <img class="empty-heart" data-toggle="hidden-heart" src="${emptyHeart}" alt="" width="18" height="18"/>
               <img class="full-heart" data-toggle="empty-heart" src="${fullHeart}" alt="" width="18" height="18"/> 
             </button>
           </div>

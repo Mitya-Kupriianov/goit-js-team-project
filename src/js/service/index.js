@@ -62,6 +62,7 @@ onAuthStateChanged(auth, user => {
 
     // ...
   } else {
+    console.log(user);
     toggleBtnContent(user);
     afterLogOut();
   }
@@ -72,13 +73,15 @@ export function getUser() {
 }
 // listeners //
 
+// console.log('asdasd');
+
 // disableBtnRefs.addEventListener('click', disableFavoriteBtn);
 
 const refs = {
   cocktailList: document.querySelector('.cocktails__list'),
 };
 
-export function disableFavoriteBtn(e) {
-  const favBtn = e.target.closest('.js-add-btn');
-  // console.log(favBtn);
-}
+// export function disableFavoriteBtn(e) {
+//   const favBtn = e.target.closest('.js-add-btn');
+//   // console.log(favBtn);
+// }
