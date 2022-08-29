@@ -21,25 +21,15 @@
   opacity: 0;
   pointer-events: none;
 }
-.backdrop-modal::before {
-  content: '';
-  pointer-events: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 18;
-}
 .modal-coctails__position {
   // z-index: 1;
   background-color: transparent;
   border-radius: 10px;
   position: absolute;
   width: 320px;
-  height: 100vh;
+  height: 600px;
   overflow: auto;
-  top: 60%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   @include mq(tab) {
@@ -53,17 +43,20 @@
     rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 .modal-coctails {
+  overflow: overlay;
+  flex-direction: column;
+  justify-content: space-between;
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   padding-top: 20px;
   padding-bottom: 20px;
   z-index: 19;
-  position: absolute;
   width: 320px;
-  height: 100vh;
-  overflow: auto;
-  top: 50%;
-  left: 50%;
+  height: 600px;
   border-radius: 10px;
-  transform: translate(-50%, -50%);
   @include mq(tab) {
     width: 768px;
     height: 598px;
@@ -92,7 +85,8 @@
 }
 .modal-coctail-name {
   @include mq(mob) {
-    // width: 129px;
+    // padding-top: 10px;
+    width: 260px;
     height: 37px;
     margin-left: 16px;
   }
