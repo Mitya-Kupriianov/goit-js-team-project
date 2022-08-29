@@ -14,15 +14,12 @@ const favorite = new CocktailAPI();
 
 const cocktailList = document.querySelector('.cocktails__list');
 
-//              -------Click on "Add to Favorites buttons"-------
+//              -------Click on "Add to Favorites button"-------
 
 function onAddBtnClick(e) {
-
-
   const btn = e.target.closest('.js-add-btn');
   const data = getCocktailStorageData(favorite.KEY);
-  console.log(data);
-  const id = btn?.id;
+  const id = btn.dataset.id;
   if (btn) {
     if (!data) {
       btn.classList.add('activated');
@@ -67,7 +64,7 @@ export function onAddModalBtnClick(e) {
 }
 
 export function onClickInnerModal(e) {
-  // console.log(e);
+  console.log(e);
   const btn = e.target.closest('[data-inner-modal-button]');
   const data = getCocktailStorageData(favorite.INGREDIENTS);
   const id = e.target.id;
@@ -104,17 +101,17 @@ export function createMarkup({ strDrink, strDrinkThumb, idDrink }) {
           <div class="cocktails__button-box">
             <button
               type="button"
-              class="cocktails__btn js-split cocktails__button-text"
+              class="cocktails__btn"
               data-modal-cocktail-open
                data-id=${idDrink}
-                id=${idDrink}
-            >Learn more
+            >
+              <span class="cocktails__button-text" id=${idDrink} >Learn more</span>
             </button>
-            <button id="${idDrink}" type="button" class="cocktails__btn cocktails__button-text dark--btn-back js-add-btn transparent ${shouldBeActivated(
+            <button id="${idDrink}" type="button" class="cocktails__btn dark--btn-back js-add-btn transparent ${shouldBeActivated(
     idDrink,
     'cocktails'
-  )}" id="${idDrink}">Add to
-
+  )}" data-id="${idDrink}">
+              <span class="cocktails__button-text">Add to</span>  
               <img class="empty-heart" data-toggle="hidden-hearFt" src="${emptyHeart}" alt="" width="18" height="18"/>
               <img class="full-heart" data-toggle="empty-heart" src="${fullHeart}" alt="" width="18" height="18"/> 
             </button>
@@ -128,7 +125,7 @@ export function createListMarkup(data) {
 }
 
 export function createRandomMarkup(arr) {
-  console.log(arr);
+  // console.log(arr);
   return arr.map(item => createMarkup(item.data.drinks[0]));
 }
 
@@ -157,7 +154,7 @@ export function noResultsMarkup() {
 export function shouldBeActivated(id, payLoad) {
   const data = getCocktailStorageData(payLoad);
   if (data) {
-    return localStorage.getItem(payLoad)?.includes(id) ? 'activated' : '';
+    return localStorage.getItem(payLoad).includes(id) ? 'activated' : '';
   } else {
     return;
   }
@@ -165,10 +162,4 @@ export function shouldBeActivated(id, payLoad) {
 
 //                  --------Listeners--------
 
-export function afterLogIn() {
-  cocktailList.addEventListener('click', onAddBtnClick);
-}
-
-export function afterLogOut() {
-  cocktailList.removeEventListener('click', onAddBtnClick);
-}
+cocktailList.addEventListener('click', onAddBtnClick);

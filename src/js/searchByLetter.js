@@ -42,11 +42,11 @@ export async function renderByLetter(letter) {
   cocktailApi.letter = letter;
   const drinks = [];
   const response = await cocktailApi.getCocktailByLetter();
-  // console.log(response);
+  console.log(response);
   drinks.push(response);
 
   Promise.all(drinks).then(function (drinks) {
-    // console.log(drinks);
+    console.log(drinks);
     if (!drinks[0].data.drinks) {
       onError();
       title.innerHTML = "Sorry, we didn't find any cocktail for you";

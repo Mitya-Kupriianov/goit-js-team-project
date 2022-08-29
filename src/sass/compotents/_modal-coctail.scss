@@ -37,7 +37,7 @@
   border-radius: 10px;
   position: absolute;
   width: 320px;
-  height: 100vh;
+  height: 990px;
   overflow: auto;
   top: 60%;
   left: 50%;
@@ -58,8 +58,8 @@
   z-index: 19;
   position: absolute;
   width: 320px;
-  height: 100vh;
-  overflow: auto;
+  height: 990px;
+  // overflow: auto;
   top: 50%;
   left: 50%;
   border-radius: 10px;
@@ -70,7 +70,7 @@
   }
   transition: var(--transition);
   background-color: var(--button-color-white);
-  // overflow: hidden;
+  overflow: hidden;
 }
 
 .modal-img {
@@ -80,9 +80,10 @@
     height: 320px;
     left: 20px;
     top: 340px;
-    border-radius: 4px 4px 4px 45px;
+    border-radius: 4px 4px 4px 4px;
   }
   @include mq(tab) {
+    border-radius: 4px 4px 4px 45px;
     position: absolute;
     width: 288px;
     height: 320px;
@@ -174,7 +175,7 @@
   padding: 0;
   overflow-y: scroll;
 }
-.modal-Instructions {
+.modal-Instractions {
   @include mq(mob) {
     position: absolute;
     width: 122px;
