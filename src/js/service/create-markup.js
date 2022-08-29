@@ -163,4 +163,10 @@ export function shouldBeActivated(id, payLoad) {
 
 //                  --------Listeners--------
 
-cocktailList.addEventListener('click', onAddBtnClick);
+export function afterLogIn() {
+  cocktailList.addEventListener('click', onAddBtnClick);
+}
+
+export function afterLogOut() {
+  cocktailList.removeEventListener('click', onAddBtnClick);
+}
