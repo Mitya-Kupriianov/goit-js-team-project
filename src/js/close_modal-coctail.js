@@ -8,5 +8,6 @@
 
   function closeModal() {
     refs.backdrop.classList.add('is-hidden-modal-coctails');
+    document.body.classList.toggle('body-owerly');
   }
 })();
