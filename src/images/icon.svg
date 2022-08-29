@@ -1,5 +1,5 @@
-<defs>
-<svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg aria-hidden="true" style="position: absolute; width: 15px; height: ; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
   <symbol id="icon-open" viewBox="0 0 46 32">
     <path  style="stroke: var(--color1, #000000)" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="2.2857" d="M0 2.286h45.714"></path>
     <path  style="stroke: var(--color1, #000000)" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="2.2857" d="M0 16h45.714"></path>
@@ -24,8 +24,8 @@
 <symbol id="icon-carbon_favorite-2-1" viewBox="0 0 32 32">
 <path fill="#fd5103" style="fill: var(--color1, #fd5103)" d="M22.449 6c0.002 0 0.003 0 0.005 0 1.529 0 2.912 0.628 3.905 1.639l0.001 0.001c1.013 1.028 1.639 2.441 1.639 4s-0.626 2.972-1.64 4.001l0.001-0.001-10.36 10.489-10.36-10.489c-1.013-1.028-1.639-2.441-1.639-4s0.626-2.972 1.64-4.001l-0.001 0.001c0.995-1.013 2.379-1.64 3.91-1.64s2.915 0.628 3.909 1.64l0.001 0.001 2.54 2.6 2.531-2.58c0.991-1.024 2.377-1.66 3.912-1.66 0.003 0 0.006 0 0.008 0h-0zM22.449 4c-0.002 0-0.004 0-0.007 0-2.088 0-3.977 0.857-5.332 2.239l-0.001 0.001-1.109 1.12-1.109-1.12c-1.36-1.382-3.25-2.238-5.34-2.238s-3.98 0.856-5.339 2.237l-0.001 0.001c-1.368 1.392-2.213 3.302-2.213 5.41s0.845 4.018 2.214 5.411l-0.001-0.001 11.789 11.94 11.791-11.94c1.368-1.392 2.213-3.302 2.213-5.41s-0.845-4.018-2.214-5.411l0.001 0.001c-1.36-1.383-3.25-2.24-5.341-2.24-0 0-0 0-0 0v0z"></path>
 </symbol>
-</svg>
 <symbol id="icon-heart" viewBox="0 0 35 32">
 <path fill="#fd5103" style="fill: var(--color1, #fd5103)" d="M17.684 32l-2.564-2.302c-9.107-8.144-15.12-13.515-15.12-20.107 0-5.371 4.28-9.591 9.726-9.591 3.077 0 6.030 1.413 7.958 3.645 1.928-2.232 4.881-3.645 7.958-3.645 5.447 0 9.726 4.22 9.726 9.591 0 6.592-6.013 11.963-15.12 20.124l-2.564 2.284z"></path>
 </symbol>
 </defs>
+</svg>
