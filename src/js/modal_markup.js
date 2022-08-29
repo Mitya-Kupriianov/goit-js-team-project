@@ -7,6 +7,8 @@ import {
 } from './service/create-markup';
 import emptyHeart from '../images/hearts/empty-heart.png';
 import fullHeart from '../images/hearts/full-heart.png';
+import { getUser } from './service';
+import Notiflix from 'notiflix';
 
 export const refs = {
   cocktailsList: document.querySelector('.cocktails__list'),
@@ -118,9 +120,15 @@ export async function onOpenModalClick(e) {
       const modalMarkup = createModalMarkup(responseID);
       renderMarkup(refs.modalContainer, modalMarkup);
       document.body.classList.toggle('body-owerly');
-      document
-        .querySelector('.js-add-btn-modal')
-        .addEventListener('click', onAddModalBtnClick);
+      if (getUser()) {
+        document
+          .querySelector('.js-add-btn-modal')
+          .addEventListener('click', onAddModalBtnClick);
+      } else {
+        Notiflix.Notify.failure(
+          'You have to log in to add staff to Favourites!'
+        );
+      }
       const ingrWrap = document.querySelector('.modal-coctail-components');
       const backdrop = document.querySelector('[data-modal]');
       backdrop.classList.remove('is-hidden-modal-coctails');
@@ -168,9 +176,13 @@ async function onIngredientClick(e) {
     );
     const markup = createIngredientsMarkup(responseIngredient);
     renderMarkup(ingredientsContainer, markup);
-    document
-      .querySelector('[data-inner-modal-button]')
-      .addEventListener('click', onClickInnerModal);
+    if (getUser()) {
+      document
+        .querySelector('[data-inner-modal-button]')
+        .addEventListener('click', onClickInnerModal);
+    } else {
+      Notiflix.Notify.failure('You have to log in to add staff to Favourites!');
+    }
 
     const backdrop = document.querySelector('[data-inner-modal]');
 
