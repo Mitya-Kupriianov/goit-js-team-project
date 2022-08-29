@@ -44,7 +44,7 @@ export function onAddModalBtnClick(e) {
   const btn = e.target.closest('.js-add-btn-modal');
   const data = getCocktailStorageData(favorite.KEY);
   const id = e.target.id;
-  console.log(e);
+  // console.log(e);
   if (btn) {
     if (!data) {
       btn.classList.add('activated');
