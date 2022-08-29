@@ -12,6 +12,10 @@ import {
 } from 'firebase/auth';
 
 import { afterLogIn, afterLogOut } from './create-markup';
+
+import { addHeaderListener, delHeaderListener } from '../header';
+
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
@@ -62,15 +66,26 @@ onAuthStateChanged(auth, user => {
 
     // ...
   } else {
-    console.log(user);
+
     toggleBtnContent(user);
     afterLogOut();
+
+    // User is signed out
+    // ...
+
   }
 });
 
 export function getUser() {
   return auth.currentUser;
 }
+
+
+// onAuthStateChanged(auth, user => {
+//   toggleBtnContent(user);
+// });
+
+
 // listeners //
 
 // console.log('asdasd');
