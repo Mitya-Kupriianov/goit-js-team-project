@@ -11,11 +11,6 @@ import {
   signOut,
 } from 'firebase/auth';
 
-import { afterLogIn, afterLogOut } from './create-markup';
-
-import { addHeaderListener, delHeaderListener } from '../header';
-
-
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
@@ -27,9 +22,9 @@ export const signIn = () => {
     .then(result => {
       // This gives you a Google Access Token. You can use it to access the Google API.
       const credential = GoogleAuthProvider.credentialFromResult(result);
-      // console.log(credential);
+      console.log(credential);
       const token = credential.accessToken;
-      // console.log(token);
+      console.log(token);
       // The signed-in user info.
       const user = result.user;
       // console.log(user);
@@ -61,14 +56,9 @@ onAuthStateChanged(auth, user => {
   if (user) {
     // User is signed in, see docs for a list of available properties
     // https://firebase.google.com/docs/reference/js/firebase.User
-    toggleBtnContent(user);
-    afterLogIn();
-
+    toggleBtnContent();
     // ...
   } else {
-
-    toggleBtnContent(user);
-    afterLogOut();
 
     // User is signed out
     // ...
@@ -80,11 +70,9 @@ export function getUser() {
   return auth.currentUser;
 }
 
-
-// onAuthStateChanged(auth, user => {
-//   toggleBtnContent(user);
-// });
-
+onAuthStateChanged(auth, user => {
+  toggleBtnContent(user);
+});
 
 // listeners //
 
@@ -96,9 +84,9 @@ const refs = {
   cocktailList: document.querySelector('.cocktails__list'),
 };
 
-// export function disableFavoriteBtn(e) {
-//   const favBtn = e.target.closest('.js-add-btn');
-//   // console.log(favBtn);
-// }
 
-// console.log('');
+export function disableFavoriteBtn(e) {
+  const favBtn = e.target.closest('.js-add-btn');
+  console.log(favBtn);
+}
+

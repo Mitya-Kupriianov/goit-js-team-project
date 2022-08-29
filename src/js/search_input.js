@@ -23,7 +23,7 @@ async function onSearch(e) {
     e.preventDefault();
 
     cocktailAPI.query = e.target.value.trim('');
-    // console.log(cocktailAPI.query);
+    console.log(cocktailAPI.query);
 
     if (cocktailAPI.query === '') {
       return Notiflix.Notify.failure('Please, enter the name of cocktail');
