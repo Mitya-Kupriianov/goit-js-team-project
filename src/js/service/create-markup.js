@@ -115,7 +115,7 @@ export function createMarkup({ strDrink, strDrinkThumb, idDrink }) {
     'cocktails'
   )}" id="${idDrink}">Add to
 
-              <img class="empty-heart" data-toggle="hidden-hearFt" src="${emptyHeart}" alt="" width="18" height="18"/>
+              <img class="empty-heart" data-toggle="hidden-heart" src="${emptyHeart}" alt="" width="18" height="18"/>
               <img class="full-heart" data-toggle="empty-heart" src="${fullHeart}" alt="" width="18" height="18"/> 
             </button>
           </div>
@@ -128,7 +128,6 @@ export function createListMarkup(data) {
 }
 
 export function createRandomMarkup(arr) {
-  console.log(arr);
   return arr.map(item => createMarkup(item.data.drinks[0]));
 }
 
@@ -163,7 +162,7 @@ export function shouldBeActivated(id, payLoad) {
   }
 }
 
-//                  --------Listeners--------
+//                  --------Listeners-----------
 
 export function afterLogIn() {
   cocktailList.addEventListener('click', onAddBtnClick);

@@ -12,7 +12,9 @@ import {
 } from 'firebase/auth';
 
 import { afterLogIn, afterLogOut } from './create-markup';
+
 import { addHeaderListener, delHeaderListener } from '../header';
+
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -64,11 +66,13 @@ onAuthStateChanged(auth, user => {
 
     // ...
   } else {
+
     toggleBtnContent(user);
     afterLogOut();
 
     // User is signed out
     // ...
+
   }
 });
 
@@ -76,11 +80,15 @@ export function getUser() {
   return auth.currentUser;
 }
 
+
 // onAuthStateChanged(auth, user => {
 //   toggleBtnContent(user);
 // });
 
+
 // listeners //
+
+// console.log('asdasd');
 
 // disableBtnRefs.addEventListener('click', disableFavoriteBtn);
 
@@ -88,7 +96,7 @@ const refs = {
   cocktailList: document.querySelector('.cocktails__list'),
 };
 
-export function disableFavoriteBtn(e) {
-  const favBtn = e.target.closest('.js-add-btn');
-  // console.log(favBtn);
-}
+// export function disableFavoriteBtn(e) {
+//   const favBtn = e.target.closest('.js-add-btn');
+//   // console.log(favBtn);
+// }
