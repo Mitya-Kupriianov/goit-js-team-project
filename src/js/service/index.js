@@ -85,3 +85,5 @@ const refs = {
 //   const favBtn = e.target.closest('.js-add-btn');
 //   // console.log(favBtn);
 // }
+
+// console.log('');
